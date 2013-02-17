@@ -1,16 +1,47 @@
 ﻿<!DOCTYPE html>
-<html>
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
-    <title>@ViewBag.Title</title>
+    <title>Adam K Dean - @ViewBag.Title</title>
+    <link rel="shortcut icon" type="image/x-icon" href="~/favicon.ico">
+    
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
+    <!-- this is decorative -->
+    <div class="topbar"></div>
+    
+    <div class="row header">
+        <div class="five columns logo">            
+            <a href="@Url.Action("Index", "Home")">
+                <img src="@Url.Content("~/Content/images/logo.png")">
+            </a>
+        </div>
+        <div class="seven columns nav">
+            @Html.Partial("_TopNavigationPartial")
+        </div>
+    </div>
+    
     @RenderBody()
+        
+    <div class="row">
+        <div class="twelve columns box-padding">
+            <div class="box">
+                <div class="row footer">
+                    <div class="six columns copyright">&copy; 2013 Adam K Dean, all rights reserved.</div>
+                    <div class="six columns nav">
+                        @Html.Partial("_BottomNavigationPartial")
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     @Scripts.Render("~/bundles/jquery")
-    @RenderSection("scripts", required: false)
+    @RenderSection("scripts", required: false)     
 </body>
 </html>

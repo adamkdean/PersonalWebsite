@@ -1,0 +1,32 @@
+﻿@model PersonalWebsite.Models.LoginModel
+
+@{
+    ViewBag.Title = "Login";
+}
+
+<div class="row">
+    <div class="twelve columns box-padding">
+        <div class="box">
+            <h1>@ViewBag.Title</h1>
+
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true)
+    
+                @Html.LabelFor(m => m.Username)
+                @Html.TextBoxFor(m => m.Username)
+                @Html.ValidationMessageFor(m => m.Username)
+                <br />
+                
+                @Html.LabelFor(m => m.Password)
+                @Html.PasswordFor(m => m.Password)    
+                @Html.ValidationMessageFor(m => m.Password)
+                <br />
+                
+                <input type="submit" value="Login" />
+            }
+
+        </div>
+    </div>
+</div>
