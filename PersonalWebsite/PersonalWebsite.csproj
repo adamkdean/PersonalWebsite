@@ -40,7 +40,11 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EasyAuth">
-      <HintPath>..\..\EasyAuth\EasyAuth\bin\Release\EasyAuth.dll</HintPath>
+      <HintPath>bin\Release\EasyAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.Extended, Version=5.0.0.0, Culture=neutral, PublicKeyToken=05b7e29bdd433584, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.Extended.5.0.0.68\lib\net45\EntityFramework.Extended.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
@@ -134,7 +138,10 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\LoginModel.cs" />
+    <Compile Include="Models\EntityModels\BlogPost.cs" />
+    <Compile Include="Models\EntityModels\Tag.cs" />
+    <Compile Include="Models\EntityModels\WebsiteContext.cs" />
+    <Compile Include="Models\ViewModels\LoginViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -264,6 +271,7 @@
     <Content Include="Views\Blog\Index.cshtml" />
     <Content Include="Views\Code\Index.cshtml" />
     <Content Include="Views\Contact\Index.cshtml" />
+    <Content Include="Views\Blog\Manage.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

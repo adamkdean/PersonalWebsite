@@ -6,7 +6,7 @@ using System.Web;
 
 namespace PersonalWebsite.Models
 {
-    public class LoginModel
+    public class LoginViewModel
     {
         [Required]
         [Display(Name = "Username")]

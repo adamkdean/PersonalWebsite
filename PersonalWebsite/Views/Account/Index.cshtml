@@ -3,10 +3,46 @@
 }
 
 <div class="row">
-    <div class="twelve columns box-padding">
+    <div class="six columns box-padding">
         <div class="box">
-            <h2>Account Test</h2>
-            <p>You're in?</p>
+            <div class="row">
+                <div class="six columns">
+                    <h2>Blog</h2>
+                </div>
+                <div class="six columns admin-btngrp">
+                    <ul class="button-group radius">
+                        <li>@Html.ActionLink("View", "Index", "Blog", null, htmlAttributes: new { @class = "secondary button radius" })</li>
+                        <li>@Html.ActionLink("Manage", "Manage", "Blog", null, htmlAttributes: new { @class = "secondary button radius" })</li>                        
+                    </ul>
+                </div>
+            </div>
+            <div class="row">
+                <div class="twelve columns">
+                    <h5>Recent Posts</h5>
+                    <p>No posts to display.</p>
+                </div>
+            </div>
         </div>
     </div>
+    <div class="six columns box-padding">
+        <div class="box">
+            <div class="row">
+                <div class="six columns">
+                    <h2>Code</h2>
+                </div>
+                <div class="six columns admin-btngrp">
+                    <ul class="button-group radius">
+                        <li>@Html.ActionLink("View", "Index", "Code", null, htmlAttributes: new { @class = "secondary button radius" })</li>
+                        <li>@Html.ActionLink("Manage", "Manage", "Code", null, htmlAttributes: new { @class = "secondary button radius" })</li>                        
+                    </ul>
+                </div>
+            </div>
+            <div class="row">
+                <div class="twelve columns">
+                    <h5>Recent Snippets</h5>
+                    <p>No snippets to display.</p>
+                </div>
+            </div>
+        </div>
+    </div>   
 </div>

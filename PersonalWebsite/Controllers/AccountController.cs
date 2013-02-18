@@ -24,7 +24,7 @@ namespace PersonalWebsite.Controllers
 
         [EzAllowAnonymous]
         public ActionResult Login()
-        {
+        {            
             return View();
         }
 
@@ -34,17 +34,16 @@ namespace PersonalWebsite.Controllers
         [HttpPost]
         [EzAllowAnonymous]
         [ValidateAntiForgeryToken]
-        public ActionResult Login(LoginModel model)
+        public ActionResult Login(LoginViewModel model, string returnUrl)
         {
             if (ModelState.IsValid && Authentication.Login(model.Username, model.Password))
             {
-                return RedirectToAction("Index", "Account");
+                return RedirectToLocal(returnUrl);
             }
 
-            ViewBag.Message = "Invalid user credentials";
+            ModelState.AddModelError("", "Invalid user credentials.");
             return View(model);
-        }
-
+        } 
 
         //
         // GET: /Home/Logout
@@ -55,5 +54,28 @@ namespace PersonalWebsite.Controllers
             return RedirectToAction("Index", "Home");
         }
 
+        //
+        // GET: /Account/Make
+
+        [EzAllowAnonymous]
+        public ActionResult Make()
+        {
+            Authentication.UserStore.AddUser("test", "test");
+            return RedirectToAction("Login", "Account");            
+        }
+
+        #region Helpers
+        private ActionResult RedirectToLocal(string returnUrl)
+        {
+            if (Url.IsLocalUrl(returnUrl))
+            {
+                return Redirect(returnUrl);
+            }
+            else
+            {
+                return RedirectToAction("Index", "Home");
+            }
+        }
+        #endregion
     }
 }

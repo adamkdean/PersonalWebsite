@@ -1,13 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using EasyAuth;
+using EasyAuth.Storage;
+using PersonalWebsite.Models;
+using System;
 using System.Web;
 using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
-using EasyAuth;
-using EasyAuth.Storage;
 
 namespace PersonalWebsite
 {
@@ -17,6 +16,7 @@ namespace PersonalWebsite
 
         protected void Application_Start()
         {
+            EntityUserStore.Instance.ContextType = typeof(WebsiteContext);
             Authentication.UserStore = UserStore;
 
             // ASP.NET generated code

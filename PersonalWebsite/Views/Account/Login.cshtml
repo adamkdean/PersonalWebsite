@@ -1,32 +1,57 @@
-﻿@model PersonalWebsite.Models.LoginModel
+﻿@model PersonalWebsite.Models.LoginViewModel
 
 @{
     ViewBag.Title = "Login";
 }
-
 <div class="row">
-    <div class="twelve columns box-padding">
+    <div class="six columns box-padding">
         <div class="box">
-            <h1>@ViewBag.Title</h1>
+            <h2 class="text-center">Admin Login</h2>
 
             @using (Html.BeginForm())
-            {
+            {                
                 @Html.AntiForgeryToken()
-                @Html.ValidationSummary(true)
-    
-                @Html.LabelFor(m => m.Username)
-                @Html.TextBoxFor(m => m.Username)
-                @Html.ValidationMessageFor(m => m.Username)
-                <br />
                 
-                @Html.LabelFor(m => m.Password)
-                @Html.PasswordFor(m => m.Password)    
-                @Html.ValidationMessageFor(m => m.Password)
-                <br />
+                <div class="row">
+                    <div class="two columns offset-by-two">
+                        @Html.LabelFor(m => m.Username, htmlAttributes: new { @class = "right inline" })
+                    </div>
+                    <div class="six columns">
+                        @Html.TextBoxFor(m => m.Username)                        
+                    </div>
+                    <div class="two columns"></div>
+                </div>
                 
-                <input type="submit" value="Login" />
+                <div class="row">
+                    <div class="two columns offset-by-two">
+                        @Html.LabelFor(m => m.Password, htmlAttributes: new { @class = "right inline" })
+                    </div>
+                    <div class="six columns">
+                        @Html.PasswordFor(m => m.Password)                            
+                    </div>
+                    <div class="two columns"></div>
+                </div>
+                
+                <div class="row">
+                    <div class="six columns offset-by-four">
+                        @Html.ValidationMessageFor(m => m.Username)
+                        @Html.ValidationMessageFor(m => m.Password)                        
+                        @Html.ValidationSummary(true, null, htmlAttributes: new { @class = "admin-validation-summary" })
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="eight columns offset-by-two">
+                        <input type="submit" value="Login" class="button radius right" />
+                    </div>
+                </div>
             }
-
+        </div>
+    </div>
+    <div class="six columns box-padding">
+        <div class="box">
+            <h2>Recent Failed Attempts</h2>
+            <p>No recently failed attempts.</p>
         </div>
     </div>
 </div>

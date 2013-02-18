@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EasyAuth;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -12,6 +13,15 @@ namespace PersonalWebsite.Controllers
         // GET: /Blog/
 
         public ActionResult Index()
+        {
+            return View();
+        }
+
+        //
+        // GET: /Blog/Manage
+
+        [EzAuthorize]
+        public ActionResult Manage()
         {
             return View();
         }

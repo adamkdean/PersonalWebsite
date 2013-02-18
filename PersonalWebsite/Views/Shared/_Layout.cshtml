@@ -31,6 +31,14 @@
     <div class="row">
         <div class="twelve columns box-padding">
             <div class="box">
+                @if (EasyAuth.Authentication.IsAuthenticated())
+                {
+                    <div class="row footer">
+                        <div class="twelve columns loggedin">
+                            Logged in as <strong>@EasyAuth.Authentication.CurrentUser.Username</strong>. @Html.ActionLink("Logout", "Logout", "Account")
+                        </div>
+                    </div>
+                }
                 <div class="row footer">
                     <div class="six columns copyright">&copy; 2013 Adam K Dean, all rights reserved.</div>
                     <div class="six columns nav">

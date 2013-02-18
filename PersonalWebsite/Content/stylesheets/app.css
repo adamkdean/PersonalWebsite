@@ -27,6 +27,10 @@ h3.small { font: 140%/120% 'SourceSansProSemiboldItalic', sans-serif; color: #44
 h4.small { font: 120%/120% 'SourceSansProSemiboldItalic', sans-serif; color: #444; }
 h5.small { font: 100%/120% 'SourceSansProSemiboldItalic', sans-serif; color: #444; }
 
+.nopad {
+    padding: 0; margin: 0;
+}
+
 .topbar { 
     height: 11px; width: 100%;    
     background: #202020; 
@@ -72,6 +76,7 @@ h5.small { font: 100%/120% 'SourceSansProSemiboldItalic', sans-serif; color: #44
     box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, .05);
 }
 
+.footer .loggedin { text-align: right; font-size: 90%; color: #555; }
 .footer .copyright { font-size: 90%; color: #555; }
 .footer .nav ul { list-style: none; float: right; margin: 0; }
 .footer .nav ul li { float: left; margin: 0 5px; }
@@ -86,8 +91,12 @@ h5.small { font: 100%/120% 'SourceSansProSemiboldItalic', sans-serif; color: #44
 }
 
 /************************************
- * HOME
+ * ADMIN
  ***********************************/
 
+.admin-btngrp { padding: 5px 0; text-align: right; }
+.admin-btngrp ul { float: right; margin-right: 15px; }
 
-
+.admin-validation-summary ul { list-style: none; }
+.admin-validation-summary ul li { color: #96160B; font-size: 90%; }
+.field-validation-error { color: #96160B; font-size: 90%; }
