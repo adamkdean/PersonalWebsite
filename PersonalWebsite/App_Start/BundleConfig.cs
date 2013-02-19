@@ -9,6 +9,7 @@ namespace PersonalWebsite
         public static void RegisterBundles(BundleCollection bundles)
         {
             bundles.Add(new ScriptBundle("~/bundles/foundation").Include(
+                "~/Content/javascripts/jquery.js",
                 "~/Content/javascripts/foundation.min.js",
                 "~/Content/javascripts/app.js"));
 

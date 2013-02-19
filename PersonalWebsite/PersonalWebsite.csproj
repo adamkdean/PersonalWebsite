@@ -237,6 +237,7 @@
     <Content Include="Content\fonts\SourceSansPro-SemiboldIt-webfont.eot" />
     <Content Include="Content\fonts\SourceSansPro-SemiboldIt-webfont.ttf" />
     <Content Include="Content\fonts\SourceSansPro-SemiboldIt-webfont.woff" />
+    <None Include="Properties\PublishProfiles\new.adamkdean.co.uk.pubxml" />
     <None Include="Scripts\jquery-1.7.1.intellisense.js" />
     <Content Include="Scripts\jquery-1.7.1.js" />
     <Content Include="Scripts\jquery-1.7.1.min.js" />

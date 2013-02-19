@@ -69,6 +69,7 @@ h5.small { font: 100%/120% 'SourceSansProSemiboldItalic', sans-serif; color: #44
 
 .box-padding { padding: 5px; }
 .box { 
+    height: 100%;
     padding: 10px 10px 7px 10px; box-sizing: border-box;    
     background: white; border: 1px solid #c0b092;
     -webkit-box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, .05);

@@ -49,7 +49,25 @@
         </div>
     </div>
 
-    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/foundation")
     @RenderSection("scripts", required: false)     
+
+    <script>
+        function equalheight() {
+            $('.equalheight').each(function (index) {
+                var maxHeight = 0;
+                $(this).children().each(function (index) {
+                    if ($(this).height() > maxHeight) {
+                        maxHeight = $(this).height();
+                        console.log("maxHeight: " + maxHeight);
+                    }
+                });
+                $(this).children().height(maxHeight);
+            });
+        }
+
+        $(window).bind("load", equalheight);
+        $(window).bind("resize", equalheight);
+    </script> 
 </body>
 </html>
