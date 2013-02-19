@@ -36,7 +36,7 @@
                     <div class="six columns offset-by-four">
                         @Html.ValidationMessageFor(m => m.Username)
                         @Html.ValidationMessageFor(m => m.Password)                        
-                        @Html.ValidationSummary(true, null, htmlAttributes: new { @class = "admin-validation-summary" })
+                        @Html.ValidationSummary(true, null, htmlAttributes: new { @class = "account-validation-summary" })
                     </div>
                 </div>
                 
@@ -51,7 +51,8 @@
     <div class="six columns box-padding">
         <div class="box">
             <h2>Recent Failed Attempts</h2>
-            <p>No recently failed attempts.</p>
+                        
+            @Html.Action("FailedAttempts", "Account")
         </div>
     </div>
 </div>

@@ -27,9 +27,8 @@ h3.small { font: 140%/120% 'SourceSansProSemiboldItalic', sans-serif; color: #44
 h4.small { font: 120%/120% 'SourceSansProSemiboldItalic', sans-serif; color: #444; }
 h5.small { font: 100%/120% 'SourceSansProSemiboldItalic', sans-serif; color: #444; }
 
-.nopad {
-    padding: 0; margin: 0;
-}
+.nopad { padding: 0; margin: 0; }
+.nolist { list-style: none; }
 
 .topbar { 
     height: 11px; width: 100%;    
@@ -94,9 +93,12 @@ h5.small { font: 100%/120% 'SourceSansProSemiboldItalic', sans-serif; color: #44
  * ADMIN
  ***********************************/
 
-.admin-btngrp { padding: 5px 0; text-align: right; }
-.admin-btngrp ul { float: right; margin-right: 15px; }
+.account-btngrp { padding: 5px 0; text-align: right; }
+.account-btngrp ul { float: right; margin-right: 15px; }
 
-.admin-validation-summary ul { list-style: none; }
-.admin-validation-summary ul li { color: #96160B; font-size: 90%; }
+.account-validation-summary ul { list-style: none; }
+.account-validation-summary ul li { color: #96160B; font-size: 90%; }
 .field-validation-error { color: #96160B; font-size: 90%; }
+
+.account-failedattempts { list-style: none; }
+.account-failedattempts li { font-size: 90%; color: #96160B; }

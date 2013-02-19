@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using EasyAuth;
+using PersonalWebsite.Models;
 
 namespace PersonalWebsite.Controllers
 {
@@ -16,6 +17,5 @@ namespace PersonalWebsite.Controllers
         {            
             return View();
         }
-
     }
 }

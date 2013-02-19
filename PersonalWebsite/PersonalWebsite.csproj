@@ -139,8 +139,10 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\EntityModels\BlogPost.cs" />
+    <Compile Include="Models\EntityModels\FailedAttempt.cs" />
     <Compile Include="Models\EntityModels\Tag.cs" />
     <Compile Include="Models\EntityModels\WebsiteContext.cs" />
+    <Compile Include="Models\ViewModels\FailedAttemptsViewModel.cs" />
     <Compile Include="Models\ViewModels\LoginViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -272,6 +274,7 @@
     <Content Include="Views\Code\Index.cshtml" />
     <Content Include="Views\Contact\Index.cshtml" />
     <Content Include="Views\Blog\Manage.cshtml" />
+    <Content Include="Views\Account\FailedAttempts.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

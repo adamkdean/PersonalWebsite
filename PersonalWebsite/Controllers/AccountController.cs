@@ -24,7 +24,7 @@ namespace PersonalWebsite.Controllers
 
         [EzAllowAnonymous]
         public ActionResult Login()
-        {            
+        {
             return View();
         }
 
@@ -36,14 +36,31 @@ namespace PersonalWebsite.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Login(LoginViewModel model, string returnUrl)
         {
+            // textboxes filled in & user is valid
             if (ModelState.IsValid && Authentication.Login(model.Username, model.Password))
             {
                 return RedirectToLocal(returnUrl);
             }
 
-            ModelState.AddModelError("", "Invalid user credentials.");
+            // textboxes filled in but user is not valid
+            if (ModelState.IsValid)
+            {
+                ModelState.AddModelError("", "Invalid user credentials.");
+                using (var context = new WebsiteContext())
+                {
+                    context.FailedAttempts.Add(
+                        new FailedAttempt {
+                            DateAttempted = DateTime.Now,
+                            UsernameGiven = model.Username,
+                            IPAddress = HttpContext.Request.UserHostAddress
+                        }
+                    );
+                    context.SaveChanges();
+                }
+            }
+
             return View(model);
-        } 
+        }
 
         //
         // GET: /Home/Logout
@@ -64,17 +81,30 @@ namespace PersonalWebsite.Controllers
             return RedirectToAction("Login", "Account");            
         }
 
+        #region ChildActions
+        [ChildActionOnly]
+        [EzAllowAnonymous]
+        public PartialViewResult FailedAttempts()
+        {
+            const int limit = 5;
+            var model = new FailedAttemptsViewModel();
+
+            using (var context = new WebsiteContext())
+            {
+                model.FailedAttempts = (from t in context.FailedAttempts
+                                        orderby t.FailedAttemptId descending
+                                        select t).Take(limit).ToList();
+            }
+
+            return PartialView(model);
+        }
+        #endregion
+
         #region Helpers
         private ActionResult RedirectToLocal(string returnUrl)
         {
-            if (Url.IsLocalUrl(returnUrl))
-            {
-                return Redirect(returnUrl);
-            }
-            else
-            {
-                return RedirectToAction("Index", "Home");
-            }
+            if (Url.IsLocalUrl(returnUrl)) return Redirect(returnUrl);
+            else return RedirectToAction("Index", "Home");
         }
         #endregion
     }

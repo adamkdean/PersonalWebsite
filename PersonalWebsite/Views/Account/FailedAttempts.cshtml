@@ -1,0 +1,12 @@
+﻿@model PersonalWebsite.Models.FailedAttemptsViewModel
+
+<ul class="account-failedattempts">
+    @foreach (var item in Model.FailedAttempts)
+    {
+        <li>
+            <strong>Attacker:</strong> @item.IPAddress, 
+            <strong>Date:</strong> @item.DateAttempted, 
+            <strong>Username:</strong> @item.UsernameGiven
+        </li>
+    }
+</ul>
