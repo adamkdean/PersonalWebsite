@@ -17,7 +17,7 @@
                         @Html.LabelFor(m => m.Username, htmlAttributes: new { @class = "right inline" })
                     </div>
                     <div class="six columns">
-                        @Html.TextBoxFor(m => m.Username)                                              
+                        @Html.TextBoxFor(m => m.Username)                         
                     </div>
                     <div class="two columns"></div>
                 </div>
@@ -27,16 +27,19 @@
                         @Html.LabelFor(m => m.Password, htmlAttributes: new { @class = "right inline" })
                     </div>
                     <div class="six columns">
-                        @Html.PasswordFor(m => m.Password)                         
+                        @Html.PasswordFor(m => m.Password)                        
                     </div>
                     <div class="two columns"></div>
                 </div>
                 
+                if (!Html.ViewData.ModelState.IsValid)
+                {
                 <div class="row">
                     <div class="six columns offset-by-four"> 
                         @Html.ValidationSummary(false, null, htmlAttributes: new { @class = "account-validation-summary" })
                     </div>
                 </div>
+                }
                 
                 <div class="row">
                     <div class="eight columns offset-by-two">

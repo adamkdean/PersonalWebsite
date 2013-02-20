@@ -26,5 +26,23 @@ namespace PersonalWebsite.Controllers
             return View();
         }
 
+        //
+        // GET: /Blog/New
+
+        [EzAuthorize]
+        public ActionResult New()
+        {
+            return View();
+        }
+
+        //
+        // GET: /Blog/Delete
+
+        [EzAuthorize]
+        public ActionResult Delete()
+        {
+            return View();
+        }
+
     }
 }

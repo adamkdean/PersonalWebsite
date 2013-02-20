@@ -160,6 +160,9 @@
     <Content Include="Content\fonts\SourceSansPro-Semibold-webfont.svg" />
     <Content Include="Content\fonts\SourceSansPro-SemiboldIt-webfont.svg" />
     <Content Include="Content\images\bg.png" />
+    <Content Include="Content\images\checkbox.png" />
+    <Content Include="Content\images\checkbox_hover.png" />
+    <Content Include="Content\images\comments.png" />
     <Content Include="Content\images\foundation\orbit\bullets.jpg" />
     <Content Include="Content\images\foundation\orbit\left-arrow-small.png" />
     <Content Include="Content\images\foundation\orbit\left-arrow.png" />
@@ -170,6 +173,7 @@
     <Content Include="Content\images\foundation\orbit\right-arrow.png" />
     <Content Include="Content\images\foundation\orbit\rotator-black.png" />
     <Content Include="Content\images\foundation\orbit\timer-black.png" />
+    <Content Include="Content\images\views.png" />
     <Content Include="Content\images\logo.png" />
     <Content Include="Content\images\portrait.jpg" />
     <Content Include="Content\javascripts\app.js" />
@@ -196,7 +200,7 @@
     <Content Include="Content\stylesheets\app.css" />
     <Content Include="Content\stylesheets\fonts.css" />
     <Content Include="Content\stylesheets\foundation.css" />
-    <Content Include="favico.ico" />
+    <Content Include="Content\images\favico.ico" />
     <Content Include="Global.asax" />
     <Content Include="connections.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -237,6 +241,10 @@
     <Content Include="Content\fonts\SourceSansPro-SemiboldIt-webfont.eot" />
     <Content Include="Content\fonts\SourceSansPro-SemiboldIt-webfont.ttf" />
     <Content Include="Content\fonts\SourceSansPro-SemiboldIt-webfont.woff" />
+    <Content Include="Content\fonts\modernpics-webfont.eot" />
+    <Content Include="Content\fonts\modernpics-webfont.svg" />
+    <Content Include="Content\fonts\modernpics-webfont.ttf" />
+    <Content Include="Content\fonts\modernpics-webfont.woff" />
     <None Include="Properties\PublishProfiles\new.adamkdean.co.uk.pubxml" />
     <None Include="Scripts\jquery-1.7.1.intellisense.js" />
     <Content Include="Scripts\jquery-1.7.1.js" />
@@ -276,6 +284,8 @@
     <Content Include="Views\Contact\Index.cshtml" />
     <Content Include="Views\Blog\Manage.cshtml" />
     <Content Include="Views\Account\FailedAttempts.cshtml" />
+    <Content Include="Views\Blog\Delete.cshtml" />
+    <Content Include="Views\Blog\New.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

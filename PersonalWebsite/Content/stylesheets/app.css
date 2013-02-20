@@ -1,8 +1,15 @@
 /************************************
- * DEBUG
+ * MISC
  ***********************************/
+
 .red { background: red; }
 .blue { background: blue; }
+
+.nofloat { float: none; }
+.nopad { padding: 0; margin: 0; }
+.nolist { list-style: none; }
+
+.pictograph { font-family: 'ModernPictogramsNormal'; }
 
 /************************************
  * SHARED
@@ -13,6 +20,13 @@ body {
     background-color: #d1c4ab;
     font: 18px/24px Arial, sans-serif;
 }
+
+a:hover { text-decoration: underline; }
+a.button:hover { text-decoration: none; }
+a.label:hover { text-decoration: none; color: white; background: #2286a4; }
+a.label.alert:hover { background-color: #a70e12; }
+a.label.success:hover { background-color: #4d871d; }
+a.label.secondary:hover { background-color: #b6b6b6; color: #2e2e2e; }
 
 h1 { font: 200%/120% 'SourceSansProBold', sans-serif; }
 h2 { font: 180%/120% 'SourceSansProBold', sans-serif; }
@@ -25,9 +39,6 @@ h2.small { font: 160%/120% 'SourceSansProSemiboldItalic', sans-serif; color: #44
 h3.small { font: 140%/120% 'SourceSansProSemiboldItalic', sans-serif; color: #444; }
 h4.small { font: 120%/120% 'SourceSansProSemiboldItalic', sans-serif; color: #444; }
 h5.small { font: 100%/120% 'SourceSansProSemiboldItalic', sans-serif; color: #444; }
-
-.nopad { padding: 0; margin: 0; }
-.nolist { list-style: none; }
 
 .topbar { 
     height: 11px; width: 100%;    
@@ -75,6 +86,7 @@ h5.small { font: 100%/120% 'SourceSansProSemiboldItalic', sans-serif; color: #44
     box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, .05);
 }
 
+
 .footer .loggedin { text-align: right; font-size: 90%; color: #555; }
 .footer .copyright { font-size: 90%; color: #555; }
 .footer .nav ul { list-style: none; float: right; margin: 0; }
@@ -102,3 +114,21 @@ h5.small { font: 100%/120% 'SourceSansProSemiboldItalic', sans-serif; color: #44
 
 .account-failedattempts { list-style: none; }
 .account-failedattempts li { font-size: 90%; color: #96160B; }
+
+/************************************
+ * BLOG
+ ***********************************/
+
+.blog-manage-search { padding: 12px 0 0 0; }
+
+.blog-manage-table { width: 100%; }
+.blog-manage-td-check { width: 5%; }
+.blog-manage-td-post { width: 65%; }
+.blog-manage-td-comments { width: 10%; }
+.blog-manage-td-views { width: 10%; }
+.blog-manage-td-date { width: 10%; }
+td.blog-manage-td-check { vertical-align: middle; }
+td.blog-manage-td-post { line-height: 150%; }
+
+.blog-new-title { padding: 12px 4px; }
+.blog-new-buttons { padding: 12px 4px; text-align: right; padding-right: 20px; }

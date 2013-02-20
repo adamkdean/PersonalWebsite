@@ -5,7 +5,80 @@
 <div class="row">
     <div class="twelve columns box-padding">
         <div class="box">
-            <h1>Blog Management</h1>
+            
+            <div class="row">
+                <div class="eight columns">
+                    <h2>Blog Management</h2>
+                </div>
+                <div class="four columns">                    
+                    <div class="row collapse blog-manage-search">
+                        <div class="ten mobile-three columns">
+                            <input type="text" placeholder="Search blog posts" />
+                        </div>
+                        <div class="two mobile-one columns">
+                            <a class="button expand postfix">Go</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+  
+            <table class="twelve blog-manage-table">
+                <tbody>
+                    <tr>
+                        <td class="blog-manage-td-check">
+                            <input type="checkbox" id="checkbox1" checked>
+                        </td>
+                        <td class="blog-manage-td-post">
+                            <a href="#">Example post here that is very long and goes to next line</a><br />
+                            <a href="#" class="label">C#</a>
+                            <a href="#" class="label">ASP.NET</a>
+                            <a href="#" class="label">MVC4</a>
+                            <a href="#" class="label">EF</a>
+                        </td>
+                        <td class="blog-manage-td-comments">
+                            <img src="~/Content/images/comments.png" /> 7
+                        </td>
+                        <td class="blog-manage-td-views">
+                            <img src="~/Content/images/views.png" /> 842
+                        </td>
+                        <td class="blog-manage-td-date">
+                            20/02/2013
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="blog-manage-td-check">
+                            <input type="checkbox" id="checkbox2">
+                        </td>
+                        <td class="blog-manage-td-post">
+                            <a href="#">Example post here that is very long and goes to next line</a><br />
+                            <a href="#" class="label">C#</a>
+                            <a href="#" class="label">ASP.NET</a>
+                            <a href="#" class="label">MVC4</a>
+                            <a href="#" class="label">EF</a>
+                        </td>
+                        <td class="blog-manage-td-comments">
+                            <img src="~/Content/images/comments.png" /> 7
+                        </td>
+                        <td class="blog-manage-td-views">
+                            <img src="~/Content/images/views.png" /> 842
+                        </td>
+                        <td class="blog-manage-td-date">
+                            20/02/2013
+                        </td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td>
+                            <input type="checkbox" id="checkbox_all">
+                        </td>
+                        <td colspan="4">                            
+                            @Html.ActionLink("Delete", "Delete", null, htmlAttributes: new { @class = "button small radius secondary" }) 
+                            @Html.ActionLink("New Post", "New", null, htmlAttributes: new { @class = "button small radius right" })
+                        </td>
+                    </tr>
+                </tfoot>
+            </table>
         </div>
-    </div>
+    </div>    
 </div>

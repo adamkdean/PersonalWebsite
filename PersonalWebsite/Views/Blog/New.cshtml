@@ -1,0 +1,33 @@
+﻿@{
+    ViewBag.Title = "New Blog Post";
+}
+
+<div class="row">
+    <div class="twelve columns box-padding">
+        <div class="box">
+            
+            <div class="row">
+                <div class="two columns">
+                    <h2>New Post</h2>                    
+                </div>
+                <div class="seven columns blog-new-title">
+                    <input type="text" placeholder="Enter a post title" class="twelve"> 
+                    
+                </div>                
+                <div class="three columns blog-new-buttons">
+                    @Html.ActionLink("Publish", "Publish", null, htmlAttributes: new { @class = "button small radius" }) 
+                    @Html.ActionLink("Save", "Save", null, htmlAttributes: new { @class = "button small radius secondary" }) 
+                    @Html.ActionLink("Close", "Manage", null, htmlAttributes: new { @class = "button small radius secondary" }) 
+                </div>
+            </div>
+
+            <div class="row">
+            	<div class="twelve columns">
+                    <textarea placeholder="Something interesting" class="twelve"></textarea>
+            	</div>
+            </div>
+  
+            
+        </div>
+    </div>    
+</div>
