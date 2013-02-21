@@ -1,0 +1,15 @@
+﻿<div class="adminbar">            
+    <div class="row">
+        <div class="eight columns">
+            <ul class="inline-list">
+                <li>@Html.ActionLink("Manage Blog", "Manage", "Blog")</li>
+                <li>@Html.ActionLink("Manage Code", "Manage", "Code")</li>
+                <li>@Html.ActionLink("Manage Account", "Index", "Account")</li>
+            </ul>
+        </div>
+        <div class="four columns text-right">
+            Logged in as <strong>@EasyAuth.Authentication.CurrentUser.Username</strong>. 
+            @Html.ActionLink("Logout", "Logout", "Account")
+        </div>
+    </div>
+</div>

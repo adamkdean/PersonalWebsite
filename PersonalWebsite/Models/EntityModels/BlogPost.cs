@@ -16,5 +16,9 @@ namespace PersonalWebsite.Models
         public DateTime? DateModified { get; set; }
 
         public virtual List<Tag> Tags { get; set; }
+        public BlogPost()
+        {
+            Tags = new List<Tag>();
+        }
     }
 }

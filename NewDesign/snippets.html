@@ -1,0 +1,8 @@
+@if (EasyAuth.Authentication.IsAuthenticated())
+{
+    <div class="row footer">
+        <div class="twelve columns loggedin">
+            Logged in as <strong>@EasyAuth.Authentication.CurrentUser.Username</strong>. @Html.ActionLink("Logout", "Logout", "Account")
+        </div>
+    </div>
+}

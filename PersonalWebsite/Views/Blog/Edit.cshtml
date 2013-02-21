@@ -1,0 +1,39 @@
+﻿@{
+    ViewBag.Title = "Edit Blog Post";
+}
+
+<script>$(document).ready(function () { $("#taginput").tagit({ availableTags: [] }); });</script>
+
+<div class="row">
+    <div class="twelve columns">
+        <h4 class="blog-editor-label">Edit Post</h4>
+
+        <div class="row">
+        	<div class="twelve columns">
+                <input type="text" placeholder="Enter a post title">
+        	</div>
+        </div>
+
+        <div class="row">
+        	<div class="twelve columns blog-editor-textarea">
+                <textarea placeholder="Something interesting here ..." class="twelve"></textarea>
+        	</div>
+        </div>
+
+        <div class="row">
+            <div class="twelve columns blog-editor-tags">
+                <label for="tags">Tags:</label>
+                <ul id="taginput"></ul>
+        	</div>
+        </div>
+
+        <div class="row">
+        	<div class="twelve columns blog-editor-buttons">
+                @Html.ActionLink("Publish", "Publish", null, htmlAttributes: new { @class = "button small radius" })
+                @Html.ActionLink("Save", "Save", null, htmlAttributes: new { @class = "button small radius secondary" })
+                @Html.ActionLink("Convert to draft", "Draft", null, htmlAttributes: new { @class = "button small radius secondary" })
+                @Html.ActionLink("Close", "Manage", null, htmlAttributes: new { @class = "button small radius secondary" })
+        	</div>
+        </div>
+    </div>
+</div>

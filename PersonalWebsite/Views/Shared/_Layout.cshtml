@@ -1,4 +1,5 @@
 ﻿<!DOCTYPE html>
+
 <!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
 <!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
@@ -7,67 +8,47 @@
     <meta name="viewport" content="width=device-width" />
     <title>Adam K Dean - @ViewBag.Title</title>
     <link rel="shortcut icon" type="image/x-icon" href="~/Content/images/favicon.ico">
-    
-    @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
+
+    <script src="~/Content/javascripts/modernizr.foundation.js" type="text/javascript" charset="utf-8"></script>
+
+    <script src="~/Content/javascripts/jquery.js" type="text/javascript" charset="utf-8"></script>
+    <script src="~/Content/javascripts/jquery-ui-1.8.autocomplete.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="~/Content/javascripts/jquery-ui-1.8.core-and-interactions.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="~/Content/javascripts/tag-it.js" type="text/javascript" charset="utf-8"></script>    
+
+    <link rel="stylesheet" type="text/css" href="~/Content/stylesheets/foundation.css" media="all">
+    <link rel="stylesheet" type="text/css" href="~/Content/stylesheets/app.css" media="all">
+    <link rel="stylesheet" type="text/css" href="~/Content/stylesheets/jquery.ui.autocomplete.custom.css" media="all">
 </head>
 <body>
-    <!-- this is decorative -->
-    <div class="topbar"></div>
-    
-    <div class="row header">
-        <div class="five columns logo">            
-            <a href="@Url.Action("Index", "Home")">
-                <img src="@Url.Content("~/Content/images/logo.png")">
-            </a>
-        </div>
-        <div class="seven columns nav">
-            @Html.Partial("_TopNavigationPartial")
-        </div>
-    </div>
-    
-    @RenderBody()
-        
-    <div class="row">
-        <div class="twelve columns box-padding">
-            <div class="box">
-                @if (EasyAuth.Authentication.IsAuthenticated())
-                {
-                    <div class="row footer">
-                        <div class="twelve columns loggedin">
-                            Logged in as <strong>@EasyAuth.Authentication.CurrentUser.Username</strong>. @Html.ActionLink("Logout", "Logout", "Account")
-                        </div>
-                    </div>
-                }
-                <div class="row footer">
-                    <div class="six columns copyright">&copy; 2013 Adam K Dean, all rights reserved.</div>
-                    <div class="six columns nav">
-                        @Html.Partial("_BottomNavigationPartial")
-                    </div>
-                </div>
+
+    <div class="header">
+        <div class="row">
+            <div class="four columns">
+                <h1>Adam K Dean / Imdsm<br><small>C#, ASP.NET, MVC, SQL, HTML, CSS, JS</small></h1>            
+            </div>
+            <div class="eight columns">
+                @Html.Partial("_NavigationPartial")
             </div>
         </div>
     </div>
 
-    @Scripts.Render("~/bundles/foundation")
-    @RenderSection("scripts", required: false)     
+    @if (EasyAuth.Authentication.IsAuthenticated())
+    {
+        @Html.Partial("_AdminPartial")
+    }
 
-    <script>
-        function equalheight() {
-            $('.equalheight').each(function (index) {
-                var maxHeight = 0;
-                $(this).children().each(function (index) {
-                    if ($(this).height() > maxHeight) {
-                        maxHeight = $(this).height();
-                        console.log("maxHeight: " + maxHeight);
-                    }
-                });
-                $(this).children().height(maxHeight);
-            });
-        }
+    <!-- bet you haven't seen one of these since 2004! -->
+    <div class="spacer"></div>
 
-        $(window).bind("load", equalheight);
-        $(window).bind("resize", equalheight);
-    </script>
+    @RenderBody()
+
+    <!--<div class="pi">
+        <span onmouseover="this.innerHTML='Rendered in 0.000 ms'" 
+              onmouseout="this.innerHTML='&pi;'">&pi;</span>
+    </div>-->
+
+    <script src="~/Content/javascripts/foundation.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="~/Content/javascripts/app.js" type="text/javascript" charset="utf-8"></script>
 </body>
 </html>

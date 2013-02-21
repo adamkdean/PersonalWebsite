@@ -1,6 +1,11 @@
 html, body { height: 100%; }
 
 a:hover { text-decoration: underline; }
+a.button:hover { text-decoration: none; }
+a.label:hover { text-decoration: none; color: white; background: #2286a4; }
+a.label.alert:hover { background-color: #a70e12; }
+a.label.success:hover { background-color: #4d871d; }
+a.label.secondary:hover { background-color: #b6b6b6; color: #2e2e2e; }
 
 .header { width: 100%; background: #e9e9e9; border-bottom: 1px solid #ddd; margin-bottom: 20px; }
 .header .row { padding: 10px 5px; }
@@ -31,3 +36,4 @@ a:hover { text-decoration: underline; }
 .codelist li { line-height: 1.2em; padding: 0.4em 0; }
 
 .tagcloud h5 { margin: 10px 0; }
+.tagcloud .label.big { font-size: 110%; }
