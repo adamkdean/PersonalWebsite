@@ -191,9 +191,11 @@
     <Content Include="Content\javascripts\jquery.placeholder.js" />
     <Content Include="Content\javascripts\modernizr.foundation.js" />
     <Content Include="Content\javascripts\tag-it.js" />
+    <Content Include="Content\javascripts\tag-it.min.js" />
     <Content Include="Content\stylesheets\app.css" />
     <Content Include="Content\stylesheets\foundation.css" />
-    <Content Include="Content\stylesheets\jquery.ui.autocomplete.custom.css" />
+    <Content Include="Content\stylesheets\jquery.tagit.css" />
+    <Content Include="Content\stylesheets\tagit.ui-zendesk.css" />
     <Content Include="Global.asax" />
     <Content Include="connections.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -263,7 +265,7 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>0</DevelopmentServerPort>
+          <DevelopmentServerPort>2627</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>http://localhost:2217/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>

@@ -55,7 +55,18 @@
                             <img src="~/Content/images/views.png" title="Views" /> 0
                         </td>
                         <td class="blog-manage-td-date">
-                            @item.DatePosted.ToString()
+                            @if(item.DateModified != null)
+                            {
+                                <span class="has-tip tip-left blog-manage-date-tooltip" 
+                                      data-width="90" 
+                                      title ="Modified: @item.DateModified.ToString()">
+                                    @item.DatePosted.ToString()
+                                </span>
+                            }
+                            else
+                            {
+                                @item.DatePosted.ToString()
+                            }
                         </td>
                     </tr>
                 }    

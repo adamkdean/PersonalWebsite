@@ -76,15 +76,16 @@ a.label.secondary:hover { background-color: #b6b6b6; color: #2e2e2e; }
 td.blog-manage-td-check { vertical-align: middle; }
 td.blog-manage-td-post { line-height: 150%; }
 
+.blog-manage-date-tooltip { font-weight: normal; font-style: italic; color: #444; }
+
 /*---- NEW/EDIT ----------------------- */
 .blog-editor-buttons { text-align: right; }
 .blog-editor-buttons .button { height: 32px; line-height: 16px; margin: 0; outline: none; }
+.blog-editor-input input { outline: none; }
 .blog-editor-textarea textarea { min-height: 300px; resize: vertical; outline: none; }
 
 .blog-editor-tags { margin-bottom: 15px; }
-.blog-editor-tags * { padding: 0; margin: 0; line-height: normal; }
-.blog-editor-tags label { line-height: 22px; }
-.blog-editor-tags .tagit-input { height: 20px; border: none; outline: none; -webkit-box-shadow: none; -moz-box-shadow: none; box-shadow: none; }
+.nodisplay { display: none; }
 
 .blog-editor-validation-summary ul { list-style: none; }
 .blog-editor-validation-summary ul li { color: #96160B; font-size: 90%; }

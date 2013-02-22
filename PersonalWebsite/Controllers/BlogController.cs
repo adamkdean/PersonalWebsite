@@ -59,24 +59,24 @@ namespace PersonalWebsite.Controllers
         {
             if (ModelState.IsValid)
             {
-                string tagcsv = "";
-                if (!string.IsNullOrEmpty(formCollection["item[tags][]"]))
-                    tagcsv = formCollection["item[tags][]"];
-                string[] tags = TagHelper.GetTagsFromCSV(tagcsv);
+                var tagcsv = "";
+                if (!string.IsNullOrEmpty(formCollection["tags"]))
+                    tagcsv = formCollection["tags"];
+                var tags = TagHelper.GetTagArray(tagcsv);
                 
                 using (var context = new WebsiteContext())
                 {
                     // make sure tags exist in database, if not, they're added
                     TagHelper.AddTagRange(tags);
 
-                    List<Tag> taglist = new List<Tag>();
+                    var taglist = new List<Tag>();
                     foreach (string tag in tags)
                     {
-                        Tag tagObject = TagHelper.GetTag(context, tag);
+                        var tagObject = TagHelper.GetTag(context, tag);
                         taglist.Add(tagObject);
                     }
 
-                    BlogPost post = context.BlogPosts.Create();
+                    var post = context.BlogPosts.Create();
                     post.BlogTitle = WebHelper.StripTags(model.BlogTitle);
                     post.BlogContent = WebHelper.StripTags(model.BlogContent);
                     post.DatePosted = DateTime.Now;
@@ -105,16 +105,62 @@ namespace PersonalWebsite.Controllers
                     RedirectToAction("Manage", "Blog");
 
                 // eagerly load the tags as the context will be disposed
-                var post = (BlogPost)(from t in context.BlogPosts.Include("Tags")
-                                     where t.BlogPostId = id
-                                     select t);
+                var post = (from t in context.BlogPosts.Include("Tags")
+                            where t.BlogPostId == id
+                            select t).First();
 
                 model.BlogPostId = post.BlogPostId;
                 model.BlogTitle = post.BlogTitle;
                 model.BlogContent = post.BlogContent;
-                model.Tags = post.Tags;
+                ViewBag.Tags = TagHelper.GetTagArray(post.Tags);
             }
 
+            return View(model);
+        }
+
+        //
+        // POST: /Blog/Edit
+
+        [HttpPost]
+        [EzAuthorize]
+        [ValidateInput(false)]
+        public ActionResult Edit(EditBlogPostViewModel model, FormCollection formCollection)
+        {
+            var tagcsv = "";
+            if (!string.IsNullOrEmpty(formCollection["tags"]))
+                tagcsv = formCollection["tags"];
+            var tags = TagHelper.GetTagArray(tagcsv);
+
+            if (ModelState.IsValid)
+            {
+                using (var context = new WebsiteContext())
+                {
+                    if (!context.BlogPosts.Any(x => x.BlogPostId == model.BlogPostId))
+                        return RedirectToAction("Manage", "Blog");
+
+                    // make sure tags exist in database, if not, they're added
+                    TagHelper.AddTagRange(tags);
+
+                    var taglist = new List<Tag>();
+                    foreach (string tag in tags)
+                    {
+                        var tagObject = TagHelper.GetTag(context, tag);
+                        taglist.Add(tagObject);
+                    }
+
+                    var post = context.BlogPosts.First(x => x.BlogPostId == model.BlogPostId);
+                    post.BlogTitle = WebHelper.StripTags(model.BlogTitle);
+                    post.BlogContent = WebHelper.StripTags(model.BlogContent);
+                    post.DateModified = DateTime.Now;
+                    post.Tags.Clear();
+                    post.Tags.AddRange(taglist);                    
+                    context.SaveChanges();
+                }
+
+                return RedirectToAction("Manage", "Blog");
+            }
+
+            ViewBag.Tags = tags;
             return View(model);
         }
 

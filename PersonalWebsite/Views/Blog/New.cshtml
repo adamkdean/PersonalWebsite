@@ -4,7 +4,11 @@
     ViewBag.Title = "New Blog Post";
 }
 
-<script>$(document).ready(function () { $("#taginput").tagit({ availableTags: [] }); });</script>
+<script>
+    $(function () {
+        $("#taginput").tagit();
+    });
+</script>
 
 <div class="row">
     <div class="twelve columns">
@@ -13,7 +17,7 @@
         @using (Html.BeginForm())
         {
             <div class="row">
-        	    <div class="twelve columns">
+        	    <div class="twelve columns blog-editor-input">
                     @Html.TextBoxFor(m => m.BlogTitle, htmlAttributes: new { @placeholder = "Enter post title" })                                        
         	    </div>
             </div>
@@ -34,7 +38,6 @@
             <div class="row">
                 <div class="six columns blog-editor-validation">
                     @Html.ValidationSummary(false, null, htmlAttributes: new { @class = "blog-editor-validation-summary" })
-                    @ViewBag.Tags
                 </div>
                 <div class="six columns blog-editor-buttons">
                     <input type="submit" class="button small radius" value="Publish" />                    
