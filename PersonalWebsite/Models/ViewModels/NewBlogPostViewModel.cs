@@ -1,12 +1,16 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.Web.Mvc;
 
 namespace PersonalWebsite.Models
 {
     public class NewBlogPostViewModel
     {
-        [Required]
+        [Required]        
+        [Display(Name = "Blog Title")]
         public string BlogTitle { get; set; }
-        [Required]
+
+        [Required]        
+        [Display(Name = "Blog Content")]
         public string BlogContent { get; set; }        
     }
 }

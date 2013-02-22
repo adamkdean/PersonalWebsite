@@ -23,7 +23,7 @@
             </div>
         </div>
   
-        <table cellspacing="0" class="twelve blog-manage-table">
+        <table class="twelve blog-manage-table">
             <tbody>
             @if (Model.BlogPosts.Count == 0)
             {
@@ -42,7 +42,7 @@
                             <input type="checkbox" id="checkbox_@item.BlogPostId">
                         </td>
                         <td class="blog-manage-td-post">
-                            <a href="#">@item.BlogTitle</a> <br>
+                            @Html.ActionLink(item.BlogTitle, "Edit", new { id = item.BlogPostId })<br>                            
                             @foreach (var tag in item.Tags)
                             {
                                 <span class="label">@tag.TagName</span>

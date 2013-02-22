@@ -1,10 +1,11 @@
-﻿using System;
+﻿using PersonalWebsite.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
-namespace PersonalWebsite.Models
+namespace PersonalWebsite.Helpers
 {
     public static class TagHelper
     {
@@ -26,6 +27,18 @@ namespace PersonalWebsite.Models
         public static void AddTagRange(string[] tags)
         {            
             foreach (string tag in tags) AddTag(tag);
+        }
+
+        public static string[] GetTagsFromCSV(string list)
+        {
+            if (list == "") return new string[] { };
+            return list.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
+        }
+
+        public static Tag GetTag(WebsiteContext context, string tag)
+        {
+            if (tag == "") return null;
+            return context.Tags.First(x => x.TagName.Equals(tag, StringComparison.OrdinalIgnoreCase));
         }
     }
 }

@@ -67,6 +67,7 @@ a.label.secondary:hover { background-color: #b6b6b6; color: #2e2e2e; }
 .blog-manage-top h4 { line-height: 32px; padding: 2px 0; margin: 0; }
 .blog-manage-top .postfix { line-height: 12px; }
 
+.blog-manage-table { border-collapse: collapse; border-spacing: 0; }
 .blog-manage-td-check { width: 5%; }
 .blog-manage-td-post { width: 65%; }
 .blog-manage-td-comments { width: 10%; }
