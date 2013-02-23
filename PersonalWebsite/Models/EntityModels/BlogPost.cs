@@ -15,11 +15,15 @@ namespace PersonalWebsite.Models
         public DateTime DatePosted { get; set; }
         public DateTime? DateModified { get; set; }
 
+        public int Views { get; set; }
+
         public virtual List<Tag> Tags { get; set; }
+        public virtual List<Comment> Comments { get; set; }
 
         public BlogPost()
         {
             Tags = new List<Tag>();
+            Comments = new List<Comment>();
         }
     }
 }

@@ -56,9 +56,11 @@ a.label.secondary:hover { background-color: #b6b6b6; color: #2e2e2e; }
  * ADMIN
  ***********************************/
 
+.account-button { float: right; width: 100%; margin-bottom: 5px; }
 .account-validation-summary ul { list-style: none; }
 .account-validation-summary ul li { color: #96160B; font-size: 90%; }
-
+.account-failedattempts { list-style: none; }
+.account-failedattempts li { font-size: 90%; }
 
 /************************************
  * BLOG
@@ -68,13 +70,24 @@ a.label.secondary:hover { background-color: #b6b6b6; color: #2e2e2e; }
 .blog-manage-top .postfix { line-height: 12px; }
 
 .blog-manage-table { border-collapse: collapse; border-spacing: 0; }
-.blog-manage-td-check { width: 5%; }
-.blog-manage-td-post { width: 65%; }
-.blog-manage-td-comments { width: 10%; }
-.blog-manage-td-views { width: 10%; }
+.blog-manage-table td { vertical-align: middle; }
+.blog-manage-td-post { width: 65%; line-height: 150%; }
+.blog-manage-td-views, .blog-manage-td-comments { width: 10%; }
+.blog-manage-td-comments img, .blog-manage-td-views img { float: left; margin: 1px 3px 0 0; }
 .blog-manage-td-date { width: 10%; }
-td.blog-manage-td-check { vertical-align: middle; }
-td.blog-manage-td-post { line-height: 150%; }
+
+.blog-manage-td-check { width: 5%; vertical-align: middle; }
+.blog-manage-td-check input[type="checkbox"] { display: none; }
+.blog-manage-td-check input[type="checkbox"] + label span {
+    display: inline-block; width: 18px; height: 18px; margin: -1px 4px 0 0;
+    vertical-align: middle; cursor: pointer; background: url(/Content/images/checkbox.png);
+}
+.blog-manage-td-check input[type="checkbox"]:hover + label span {
+    background: url(/Content/images/checkbox_hover.png);
+}
+.blog-manage-td-check input[type="checkbox"]:checked + label span {
+    background: url(/Content/images/checkbox_checked.png);
+}
 
 .blog-manage-date-tooltip { font-weight: normal; font-style: italic; color: #444; }
 
@@ -93,40 +106,4 @@ td.blog-manage-td-post { line-height: 150%; }
     .blog-editor-label { text-align: center; width: 100%; line-height: 60px; }
     .blog-editor-buttons { margin-bottom: 20px; }
     .blog-editor-buttons .button { height: 32px; line-height: 16px; margin: 5px 0; }
-}
-
-/************************************
- * CODE
- ***********************************/
-
-.code-manage-top h4 { line-height: 32px; padding: 2px 0; margin: 0; }
-.code-manage-top .postfix { line-height: 12px; }
-
-.code-manage-table { border-collapse: collapse; border-spacing: 0; }
-.code-manage-td-check { width: 5%; }
-.code-manage-td-post { width: 65%; }
-.code-manage-td-comments { width: 10%; }
-.code-manage-td-views { width: 10%; }
-.code-manage-td-date { width: 10%; }
-td.code-manage-td-check { vertical-align: middle; }
-td.code-manage-td-post { line-height: 150%; }
-
-.code-manage-date-tooltip { font-weight: normal; font-style: italic; color: #444; }
-
-/*---- NEW/EDIT ----------------------- */
-.code-editor-buttons { text-align: right; }
-.code-editor-buttons .button { height: 32px; line-height: 16px; margin: 0; outline: none; }
-.code-editor-input input { outline: none; }
-.code-editor-textarea textarea { min-height: 500px; resize: vertical; outline: none; 
-                                 font-family: Consolas, "Courier New", monospace; }
-
-.code-editor-tags { margin-bottom: 15px; }
-
-.code-editor-validation-summary ul { list-style: none; }
-.code-editor-validation-summary ul li { color: #96160B; font-size: 90%; }
-
-@media only screen and (max-width: 767px) {
-    .code-editor-label { text-align: center; width: 100%; line-height: 60px; }
-    .code-editor-buttons { margin-bottom: 20px; }
-    .code-editor-buttons .button { height: 32px; line-height: 16px; margin: 5px 0; }
 }

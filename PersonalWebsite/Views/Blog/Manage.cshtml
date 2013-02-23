@@ -50,7 +50,11 @@
                 {
                     <tr>
                         <td class="blog-manage-td-check">
-                            <input type="checkbox" class="selectable" name="checkbox_@item.BlogPostId" value="@item.BlogPostId">
+                            <input type="checkbox" class="selectable" 
+                                id="checkbox_@item.BlogPostId" 
+                                name="checkbox_@item.BlogPostId" 
+                                value="@item.BlogPostId">
+                            <label for="checkbox_@item.BlogPostId"><span></span></label>
                         </td>
                         <td class="blog-manage-td-post">
                             @Html.ActionLink(item.BlogTitle, "Edit", new { id = item.BlogPostId })<br>                            
@@ -60,10 +64,12 @@
                             }                        
                         </td>
                         <td class="blog-manage-td-comments">
-                            <img src="~/Content/images/comments.png" title="Comments" /> 0
+                            <img src="~/Content/images/comments.png" title="Comments" /> 
+                            @item.Comments.Count
                         </td>
-                        <td class="blog-manage-td-views">
-                            <img src="~/Content/images/views.png" title="Views" /> 0
+                        <td class="blog-manage-td-views blog-manage-icon">
+                            <img src="~/Content/images/views.png" title="Views" /> 
+                            @item.Views
                         </td>
                         <td class="blog-manage-td-date">
                             @if(item.DateModified != null)
@@ -85,7 +91,10 @@
             </tbody>
             <tfoot>
                 <tr>
-                    <td class="blog-manage-td-check"><input type="checkbox" id="checkbox_all"></td>
+                    <td class="blog-manage-td-check">
+                        <input type="checkbox" id="checkbox_all">
+                        <label for="checkbox_all"><span></span></label>
+                    </td>
                     <td class="blog-manage-td-post">
                         <input type="submit" value="Delete" class="button small radius secondary"
                             onclick="return confirm('Are you sure you want to delete the selected post(s)?');" />                        

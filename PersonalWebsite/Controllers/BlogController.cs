@@ -31,10 +31,12 @@ namespace PersonalWebsite.Controllers
             
             using (var context = new WebsiteContext())
             {
-                // eagerly load the tags as the context will be disposed
-                var posts = (from t in context.BlogPosts.Include("Tags")
-                            orderby t.DatePosted descending 
-                            select t).ToList();
+                // eagerly load the tags/comments etc as the context will be disposed
+                var posts = (from t in context.BlogPosts
+                                              .Include("Tags")
+                                              .Include("Comments")
+                             orderby t.DatePosted descending 
+                             select t).ToList();
                 model.BlogPosts = posts;
             }
 
@@ -105,8 +107,10 @@ namespace PersonalWebsite.Controllers
                 if (!context.BlogPosts.Any(x => x.BlogPostId == id))
                     RedirectToAction("Manage", "Blog");
 
-                // eagerly load the tags as the context will be disposed
-                var post = (from t in context.BlogPosts.Include("Tags")
+                // eagerly load the tags/comments etc as the context will be disposed
+                var post = (from t in context.BlogPosts                            
+                                             .Include("Tags")
+                                             .Include("Comments")
                             where t.BlogPostId == id
                             select t).First();
 

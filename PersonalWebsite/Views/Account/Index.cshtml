@@ -3,34 +3,13 @@
 }
 
 <div class="row">
-    <div class="six columns box-padding">
-        <div class="panel">
-            <div class="row">
-                <div class="twelve columns">
-                    <h4>Blog Overview</h4>
-                </div>
-            </div>
-            <div class="row">
-                <div class="twelve columns">
-                    <h5>Recent Posts</h5>
-                    <p>No posts to display.</p>
-                </div>
-            </div>
-        </div>
+    <div class="eight columns">
+        <h4>Recent Login Attempts</h4>
+        @Html.Action("FailedAttempts")
     </div>
-    <div class="six columns box-padding">
-        <div class="panel">
-            <div class="row">
-                <div class="twelve columns">
-                    <h4>Code Overview</h4>
-                </div>                
-            </div>
-            <div class="row">
-                <div class="twelve columns">
-                    <h5>Recent Snippets</h5>
-                    <p>No snippets to display.</p>
-                </div>
-            </div>
-        </div>
+    <div class="three columns offset-by-one">
+        @Html.ActionLink("Update Profile", "ChangeName", null, htmlAttributes: new { @class = "button radius secondary account-button" })
+        @Html.ActionLink("Update Password", "ChangePassword", null, htmlAttributes: new { @class = "button radius secondary account-button" })
+        @Html.ActionLink("Logout", "Logout", null, htmlAttributes: new { @class = "button radius secondary account-button" })
     </div>   
 </div>
