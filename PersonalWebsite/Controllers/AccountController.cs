@@ -29,7 +29,7 @@ namespace PersonalWebsite.Controllers
         }
 
         //
-        // POST: /Home/Login
+        // POST: /Account/Login
 
         [HttpPost]
         [EzAllowAnonymous]
@@ -63,7 +63,7 @@ namespace PersonalWebsite.Controllers
         }
 
         //
-        // GET: /Home/Logout
+        // GET: /Account/Logout
 
         public ActionResult Logout()
         {
@@ -87,6 +87,36 @@ namespace PersonalWebsite.Controllers
         public ActionResult UpdatePassword()
         {
             return View();
+        }
+
+        //
+        // POST: /Account/UpdatePassword
+
+        [HttpPost]
+        [EzAllowAnonymous]
+        [ValidateAntiForgeryToken]
+        public ActionResult UpdatePassword(UpdatePasswordViewModel model)
+        {
+            var user = Authentication.CurrentUser;
+
+            if (ModelState.IsValid && Authentication.Login(user.Username, model.CurrentPassword))
+            {
+                user.Hash = Authentication.HashPassword(model.NewPassword, user.Salt);                 
+                Authentication.UserStore.UpdateUserById(user.UserId, user);
+
+                Authentication.Logout();
+                if (Authentication.Login(user.Username, model.NewPassword))
+                {
+                    // everything was changed OK
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    ModelState.AddModelError("", "Password was not changed for some reason.");
+                }
+            }
+
+            return View(model);
         }
 
         #region ChildActions

@@ -17,6 +17,7 @@ namespace PersonalWebsite.Models
         [Required]
         [DataType(DataType.Password)]
         [Display(Name = "Confirm New Password")]
+        [Compare("NewPassword", ErrorMessage = "Passwords must match")]
         public string ConfirmNewPassword { get; set; }
     }
 }
