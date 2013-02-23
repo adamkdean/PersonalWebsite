@@ -11,7 +11,8 @@ namespace PersonalWebsite.Models
         }
 
         public DbSet<Tag> Tags { get; set; }
-        public DbSet<BlogPost> BlogPosts { get; set; }        
+        public DbSet<BlogPost> BlogPosts { get; set; }
+        public DbSet<CodePost> CodePosts { get; set; }        
         public DbSet<FailedAttempt> FailedAttempts { get; set; }
     }
 }

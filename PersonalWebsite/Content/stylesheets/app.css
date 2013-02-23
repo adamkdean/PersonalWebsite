@@ -82,10 +82,9 @@ td.blog-manage-td-post { line-height: 150%; }
 .blog-editor-buttons { text-align: right; }
 .blog-editor-buttons .button { height: 32px; line-height: 16px; margin: 0; outline: none; }
 .blog-editor-input input { outline: none; }
-.blog-editor-textarea textarea { min-height: 300px; resize: vertical; outline: none; }
+.blog-editor-textarea textarea { min-height: 500px; resize: vertical; outline: none; }
 
 .blog-editor-tags { margin-bottom: 15px; }
-.nodisplay { display: none; }
 
 .blog-editor-validation-summary ul { list-style: none; }
 .blog-editor-validation-summary ul li { color: #96160B; font-size: 90%; }
@@ -94,4 +93,40 @@ td.blog-manage-td-post { line-height: 150%; }
     .blog-editor-label { text-align: center; width: 100%; line-height: 60px; }
     .blog-editor-buttons { margin-bottom: 20px; }
     .blog-editor-buttons .button { height: 32px; line-height: 16px; margin: 5px 0; }
+}
+
+/************************************
+ * CODE
+ ***********************************/
+
+.code-manage-top h4 { line-height: 32px; padding: 2px 0; margin: 0; }
+.code-manage-top .postfix { line-height: 12px; }
+
+.code-manage-table { border-collapse: collapse; border-spacing: 0; }
+.code-manage-td-check { width: 5%; }
+.code-manage-td-post { width: 65%; }
+.code-manage-td-comments { width: 10%; }
+.code-manage-td-views { width: 10%; }
+.code-manage-td-date { width: 10%; }
+td.code-manage-td-check { vertical-align: middle; }
+td.code-manage-td-post { line-height: 150%; }
+
+.code-manage-date-tooltip { font-weight: normal; font-style: italic; color: #444; }
+
+/*---- NEW/EDIT ----------------------- */
+.code-editor-buttons { text-align: right; }
+.code-editor-buttons .button { height: 32px; line-height: 16px; margin: 0; outline: none; }
+.code-editor-input input { outline: none; }
+.code-editor-textarea textarea { min-height: 500px; resize: vertical; outline: none; 
+                                 font-family: Consolas, "Courier New", monospace; }
+
+.code-editor-tags { margin-bottom: 15px; }
+
+.code-editor-validation-summary ul { list-style: none; }
+.code-editor-validation-summary ul li { color: #96160B; font-size: 90%; }
+
+@media only screen and (max-width: 767px) {
+    .code-editor-label { text-align: center; width: 100%; line-height: 60px; }
+    .code-editor-buttons { margin-bottom: 20px; }
+    .code-editor-buttons .button { height: 32px; line-height: 16px; margin: 5px 0; }
 }

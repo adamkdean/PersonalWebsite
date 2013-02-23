@@ -6,18 +6,18 @@ using System.Web;
 
 namespace PersonalWebsite.Models
 {
-    public class BlogPost
+    public class CodePost
     {
-        public int BlogPostId { get; set; }
-        public string BlogTitle { get; set; }
-        public string BlogContent { get; set; }
+        public int CodePostId { get; set; }
+        public string CodeTitle { get; set; }
+        public string CodeContent { get; set; }
 
         public DateTime DatePosted { get; set; }
         public DateTime? DateModified { get; set; }
 
         public virtual List<Tag> Tags { get; set; }
-
-        public BlogPost()
+        
+        public CodePost()
         {
             Tags = new List<Tag>();
         }

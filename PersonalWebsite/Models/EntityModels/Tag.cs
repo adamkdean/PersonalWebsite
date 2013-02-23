@@ -12,9 +12,12 @@ namespace PersonalWebsite.Models
         public string TagName { get; set; }
 
         public virtual List<BlogPost> BlogPosts { get; set; }
+        public virtual List<CodePost> CodePosts { get; set; }
+
         public Tag()
         {
             BlogPosts = new List<BlogPost>();
-        }
+            CodePosts = new List<CodePost>();
+        }        
     }
 }

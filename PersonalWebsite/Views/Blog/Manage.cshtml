@@ -4,25 +4,36 @@
     ViewBag.Title = "Manage Blog";
 }
 
+<script>
+    /* select all checkbox - requires jquery 1.6+ */
+    $(function () {
+        $("#checkbox_all").click(function () {
+            $(".selectable").prop('checked', $("#checkbox_all").is(":checked"));
+        });
+    });
+</script>
+
 <div class="row">
     <div class="twelve columns">
 
         <div class="row blog-manage-top">
-            <div class="eight columns">
+            <div class="twelve columns">
                 <h4>Blog Management</h4>
             </div>
-            <div class="four columns">                    
+            <!--<div class="four columns">
                 <div class="row collapse blog-manage-search">
                     <div class="ten columns">
-                        <input type="text" placeholder="Search blog posts" />
+                        <input type="text" name="search" placeholder="Search blog posts" />
                     </div>
                     <div class="two columns">
                         <a class="button expand postfix">Go</a>
                     </div>
                 </div>
-            </div>
+            </div>-->
         </div>
   
+        @using (Html.BeginForm("Delete", "Blog")) 
+        {
         <table class="twelve blog-manage-table">
             <tbody>
             @if (Model.BlogPosts.Count == 0)
@@ -39,7 +50,7 @@
                 {
                     <tr>
                         <td class="blog-manage-td-check">
-                            <input type="checkbox" id="checkbox_@item.BlogPostId">
+                            <input type="checkbox" class="selectable" name="checkbox_@item.BlogPostId" value="@item.BlogPostId">
                         </td>
                         <td class="blog-manage-td-post">
                             @Html.ActionLink(item.BlogTitle, "Edit", new { id = item.BlogPostId })<br>                            
@@ -75,11 +86,14 @@
             <tfoot>
                 <tr>
                     <td class="blog-manage-td-check"><input type="checkbox" id="checkbox_all"></td>
-                    <td class="blog-manage-td-post">@Html.ActionLink("Delete", "Delete", null, htmlAttributes: new { @class = "button small radius secondary" })</td>
+                    <td class="blog-manage-td-post">
+                        <input type="submit" value="Delete" class="button small radius secondary"
+                            onclick="return confirm('Are you sure you want to delete the selected post(s)?');" />                        
+                    </td>
                     <td colspan="3">@Html.ActionLink("New Post", "New", null, htmlAttributes: new { @class = "button small radius right" })</td>
                 </tr>
             </tfoot>
         </table>
-
+        }
     </div>    
 </div>

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using EntityFramework.Extensions;
 
 namespace PersonalWebsite.Controllers
 {
@@ -167,11 +168,22 @@ namespace PersonalWebsite.Controllers
         //
         // GET: /Blog/Delete
 
+        [HttpPost]
         [EzAuthorize]
-        public ActionResult Delete()
+        public ActionResult Delete(FormCollection formCollection)
         {
-            // are you sure you want to delete? will pop up with JS
-            // if yes then it is posted here
+            List<int> list = new List<int>();
+            foreach (string box in formCollection)
+            {
+                int id = 0;
+                if (int.TryParse(formCollection[box], out id))
+                    list.Add(id);
+            }
+
+            using (var context = new WebsiteContext())
+            {
+                context.BlogPosts.Delete(x => list.Contains(x.BlogPostId)); 
+            }
 
             return RedirectToAction("Manage", "Blog");            
         }

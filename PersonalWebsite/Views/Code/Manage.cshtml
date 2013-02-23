@@ -1,5 +1,99 @@
-﻿@{
-    ViewBag.Title = "Manage";
+﻿@model PersonalWebsite.Models.CodePostsViewModel
+
+@{
+    ViewBag.Title = "Manage Code";
 }
 
-<h2>Manage</h2>
+<script>
+    /* select all checkbox - requires jquery 1.6+ */
+    $(function () {
+        $("#checkbox_all").click(function () {
+            $(".selectable").prop('checked', $("#checkbox_all").is(":checked"));
+        });
+    });
+</script>
+
+<div class="row">
+    <div class="twelve columns">
+
+        <div class="row code-manage-top">
+            <div class="twelve columns">
+                <h4>Code Management</h4>
+            </div>
+            <!--<div class="four columns">
+                <div class="row collapse code-manage-search">
+                    <div class="ten columns">
+                        <input type="text" name="search" placeholder="Search code posts" />
+                    </div>
+                    <div class="two columns">
+                        <a class="button expand postfix">Go</a>
+                    </div>
+                </div>
+            </div>-->
+        </div>
+  
+        @using (Html.BeginForm("Delete", "Code")) 
+        {
+        <table class="twelve code-manage-table">
+            <tbody>
+            @if (Model.CodePosts.Count == 0)
+            {
+                <tr>
+                    <td colspan="5">
+                        <p class="text-center">No code posts found.</p>
+                    </td>
+                </tr>
+            }
+            else
+            {
+                foreach (var item in Model.CodePosts)
+                {
+                    <tr>
+                        <td class="code-manage-td-check">
+                            <input type="checkbox" class="selectable" name="checkbox_@item.CodePostId" value="@item.CodePostId">
+                        </td>
+                        <td class="code-manage-td-post">
+                            @Html.ActionLink(item.CodeTitle, "Edit", new { id = item.CodePostId })<br>                            
+                            @foreach (var tag in item.Tags)
+                            {
+                                <span class="label">@tag.TagName</span>
+                            }                        
+                        </td>
+                        <td class="code-manage-td-comments">
+                            <img src="~/Content/images/comments.png" title="Comments" /> 0
+                        </td>
+                        <td class="code-manage-td-views">
+                            <img src="~/Content/images/views.png" title="Views" /> 0
+                        </td>
+                        <td class="code-manage-td-date">
+                            @if(item.DateModified != null)
+                            {
+                                <span class="has-tip tip-left code-manage-date-tooltip" 
+                                      data-width="90" 
+                                      title ="Modified: @item.DateModified.ToString()">
+                                    @item.DatePosted.ToString()
+                                </span>
+                            }
+                            else
+                            {
+                                @item.DatePosted.ToString()
+                            }
+                        </td>
+                    </tr>
+                }    
+            }                        
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td class="code-manage-td-check"><input type="checkbox" id="checkbox_all"></td>
+                    <td class="code-manage-td-post">
+                        <input type="submit" value="Delete" class="button small radius secondary"
+                            onclick="return confirm('Are you sure you want to delete the selected post(s)?');" />                        
+                    </td>
+                    <td colspan="3">@Html.ActionLink("New Post", "New", null, htmlAttributes: new { @class = "button small radius right" })</td>
+                </tr>
+            </tfoot>
+        </table>
+        }
+    </div>    
+</div>

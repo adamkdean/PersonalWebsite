@@ -24,8 +24,7 @@
 *   jQuery v1.4+
 *   jQuery UI v1.8+
 */
-(function($) {
-
+(function ($) {
     $.widget('ui.tagit', {
         options: {
             allowDuplicates   : false,

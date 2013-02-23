@@ -1,7 +1,7 @@
-﻿@model PersonalWebsite.Models.EditBlogPostViewModel
+﻿@model PersonalWebsite.Models.EditCodePostViewModel
 
 @{
-    ViewBag.Title = "Edit Blog Post";
+    ViewBag.Title = "Edit Code Post";
 }
 
 <script>    
@@ -12,28 +12,28 @@
 
 <div class="row">
     <div class="twelve columns">
-        <h4 class="blog-editor-label">Edit Code Post</h4>
+        <h4 class="code-editor-label">Edit Code Post</h4>
        
         @using (Html.BeginForm())
         {
-            @Html.HiddenFor(m => m.BlogPostId);
+            @Html.HiddenFor(m => m.CodePostId);
             
             <p>@ViewBag.Message</p>
             
             <div class="row">
-        	    <div class="twelve columns blog-editor-input">
-                    @Html.TextBoxFor(m => m.BlogTitle, htmlAttributes: new { @placeholder = "Enter post title" })                                        
+        	    <div class="twelve columns code-editor-input">
+                    @Html.TextBoxFor(m => m.CodeTitle, htmlAttributes: new { @placeholder = "Enter post title" })                                        
         	    </div>
             </div>
 
             <div class="row">
-        	    <div class="twelve columns blog-editor-textarea">
-                    @Html.TextAreaFor(m => m.BlogContent, htmlAttributes: new { @placeholder = "Enter post title" })                    
+        	    <div class="twelve columns code-editor-textarea">
+                    @Html.TextAreaFor(m => m.CodeContent, htmlAttributes: new { @placeholder = "Enter post title" })                    
         	    </div>
             </div>
 
             <div class="row">
-                <div class="twelve columns blog-editor-tags">
+                <div class="twelve columns code-editor-tags">
                     <label for="tags">Tags:</label>
                     <ul id="taginput">
                         @foreach (var tag in ViewBag.Tags)
@@ -45,10 +45,10 @@
             </div>
         
             <div class="row">
-                <div class="six columns blog-editor-validation">
-                    @Html.ValidationSummary(false, null, htmlAttributes: new { @class = "blog-editor-validation-summary" })
+                <div class="six columns code-editor-validation">
+                    @Html.ValidationSummary(false, null, htmlAttributes: new { @class = "code-editor-validation-summary" })
                 </div>
-                <div class="six columns blog-editor-buttons">
+                <div class="six columns code-editor-buttons">
                     <input type="submit" class="button small radius" value="Save" />
                     @Html.ActionLink("Close", "Manage", null, htmlAttributes: new { @class = "button small radius secondary" })
         	    </div>

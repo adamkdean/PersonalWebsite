@@ -139,11 +139,15 @@
     </Compile>
     <Compile Include="Helpers\WebHelper.cs" />
     <Compile Include="Models\EntityModels\BlogPost.cs" />
+    <Compile Include="Models\EntityModels\CodePost.cs" />
     <Compile Include="Models\EntityModels\FailedAttempt.cs" />
     <Compile Include="Models\EntityModels\Tag.cs" />
     <Compile Include="Models\EntityModels\WebsiteContext.cs" />
     <Compile Include="Helpers\TagHelper.cs" />
+    <Compile Include="Models\ViewModels\CodePostsViewModel.cs" />
     <Compile Include="Models\ViewModels\BlogPostsViewModel.cs" />
+    <Compile Include="Models\ViewModels\EditCodePostViewModel.cs" />
+    <Compile Include="Models\ViewModels\NewCodePostViewModel.cs" />
     <Compile Include="Models\ViewModels\EditBlogPostViewModel.cs" />
     <Compile Include="Models\ViewModels\NewBlogPostViewModel.cs" />
     <Compile Include="Models\ViewModels\FailedAttemptsViewModel.cs" />
@@ -169,26 +173,6 @@
     <Content Include="Content\images\portrait.jpg" />
     <Content Include="Content\javascripts\app.js" />
     <Content Include="Content\javascripts\foundation.min.js" />
-    <Content Include="Content\javascripts\jquery-ui-1.8.autocomplete.min.js" />
-    <Content Include="Content\javascripts\jquery-ui-1.8.core-and-interactions.min.js" />
-    <Content Include="Content\javascripts\jquery.event.move.js" />
-    <Content Include="Content\javascripts\jquery.event.swipe.js" />
-    <Content Include="Content\javascripts\jquery.foundation.accordion.js" />
-    <Content Include="Content\javascripts\jquery.foundation.alerts.js" />
-    <Content Include="Content\javascripts\jquery.foundation.buttons.js" />
-    <Content Include="Content\javascripts\jquery.foundation.clearing.js" />
-    <Content Include="Content\javascripts\jquery.foundation.forms.js" />
-    <Content Include="Content\javascripts\jquery.foundation.joyride.js" />
-    <Content Include="Content\javascripts\jquery.foundation.magellan.js" />
-    <Content Include="Content\javascripts\jquery.foundation.mediaQueryToggle.js" />
-    <Content Include="Content\javascripts\jquery.foundation.navigation.js" />
-    <Content Include="Content\javascripts\jquery.foundation.orbit.js" />
-    <Content Include="Content\javascripts\jquery.foundation.reveal.js" />
-    <Content Include="Content\javascripts\jquery.foundation.tabs.js" />
-    <Content Include="Content\javascripts\jquery.foundation.tooltips.js" />
-    <Content Include="Content\javascripts\jquery.foundation.topbar.js" />
-    <Content Include="Content\javascripts\jquery.js" />
-    <Content Include="Content\javascripts\jquery.placeholder.js" />
     <Content Include="Content\javascripts\modernizr.foundation.js" />
     <Content Include="Content\javascripts\tag-it.js" />
     <Content Include="Content\javascripts\tag-it.min.js" />
@@ -199,6 +183,7 @@
     <Content Include="Global.asax" />
     <Content Include="connections.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </Content>
     <None Include="Properties\PublishProfiles\new.adamkdean.co.uk.pubxml" />
     <None Include="Scripts\jquery-1.7.1.intellisense.js" />
@@ -234,14 +219,16 @@
     <Content Include="Views\Shared\_NavigationPartial.cshtml" />
     <Content Include="Views\About\Index.cshtml" />
     <Content Include="Views\Blog\Index.cshtml" />
-    <Content Include="Views\Code\Index.cshtml" />
     <Content Include="Views\Contact\Index.cshtml" />
     <Content Include="Views\Blog\Manage.cshtml" />
     <Content Include="Views\Account\FailedAttempts.cshtml" />
     <Content Include="Views\Blog\New.cshtml" />
     <Content Include="Views\Shared\_AdminPartial.cshtml" />
-    <Content Include="Views\Code\Manage.cshtml" />
     <Content Include="Views\Blog\Edit.cshtml" />
+    <Content Include="Views\Code\New.cshtml" />
+    <Content Include="Views\Code\Edit.cshtml" />
+    <Content Include="Views\Code\Index.cshtml" />
+    <Content Include="Views\Code\Manage.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
