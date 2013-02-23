@@ -98,7 +98,7 @@ namespace PersonalWebsite.Controllers
         // GET: /Blog/Edit
 
         [EzAuthorize]
-        public ActionResult Edit(int id)
+        public ActionResult Edit(int id = -1)
         {
             EditBlogPostViewModel model = new EditBlogPostViewModel();
 
@@ -108,16 +108,22 @@ namespace PersonalWebsite.Controllers
                     RedirectToAction("Manage", "Blog");
 
                 // eagerly load the tags/comments etc as the context will be disposed
-                var post = (from t in context.BlogPosts                            
+                var posts = (from t in context.BlogPosts                            
                                              .Include("Tags")
                                              .Include("Comments")
                             where t.BlogPostId == id
-                            select t).First();
+                            select t);
 
-                model.BlogPostId = post.BlogPostId;
-                model.BlogTitle = post.BlogTitle;
-                model.BlogContent = post.BlogContent;
-                ViewBag.Tags = TagHelper.GetTagArray(post.Tags);
+                if (posts.Count() > 0) 
+                {
+                    var post = posts.First();
+
+                    model.BlogPostId = post.BlogPostId;
+                    model.BlogTitle = post.BlogTitle;
+                    model.BlogContent = post.BlogContent;
+                    ViewBag.Tags = TagHelper.GetTagArray(post.Tags);
+                }
+                else return RedirectToAction("Manage", "Blog");
             }
 
             return View(model);

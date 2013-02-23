@@ -12,7 +12,7 @@
 
 <div class="row">
     <div class="twelve columns">
-        <h4 class="blog-editor-label">New Code Post</h4>
+        <h4 class="blog-editor-label">New Blog Post</h4>
        
         @using (Html.BeginForm())
         {
@@ -24,7 +24,7 @@
 
             <div class="row">
         	    <div class="twelve columns blog-editor-textarea">
-                    @Html.TextAreaFor(m => m.BlogContent, htmlAttributes: new { @placeholder = "Enter post title" })                    
+                    @Html.TextAreaFor(m => m.BlogContent, htmlAttributes: new { @placeholder = "Write something interesting..." })                    
         	    </div>
             </div>
 
