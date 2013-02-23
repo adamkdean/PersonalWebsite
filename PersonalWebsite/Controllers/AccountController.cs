@@ -81,6 +81,14 @@ namespace PersonalWebsite.Controllers
             return RedirectToAction("Login", "Account");            
         }
 
+        //
+        // GET: /Account/UpdatePassword
+
+        public ActionResult UpdatePassword()
+        {
+            return View();
+        }
+
         #region ChildActions
         [ChildActionOnly]
         [EzAllowAnonymous]

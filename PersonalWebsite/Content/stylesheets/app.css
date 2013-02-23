@@ -52,6 +52,15 @@ a.label.secondary:hover { background-color: #b6b6b6; color: #2e2e2e; }
 
 .field-validation-error { color: #96160B; font-size: 90%; }
 
+/* change to 50ms, eradicate laggy feeling */
+.button {
+    -webkit-transition: background-color 0.05s ease-in-out;
+    -moz-transition: background-color 0.05s ease-in-out;
+    -o-transition: background-color 0.05s ease-in-out;
+    transition: background-color 0.05s ease-in-out;
+}
+
+
 /************************************
  * ADMIN
  ***********************************/
@@ -61,6 +70,10 @@ a.label.secondary:hover { background-color: #b6b6b6; color: #2e2e2e; }
 .account-validation-summary ul li { color: #96160B; font-size: 90%; }
 .account-failedattempts { list-style: none; }
 .account-failedattempts li { font-size: 90%; }
+
+.account-update-password { }
+.account-update-password h4 { text-align: center; }
+.account-update-password-button { width: 50%; float: right; clear: right; margin-bottom: 5px; }
 
 /************************************
  * BLOG
