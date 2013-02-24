@@ -16,8 +16,6 @@ namespace PersonalWebsite.Controllers
 
         public ActionResult Index()
         {
-
-
             return View();
         }
 
@@ -32,7 +30,7 @@ namespace PersonalWebsite.Controllers
         [ChildActionOnly]
         public PartialViewResult RecentBlogPostsFull()
         {
-            var model = BlogPostHelper.GetRecentBlogPosts(1);
+            var model = BlogPostHelper.GetRecentBlogPosts(3);
             return PartialView(model);
         }
         
@@ -44,7 +42,5 @@ namespace PersonalWebsite.Controllers
             return PartialView(model);
         }
         #endregion
-
-        
     }
 }

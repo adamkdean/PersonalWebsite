@@ -27,11 +27,12 @@ namespace PersonalWebsite.Helpers
             {
                 message = "less than an hour ago";
             }
-            else if (ts.TotalDays < 1)
+            else if (ts.TotalDays < 1 && originalTime.Day == DateTime.Now.Day)
             {
                 message = "today";
             }
-            else if (ts.TotalDays < 2)
+            else if ((ts.TotalDays < 1 && originalTime.Day < DateTime.Now.Day) ||
+                     (ts.TotalDays < 2 && originalTime.Day == DateTime.Now.Day - 1))
             {
                 message = "yesterday";
             }
