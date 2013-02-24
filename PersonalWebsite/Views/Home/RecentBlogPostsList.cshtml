@@ -1,0 +1,21 @@
+﻿@model PersonalWebsite.Models.BlogPostsViewModel
+
+<div class="bloglist">
+    <h5>Recent Blog Posts</h5>
+    <ul>
+        @if(Model.BlogPosts.Count == 0)
+        {
+            <p>No blog posts.</p>
+        }
+        else            
+        {
+            foreach(var post in Model.BlogPosts)
+            {
+                <li>
+                    <p class="post-link">@Html.ActionLink(post.BlogTitle, "View", new { id = post.BlogPostId })</p>
+                    <p class="post-date">Posted <em>@PersonalWebsite.Helpers.DateHelper.GetReadableTimeSince(post.DatePosted)</em>.</p>                    
+                </li>
+            }
+        }
+    </ul>
+</div>

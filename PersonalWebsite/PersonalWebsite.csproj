@@ -136,6 +136,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\BlogPostHelper.cs" />
+    <Compile Include="Helpers\HtmlExtensions.cs" />
+    <Compile Include="Helpers\DateHelper.cs" />
     <Compile Include="Helpers\WebHelper.cs" />
     <Compile Include="Models\EntityModels\BlogPost.cs" />
     <Compile Include="Models\EntityModels\Comment.cs" />
@@ -144,6 +147,7 @@
     <Compile Include="Models\EntityModels\WebsiteContext.cs" />
     <Compile Include="Helpers\TagHelper.cs" />
     <Compile Include="Models\ViewModels\BlogPostsViewModel.cs" />
+    <Compile Include="Models\ViewModels\TagsViewModel.cs" />
     <Compile Include="Models\ViewModels\Copy of LoginViewModel.cs" />
     <Compile Include="Models\ViewModels\EditBlogPostViewModel.cs" />
     <Compile Include="Models\ViewModels\NewBlogPostViewModel.cs" />
@@ -225,6 +229,9 @@
     <Content Include="Views\Account\UpdatePassword.cshtml" />
     <Content Include="Views\Profile\Index.cshtml" />
     <Content Include="Views\Profile\Manage.cshtml" />
+    <Content Include="Views\Home\RecentBlogPostsList.cshtml" />
+    <Content Include="Views\Home\RecentBlogPostsFull.cshtml" />
+    <Content Include="Views\Home\TagCloud.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

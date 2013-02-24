@@ -11,6 +11,8 @@ a.label.alert:hover { background-color: #a70e12; }
 a.label.success:hover { background-color: #4d871d; }
 a.label.secondary:hover { background-color: #b6b6b6; color: #2e2e2e; }
 
+.label-spacing { margin-right: 5px; }
+
 .header { width: 100%; background: #e9e9e9; border-bottom: 1px solid #ddd; }
 .header .row { padding: 10px 5px; }
 .header h1 { font-size: 1.4em; margin: 0; padding: 0; }
@@ -39,17 +41,6 @@ a.label.secondary:hover { background-color: #b6b6b6; color: #2e2e2e; }
 .pi span { font-weight: bold; font-size: 90%; color: #aaa; border-bottom: dotted 1px #ccc; cursor: help; }
 .pi span:hover { font-family: "Courier New", monospace; font-weight: normal; border: none; }
 
-.bloglist h5 { margin: 5px 0; }
-.bloglist ul { list-style: none; }
-.bloglist li { line-height: 1.2em; padding: 0.4em 0; }
-
-.codelist h5 { margin: 5px 0; }
-.codelist ul { list-style: none; }
-.codelist li { line-height: 1.2em; padding: 0.4em 0; }
-
-.tagcloud h5 { margin: 10px 0; }
-.tagcloud .label.big { font-size: 110%; }
-
 .field-validation-error { color: #96160B; font-size: 90%; }
 
 /* change to 50ms, eradicate laggy feeling */
@@ -59,7 +50,6 @@ a.label.secondary:hover { background-color: #b6b6b6; color: #2e2e2e; }
     -o-transition: background-color 0.05s ease-in-out;
     transition: background-color 0.05s ease-in-out;
 }
-
 
 /************************************
  * ADMIN
@@ -120,3 +110,23 @@ a.label.secondary:hover { background-color: #b6b6b6; color: #2e2e2e; }
     .blog-editor-buttons { margin-bottom: 20px; }
     .blog-editor-buttons .button { height: 32px; line-height: 16px; margin: 5px 0; }
 }
+
+/*---- VIEW --------------------------- */
+
+.post-tag-text { color: #aaa; font-size: 90%; }
+
+/************************************
+ * HOME
+ ***********************************/
+
+.bloglist h5 { margin: 5px 0; }
+.bloglist ul { list-style: none; }
+.bloglist ul li { padding: 0.4em 0; }
+
+.bloglist ul li .post-link { margin: 0; padding: 0; line-height: 1.2em; }
+.bloglist ul li .post-date { margin: 0; padding: 0; font-size: 80%; }
+
+.tagcloud h5 { margin: 10px 0; }
+.tagcloud p { overflow: hidden; }
+.tagcloud .big { font-size: 110%; }
+.tagcloud .bigger { font-size: 120%; }

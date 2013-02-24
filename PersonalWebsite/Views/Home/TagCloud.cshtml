@@ -1,0 +1,27 @@
+﻿@model PersonalWebsite.Models.TagsViewModel
+
+<div class="tagcloud">
+    <h5>Tag Cloud</h5>                
+    <p>
+        @foreach(var tag in Model.Tags)
+        {
+            var count = tag.BlogPosts.Count();
+            var modifer = "";
+            
+            if (count > 1 && count < 10) 
+            {
+                modifer += "big";
+            }
+            else if (count >= 10)
+            {
+                modifer += "bigger";
+            }     
+            
+            @Html.ActionLink(tag.TagName, "View", "Tag", 
+                routeValues: new { id = tag.TagId }, 
+                htmlAttributes: new { @class = "label secondary " + modifer })
+
+            @Html.Raw("\n")
+        }
+    </p>
+</div>

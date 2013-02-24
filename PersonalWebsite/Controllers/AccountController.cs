@@ -124,7 +124,7 @@ namespace PersonalWebsite.Controllers
         [EzAllowAnonymous]
         public PartialViewResult FailedAttempts()
         {
-            const int limit = 7;
+            const int limit = 10;
             var model = new FailedAttemptsViewModel();
 
             using (var context = new WebsiteContext())

@@ -70,5 +70,21 @@ namespace PersonalWebsite.Helpers
             }
             return list;
         }
+
+        public static List<Tag> GetRandomTags(int limit)
+        {
+            var tags = new List<Tag>();
+
+            using (var context = new WebsiteContext())
+            {
+                tags = context.Tags
+                             .Include("BlogPosts")
+                             .OrderBy(x => Guid.NewGuid())
+                             .Take(limit)
+                             .ToList();
+            }
+
+            return tags;
+        }
     }
 }
