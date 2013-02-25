@@ -12,7 +12,7 @@
             foreach(var post in Model.BlogPosts)
             {
                 <li>
-                    <p class="post-link">@Html.ActionLink(post.BlogTitle, "View", new { id = post.BlogPostId })</p>
+                    <p class="post-link">@Html.ActionLink(post.BlogTitle, "Read", "Blog", new { id = post.BlogPostId }, null)</p>
                     <p class="post-date">Posted <em>@PersonalWebsite.Helpers.DateHelper.GetReadableTimeSince(post.DatePosted)</em>.</p>                    
                 </li>
             }

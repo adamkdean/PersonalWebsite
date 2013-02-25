@@ -1,0 +1,31 @@
+﻿@model PersonalWebsite.Models.Blog.ReadViewModel
+
+@using PersonalWebsite.Helpers
+
+@{
+    ViewBag.Title = "View";
+}
+
+<div class="row">
+    <div class="nine columns">
+        <article>
+            <h3>@Html.ActionLink(Model.BlogPost.BlogTitle, "View", new { id = Model.BlogPost.BlogPostId })</h3>
+            <h6>Posted @PersonalWebsite.Helpers.DateHelper.GetReadableDate(Model.BlogPost.DatePosted).</h6>
+            
+            @Html.Nl2P(Model.BlogPost.BlogContent)
+
+            <p class="post-tag-text">
+                Tags: 
+                @foreach (var tag in Model.BlogPost.Tags)
+                {
+                    @Html.ActionLink(tag.TagName, "View", "Tag", 
+                        routeValues: new { id = tag.TagId }, 
+                        htmlAttributes: new { @class = "label label-spacing radius" })
+                }
+            </p>
+        </article>
+    </div>
+    <div class="three columns">
+        @Html.Action("Sidebar")
+    </div>
+</div>

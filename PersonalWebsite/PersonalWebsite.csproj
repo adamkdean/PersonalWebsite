@@ -146,7 +146,7 @@
     <Compile Include="Models\EntityModels\Tag.cs" />
     <Compile Include="Models\EntityModels\WebsiteContext.cs" />
     <Compile Include="Helpers\TagHelper.cs" />
-    <Compile Include="Models\ViewModels\Blog\ViewViewModel.cs" />
+    <Compile Include="Models\ViewModels\Blog\ReadViewModel.cs" />
     <Compile Include="Models\ViewModels\Blog\RecentBlogPostsViewModel.cs" />
     <Compile Include="Models\ViewModels\Blog\ManageViewModel.cs" />
     <Compile Include="Models\ViewModels\Account\LoginViewModel.cs" />
@@ -237,6 +237,8 @@
     <Content Include="Views\Home\RecentPostsFull.cshtml" />
     <Content Include="Views\Home\TagCloud.cshtml" />
     <Content Include="Views\Blog\RecentBlogPosts.cshtml" />
+    <Content Include="Views\Blog\Read.cshtml" />
+    <Content Include="Views\Blog\Sidebar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

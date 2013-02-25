@@ -2,7 +2,7 @@
 
 namespace PersonalWebsite.Models.Blog
 {
-    public class ViewViewModel
+    public class ReadViewModel
     {
         public BlogPost BlogPost { get; set; }
     }

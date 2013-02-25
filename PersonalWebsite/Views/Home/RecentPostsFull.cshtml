@@ -12,7 +12,7 @@ else
     foreach(var post in Model.BlogPosts)
     {        
         <article>
-            <h3>@Html.ActionLink(post.BlogTitle, "View", new { id = post.BlogPostId })</h3>
+            <h3>@Html.ActionLink(post.BlogTitle, "Read", "Blog", new { id = post.BlogPostId }, null)</h3>
             <h6>Posted @PersonalWebsite.Helpers.DateHelper.GetReadableTimeSince(post.DatePosted).</h6>
             
             @Html.Nl2P(post.BlogContent)

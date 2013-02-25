@@ -22,17 +22,14 @@ namespace PersonalWebsite.Controllers
             return View();
         }
 
-        // 
-        // GET: /Blog/View/$id
-
-        /*public ActionResult View(int id = -1)
+        public ActionResult Read(int id = -1)
         {
-            var model = new ViewViewModel();
+            var model = new ReadViewModel();
 
             using (var context = new WebsiteContext())
             {
                 if (!context.BlogPosts.Any(x => x.BlogPostId == id))
-                    RedirectToAction("Manage", "Blog");
+                    RedirectToAction("Index", "Blog");
 
                 // eagerly load the tags/comments etc as the context will be disposed
                 var posts = (from t in context.BlogPosts
@@ -41,20 +38,12 @@ namespace PersonalWebsite.Controllers
                              where t.BlogPostId == id
                              select t);
 
-                if (posts.Count() > 0)
-                {
-                    var post = posts.First();
-
-                    model.BlogPostId = post.BlogPostId;
-                    model.BlogTitle = post.BlogTitle;
-                    model.BlogContent = post.BlogContent;
-                    ViewBag.Tags = TagHelper.GetTagArray(post.Tags);
-                }
+                if (posts.Count() > 0) model.BlogPost = posts.First();                
                 else return RedirectToAction("Manage", "Blog");
             }
 
             return View(model);
-        }*/
+        }
 
         //
         // GET: /Blog/Manage
@@ -240,6 +229,12 @@ namespace PersonalWebsite.Controllers
             var model = new RecentBlogPostsViewModel();
             model.BlogPosts = BlogPostHelper.GetRecentBlogPosts(5);
             return PartialView(model);
+        }
+
+        [ChildActionOnly]
+        public PartialViewResult Sidebar()
+        {
+            return PartialView();
         }
         #endregion
     }
