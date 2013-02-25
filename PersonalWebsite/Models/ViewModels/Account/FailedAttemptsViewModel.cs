@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace PersonalWebsite.Models
+namespace PersonalWebsite.Models.Account
 {
     public class FailedAttemptsViewModel
     {

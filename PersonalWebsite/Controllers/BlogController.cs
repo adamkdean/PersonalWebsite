@@ -8,6 +8,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using EntityFramework.Extensions;
+using PersonalWebsite.Models.Blog;
 
 namespace PersonalWebsite.Controllers
 {
@@ -21,13 +22,47 @@ namespace PersonalWebsite.Controllers
             return View();
         }
 
+        // 
+        // GET: /Blog/View/$id
+
+        /*public ActionResult View(int id = -1)
+        {
+            var model = new ViewViewModel();
+
+            using (var context = new WebsiteContext())
+            {
+                if (!context.BlogPosts.Any(x => x.BlogPostId == id))
+                    RedirectToAction("Manage", "Blog");
+
+                // eagerly load the tags/comments etc as the context will be disposed
+                var posts = (from t in context.BlogPosts
+                                             .Include("Tags")
+                                             .Include("Comments")
+                             where t.BlogPostId == id
+                             select t);
+
+                if (posts.Count() > 0)
+                {
+                    var post = posts.First();
+
+                    model.BlogPostId = post.BlogPostId;
+                    model.BlogTitle = post.BlogTitle;
+                    model.BlogContent = post.BlogContent;
+                    ViewBag.Tags = TagHelper.GetTagArray(post.Tags);
+                }
+                else return RedirectToAction("Manage", "Blog");
+            }
+
+            return View(model);
+        }*/
+
         //
         // GET: /Blog/Manage
 
         [EzAuthorize]
         public ActionResult Manage()
         {
-            var model = new BlogPostsViewModel();
+            var model = new ManageViewModel();
             
             using (var context = new WebsiteContext())
             {
@@ -58,7 +93,7 @@ namespace PersonalWebsite.Controllers
         [HttpPost]
         [EzAuthorize]
         [ValidateInput(false)]
-        public ActionResult New(NewBlogPostViewModel model, FormCollection formCollection)
+        public ActionResult New(NewViewModel model, FormCollection formCollection)
         {
             if (ModelState.IsValid)
             {
@@ -100,7 +135,7 @@ namespace PersonalWebsite.Controllers
         [EzAuthorize]
         public ActionResult Edit(int id = -1)
         {
-            EditBlogPostViewModel model = new EditBlogPostViewModel();
+            var model = new EditViewModel();
 
             using (var context = new WebsiteContext())
             {
@@ -135,7 +170,7 @@ namespace PersonalWebsite.Controllers
         [HttpPost]
         [EzAuthorize]
         [ValidateInput(false)]
-        public ActionResult Edit(EditBlogPostViewModel model, FormCollection formCollection)
+        public ActionResult Edit(EditViewModel model, FormCollection formCollection)
         {
             var tagcsv = "";
             if (!string.IsNullOrEmpty(formCollection["tags"]))
@@ -197,5 +232,15 @@ namespace PersonalWebsite.Controllers
 
             return RedirectToAction("Manage", "Blog");            
         }
+
+        #region ChildActions
+        [ChildActionOnly]
+        public PartialViewResult RecentBlogPosts()
+        {
+            var model = new RecentBlogPostsViewModel();
+            model.BlogPosts = BlogPostHelper.GetRecentBlogPosts(5);
+            return PartialView(model);
+        }
+        #endregion
     }
 }

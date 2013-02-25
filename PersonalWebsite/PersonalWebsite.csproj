@@ -146,13 +146,17 @@
     <Compile Include="Models\EntityModels\Tag.cs" />
     <Compile Include="Models\EntityModels\WebsiteContext.cs" />
     <Compile Include="Helpers\TagHelper.cs" />
-    <Compile Include="Models\ViewModels\BlogPostsViewModel.cs" />
-    <Compile Include="Models\ViewModels\TagsViewModel.cs" />
-    <Compile Include="Models\ViewModels\Copy of LoginViewModel.cs" />
-    <Compile Include="Models\ViewModels\EditBlogPostViewModel.cs" />
-    <Compile Include="Models\ViewModels\NewBlogPostViewModel.cs" />
-    <Compile Include="Models\ViewModels\FailedAttemptsViewModel.cs" />
-    <Compile Include="Models\ViewModels\UpdatePasswordViewModel.cs" />
+    <Compile Include="Models\ViewModels\Blog\ViewViewModel.cs" />
+    <Compile Include="Models\ViewModels\Blog\RecentBlogPostsViewModel.cs" />
+    <Compile Include="Models\ViewModels\Blog\ManageViewModel.cs" />
+    <Compile Include="Models\ViewModels\Account\LoginViewModel.cs" />
+    <Compile Include="Models\ViewModels\Blog\EditViewModel.cs" />
+    <Compile Include="Models\ViewModels\Blog\NewViewModel.cs" />
+    <Compile Include="Models\ViewModels\Account\FailedAttemptsViewModel.cs" />
+    <Compile Include="Models\ViewModels\Account\UpdatePasswordViewModel.cs" />
+    <Compile Include="Models\ViewModels\Home\TagCloudListViewModel.cs" />
+    <Compile Include="Models\ViewModels\Home\RecentPostsFullViewModel.cs" />
+    <Compile Include="Models\ViewModels\Home\RecentPostsListViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -229,12 +233,15 @@
     <Content Include="Views\Account\UpdatePassword.cshtml" />
     <Content Include="Views\Profile\Index.cshtml" />
     <Content Include="Views\Profile\Manage.cshtml" />
-    <Content Include="Views\Home\RecentBlogPostsList.cshtml" />
-    <Content Include="Views\Home\RecentBlogPostsFull.cshtml" />
+    <Content Include="Views\Home\RecentPostsList.cshtml" />
+    <Content Include="Views\Home\RecentPostsFull.cshtml" />
     <Content Include="Views\Home\TagCloud.cshtml" />
+    <Content Include="Views\Blog\RecentBlogPosts.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Models\ViewModels\Contact\" />
+    <Folder Include="Models\ViewModels\Profile\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

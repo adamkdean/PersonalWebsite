@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 
-namespace PersonalWebsite.Models
+namespace PersonalWebsite.Models.Home
 {
-    public class TagsViewModel
+    public class TagCloudViewModel
     {
         public List<Tag> Tags { get; set; }
     }

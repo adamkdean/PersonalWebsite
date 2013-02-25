@@ -1,0 +1,36 @@
+﻿@model PersonalWebsite.Models.Home.RecentPostsFullViewModel
+
+@using PersonalWebsite.Helpers
+
+@if(Model.BlogPosts.Count == 0)
+{
+    <p>No blog posts.</p>
+}
+else
+{
+    int count = 0;
+    foreach(var post in Model.BlogPosts)
+    {        
+        <article>
+            <h3>@Html.ActionLink(post.BlogTitle, "View", new { id = post.BlogPostId })</h3>
+            <h6>Posted @PersonalWebsite.Helpers.DateHelper.GetReadableTimeSince(post.DatePosted).</h6>
+            
+            @Html.Nl2P(post.BlogContent)
+
+            <p class="post-tag-text">
+                Tags: 
+                @foreach(var tag in post.Tags)
+                {
+                    @Html.ActionLink(tag.TagName, "View", "Tag", 
+                        routeValues: new { id = tag.TagId }, 
+                        htmlAttributes: new { @class = "label label-spacing radius" })
+                }
+            </p>
+        </article>
+    
+        if (++count < Model.BlogPosts.Count())
+        {
+            <hr>
+        }
+    }
+}

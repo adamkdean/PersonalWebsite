@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace PersonalWebsite.Models
+namespace PersonalWebsite.Models.Account
 {
     public class UpdatePasswordViewModel
     {

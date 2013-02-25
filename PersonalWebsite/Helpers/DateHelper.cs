@@ -9,6 +9,11 @@ namespace PersonalWebsite.Helpers
 {
     public static class DateHelper
     {
+        public static string GetReadableDate(DateTime date)
+        {
+            return string.Format("{0:dddd, d MMMM yyyy}", date);
+        }
+
         public static string GetReadableTimeSince(DateTime originalTime)
         {
             TimeSpan ts = DateTime.Now - originalTime;

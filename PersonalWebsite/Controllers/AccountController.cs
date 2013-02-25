@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using EasyAuth;
 using PersonalWebsite.Models;
+using PersonalWebsite.Models.Account;
 
 namespace PersonalWebsite.Controllers
 {

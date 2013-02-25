@@ -1,4 +1,4 @@
-﻿@model PersonalWebsite.Models.BlogPostsViewModel
+﻿@model PersonalWebsite.Models.Blog.RecentBlogPostsViewModel
 
 @using PersonalWebsite.Helpers
 
@@ -13,7 +13,7 @@ else
     {        
         <article>
             <h3>@Html.ActionLink(post.BlogTitle, "View", new { id = post.BlogPostId })</h3>
-            <h6>Posted @PersonalWebsite.Helpers.DateHelper.GetReadableTimeSince(post.DatePosted).</h6>
+            <h6>Posted @PersonalWebsite.Helpers.DateHelper.GetReadableDate(post.DatePosted).</h6>
             
             @Html.Nl2P(post.BlogContent)
 
