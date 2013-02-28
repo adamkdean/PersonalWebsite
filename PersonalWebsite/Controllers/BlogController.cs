@@ -9,6 +9,7 @@ using System.Web;
 using System.Web.Mvc;
 using EntityFramework.Extensions;
 using PersonalWebsite.Models.Blog;
+using System.Collections;
 
 namespace PersonalWebsite.Controllers
 {
@@ -21,6 +22,10 @@ namespace PersonalWebsite.Controllers
         {
             return View();
         }
+
+
+        //
+        // GET: /Blog/Read/$id
 
         public ActionResult Read(int id = -1)
         {
@@ -224,10 +229,19 @@ namespace PersonalWebsite.Controllers
 
         #region ChildActions
         [ChildActionOnly]
-        public PartialViewResult RecentBlogPosts()
+        public PartialViewResult RecentPosts()
         {
-            var model = new RecentBlogPostsViewModel();
-            model.BlogPosts = BlogPostHelper.GetRecentBlogPosts(5);
+            var model = new RecentPostsViewModel();
+            model.BlogPosts = BlogPostHelper.GetRecentPosts(5);
+            return PartialView(model);
+        }
+
+        [ChildActionOnly]
+        public PartialViewResult PostArchive()
+        {
+            var model = new PostArchiveViewModel();
+            model.BlogPosts = BlogPostHelper.GetAllPosts(loadAssets: false);
+            //model.BlogPosts = model.BlogPosts.OrderByDescending(x => x.DatePosted);
             return PartialView(model);
         }
 

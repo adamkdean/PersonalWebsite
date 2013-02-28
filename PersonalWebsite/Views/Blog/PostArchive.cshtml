@@ -1,0 +1,64 @@
+﻿@model PersonalWebsite.Models.Blog.PostArchiveViewModel
+
+@using PersonalWebsite.Helpers
+
+@if(Model.BlogPosts.Count == 0)
+{
+    <p>No blog posts.</p>
+}
+else
+{
+    int year = 0, month = 0;
+    bool ulOpenYear = false, ulOpenMonth = false;
+    
+    foreach (var post in Model.BlogPosts)
+    {
+        if (year != post.DatePosted.Year)
+        {
+            if (ulOpenMonth) 
+            {
+                @Html.Raw("</ul>")
+                ulOpenMonth = false;
+            }
+            
+            if (ulOpenYear) 
+            {
+                @Html.Raw("</ul>")
+                ulOpenYear = false;
+            }
+
+            year = post.DatePosted.Year;
+            @Html.Raw("<ul class=\"hierarchy\">")
+            @Html.Raw("<li class=\"archivedate\">" + year + "</li>")
+            ulOpenYear = true;
+        }
+
+        if (month != post.DatePosted.Month)
+        {
+            if (ulOpenMonth) 
+            {
+                @Html.Raw("</ul>")
+                ulOpenMonth = false;
+            }
+
+            month = post.DatePosted.Month;
+            @Html.Raw("<ul class=\"hierarchy\">")
+            @Html.Raw("<li class=\"archivedate\">" + month + "</li>")
+            ulOpenMonth = true;
+        }
+        
+        @Html.Raw("<li>")
+        @Html.ActionLink(post.BlogTitle, "Read", new { id = post.BlogPostId })
+        @Html.Raw("</li>")
+    }
+    if (ulOpenMonth)
+    {
+        @Html.Raw("</ul>")
+        ulOpenMonth = false;
+    }
+    if (ulOpenYear)
+    {
+        @Html.Raw("</ul>")
+        ulOpenYear = false;
+    }
+}

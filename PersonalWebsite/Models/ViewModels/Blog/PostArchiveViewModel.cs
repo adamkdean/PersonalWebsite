@@ -2,7 +2,7 @@
 
 namespace PersonalWebsite.Models.Blog
 {
-    public class RecentBlogPostsViewModel
+    public class PostArchiveViewModel
     {
         public List<BlogPost> BlogPosts { get; set; }
     }

@@ -25,7 +25,7 @@ namespace PersonalWebsite.Controllers
         public PartialViewResult RecentPostsList()
         {            
             var model = new RecentPostsListViewModel();
-            model.BlogPosts = BlogPostHelper.GetRecentBlogPosts(5);
+            model.BlogPosts = BlogPostHelper.GetRecentPosts(5);
             return PartialView(model);
         }
 
@@ -33,7 +33,7 @@ namespace PersonalWebsite.Controllers
         public PartialViewResult RecentPostsFull()
         {
             var model = new RecentPostsFullViewModel();
-            model.BlogPosts = BlogPostHelper.GetRecentBlogPosts(5);
+            model.BlogPosts = BlogPostHelper.GetRecentPosts(5);
             return PartialView(model);
         }
         

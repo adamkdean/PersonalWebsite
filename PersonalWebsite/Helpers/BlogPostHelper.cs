@@ -11,7 +11,7 @@ namespace PersonalWebsite.Helpers
 {
     public static class BlogPostHelper
     {
-        public static List<BlogPost> GetRecentBlogPosts(int limit = 5)
+        public static List<BlogPost> GetRecentPosts(int limit = 5)
         {
             var list = new List<BlogPost>();
 
@@ -23,6 +23,31 @@ namespace PersonalWebsite.Helpers
                                          .Include("Comments")
                         orderby t.DatePosted descending
                         select t).Take(limit).ToList();                
+            }
+
+            return list;
+        }
+
+        public static List<BlogPost> GetAllPosts(bool loadAssets = true)
+        {
+            var list = new List<BlogPost>();
+
+            using (var context = new WebsiteContext())
+            {
+                if (loadAssets)
+                {
+                    list = (from t in context.BlogPosts
+                                             .Include("Tags")
+                                             .Include("Comments")
+                            orderby t.DatePosted descending
+                            select t).ToList();
+                }
+                else
+                {
+                    list = (from t in context.BlogPosts
+                            orderby t.DatePosted descending
+                            select t).ToList();
+                }
             }
 
             return list;
