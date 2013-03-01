@@ -1,12 +1,19 @@
 ﻿@model PersonalWebsite.Models.Account.FailedAttemptsViewModel
 
-<ul class="account-failedattempts">
-    @foreach (var item in Model.FailedAttempts)
-    {
-        <li>
-            <strong>Attacker:</strong> @item.IPAddress, 
-            <strong>Date:</strong> @item.DateAttempted, 
-            <strong>Username:</strong> @item.UsernameGiven
-        </li>
-    }
-</ul>
+@if (Model.FailedAttempts.Count > 0)
+{
+    <ul class="account-failedattempts">
+        @foreach (var item in Model.FailedAttempts)
+        {
+            <li>
+                <strong>Attacker:</strong> @item.IPAddress, 
+                <strong>Date:</strong> @item.DateAttempted, 
+                <strong>Username:</strong> @item.UsernameGiven
+            </li>
+        }
+    </ul>
+}
+else
+{
+    <p>No failed attempts.</p>
+}
