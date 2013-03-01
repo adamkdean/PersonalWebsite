@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace PersonalWebsite.Models.Home
+namespace PersonalWebsite.Models.Blog
 {
     public class TagCloudViewModel
     {

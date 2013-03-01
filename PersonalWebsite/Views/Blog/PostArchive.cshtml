@@ -1,64 +1,132 @@
-﻿@model PersonalWebsite.Models.Blog.PostArchiveViewModel
+﻿@using PersonalWebsite.Helpers
+@model PersonalWebsite.Models.Blog.PostArchiveViewModel
 
-@using PersonalWebsite.Helpers
+<script>
+    /* Blog Archive Noggin
+     * Copyright © 2013 Adam K Dean
+     * Use it if you like, but don't say you made it.
+     * That'll make you a bad person.
+     * I might even put this on GitHub when I get a minute.
+     **/
+    $(function () {
+        var contractedIcon = "&#x25BA;";
+        var expandedIcon = "&#x25BC;";        
 
-@if(Model.BlogPosts.Count == 0)
-{
-    <p>No blog posts.</p>
-}
-else
-{
-    int year = 0, month = 0;
-    bool ulOpenYear = false, ulOpenMonth = false;
-    
-    foreach (var post in Model.BlogPosts)
+        $(".li-month").each(function () {            
+            initialToggle(this, ".archivepost");
+        });
+
+        $(".li-year").each(function () {            
+            initialToggle(this, ".ul-month");
+        });
+
+        $(".start-open").each(function () {
+            if ($(this).hasClass("li-month")) toggle(this, ".archivepost");
+            else if ($(this).hasClass("li-year")) toggle(this, ".ul-month");
+        });
+
+        $(".li-month").click(function () {
+            toggle(this, ".archivepost");
+        });
+
+        $(".li-year").click(function () {
+            toggle(this, ".ul-month");
+        });
+
+        function initialToggle(object, children) {
+            $(object).html(contractedIcon + "&nbsp;" + $(object).html());
+            $(object).parent().children(children).toggle();
+        }
+
+        function toggle(object, children) {
+            $(object).parent().children(children).toggle();
+            var val = $(object).html().substring(1);
+            if ($(object).parent().children(children).is(':visible')) $(object).html(expandedIcon + val);
+            else $(object).html(contractedIcon + val);
+        }
+    });
+</script>
+
+<div class="blogarchive">
+    <h5>Blog Archive</h5>
+
+    @if (Model.BlogPosts.Count == 0)
     {
-        if (year != post.DatePosted.Year)
+        <p>No blog posts.</p>
+    }
+    else
+    {
+        int year = 0, month = 0;
+        bool ulOpenYear = false, ulOpenMonth = false;
+        bool firstYear = true, firstMonth = true;
+
+        foreach (var post in Model.BlogPosts)
         {
-            if (ulOpenMonth) 
+            if (year != post.DatePosted.Year)
             {
-                @Html.Raw("</ul>")
-                ulOpenMonth = false;
-            }
-            
-            if (ulOpenYear) 
-            {
-                @Html.Raw("</ul>")
-                ulOpenYear = false;
+                if (ulOpenMonth)
+                {
+                    @Html.Raw("</ul>")
+                    ulOpenMonth = false;
+                }
+
+                if (ulOpenYear)
+                {
+                    @Html.Raw("</ul>")
+                    ulOpenYear = false;
+                }
+
+                ulOpenYear = true;
+                year = post.DatePosted.Year;
+                int count = Model.BlogPosts.Count(x => x.DatePosted.Year == year);            
+                @Html.Raw("<ul class=\"hierarchy ul-year\">")
+                if (firstYear)
+                {                
+                    @Html.Raw("<li class=\"archivedate li-year start-open\">" + year + " (" + count + ")</li>")
+                    firstYear = false;
+                }
+                else
+                {
+                    @Html.Raw("<li class=\"archivedate li-year\">" + year + " (" + count + ")</li>")
+                }
             }
 
-            year = post.DatePosted.Year;
-            @Html.Raw("<ul class=\"hierarchy\">")
-            @Html.Raw("<li class=\"archivedate\">" + year + "</li>")
-            ulOpenYear = true;
-        }
-
-        if (month != post.DatePosted.Month)
-        {
-            if (ulOpenMonth) 
+            if (month != post.DatePosted.Month)
             {
-                @Html.Raw("</ul>")
-                ulOpenMonth = false;
-            }
+                if (ulOpenMonth)
+                {
+                    @Html.Raw("</ul>")
+                    ulOpenMonth = false;
+                }
 
-            month = post.DatePosted.Month;
-            @Html.Raw("<ul class=\"hierarchy\">")
-            @Html.Raw("<li class=\"archivedate\">" + month + "</li>")
-            ulOpenMonth = true;
-        }
+                ulOpenMonth = true;
+                month = post.DatePosted.Month;
+                int count = Model.BlogPosts.Count(x => x.DatePosted.Year == year && x.DatePosted.Month == month);
+                @Html.Raw("<ul class=\"hierarchy ul-month\">")            
+                if (firstMonth)
+                {
+                    @Html.Raw("<li class=\"archivedate li-month start-open\">" + DateHelper.GetMonthName(month) + " (" + count + ")</li>")
+                    firstMonth = false;
+                }
+                else
+                {
+                    @Html.Raw("<li class=\"archivedate li-month\">" + DateHelper.GetMonthName(month) + " (" + count + ")</li>")
+                }
+            }
         
-        @Html.Raw("<li>")
-        @Html.ActionLink(post.BlogTitle, "Read", new { id = post.BlogPostId })
-        @Html.Raw("</li>")
+            @Html.Raw("<li class=\"archivepost\">&nbsp;&#xBB;&nbsp;")
+            @Html.ActionLink(post.BlogTitle, "Read", new { id = post.BlogPostId })
+            @Html.Raw("</li>")
+        }
+        if (ulOpenMonth)
+        {
+            @Html.Raw("</ul>")
+            ulOpenMonth = false;
+        }
+        if (ulOpenYear)
+        {
+            @Html.Raw("</ul>")
+            ulOpenYear = false;
+        }
     }
-    if (ulOpenMonth)
-    {
-        @Html.Raw("</ul>")
-        ulOpenMonth = false;
-    }
-    if (ulOpenYear)
-    {
-        @Html.Raw("</ul>")
-        ulOpenYear = false;
-    }
-}
+</div>

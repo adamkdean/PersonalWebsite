@@ -36,14 +36,6 @@ namespace PersonalWebsite.Controllers
             model.BlogPosts = BlogPostHelper.GetRecentPosts(5);
             return PartialView(model);
         }
-        
-        [ChildActionOnly]
-        public PartialViewResult TagCloud()
-        {
-            var model = new TagCloudViewModel();
-            model.Tags = TagHelper.GetRandomTags(10);
-            return PartialView(model);
-        }
         #endregion
     }
 }

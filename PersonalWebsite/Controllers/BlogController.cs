@@ -237,6 +237,12 @@ namespace PersonalWebsite.Controllers
         }
 
         [ChildActionOnly]
+        public PartialViewResult Sidebar()
+        {
+            return PartialView();
+        }
+
+        [ChildActionOnly]
         public PartialViewResult PostArchive()
         {
             var model = new PostArchiveViewModel();
@@ -246,10 +252,12 @@ namespace PersonalWebsite.Controllers
         }
 
         [ChildActionOnly]
-        public PartialViewResult Sidebar()
+        public PartialViewResult TagCloud()
         {
-            return PartialView();
-        }
+            var model = new TagCloudViewModel();
+            model.Tags = TagHelper.GetRandomTags(10);
+            return PartialView(model);
+        }        
         #endregion
     }
 }

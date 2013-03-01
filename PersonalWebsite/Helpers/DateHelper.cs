@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Globalization;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Web;
@@ -12,6 +13,12 @@ namespace PersonalWebsite.Helpers
         public static string GetReadableDate(DateTime date)
         {
             return string.Format("{0:dddd, d MMMM yyyy}", date);
+        }
+
+        public static string GetMonthName(int month)
+        {
+            DateTimeFormatInfo dtfi = new DateTimeFormatInfo();
+            return dtfi.GetMonthName(month);
         }
 
         public static string GetReadableTimeSince(DateTime originalTime)

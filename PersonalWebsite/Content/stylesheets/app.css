@@ -66,9 +66,36 @@ a.label.secondary:hover { background-color: #b6b6b6; color: #2e2e2e; }
 .account-update-password-button { width: 50%; float: right; clear: right; margin-bottom: 5px; }
 
 /************************************
+ * HOME
+ ***********************************/
+
+.bloglist h5 { margin: 5px 0; }
+.bloglist ul { list-style: none; }
+.bloglist ul li { padding: 0.4em 0; }
+
+.bloglist ul li .post-link { margin: 0; padding: 0; line-height: 1.2em; }
+.bloglist ul li .post-date { margin: 0; padding: 0; font-size: 80%; }
+
+/************************************
  * BLOG
  ***********************************/
 
+/*---- TAG CLOUD ---------------------- */
+.tagcloud { margin-bottom: 20px; }
+.tagcloud h5 { margin: 10px 0; }
+.tagcloud p { overflow: hidden; }
+.tagcloud .big { font-size: 110%; }
+.tagcloud .bigger { font-size: 120%; }
+
+/*---- BLOG ARCHIVE ------------------- */
+.blogarchive { margin-bottom: 20px; }
+.blogarchive h5 { margin: 5px 0; }
+.blogarchive .hierarchy { list-style: none; margin: 0; color: #555; }
+.blogarchive .hierarchy ul { padding-left: 20px; padding: 5px 0 5px 15px; }
+.blogarchive .hierarchy .archivedate { cursor: pointer; }
+.blogarchive .hierarchy .archivepost { line-height: 1.2em; padding: 8px 0 0 16px; text-indent: -16px; }
+
+/*---- MANAGEMENT --------------------- */
 .blog-manage-top h4 { line-height: 32px; padding: 2px 0; margin: 0; }
 .blog-manage-top .postfix { line-height: 12px; }
 
@@ -114,19 +141,3 @@ a.label.secondary:hover { background-color: #b6b6b6; color: #2e2e2e; }
 /*---- VIEW --------------------------- */
 
 .post-tag-text { color: #aaa; font-size: 90%; }
-
-/************************************
- * HOME
- ***********************************/
-
-.bloglist h5 { margin: 5px 0; }
-.bloglist ul { list-style: none; }
-.bloglist ul li { padding: 0.4em 0; }
-
-.bloglist ul li .post-link { margin: 0; padding: 0; line-height: 1.2em; }
-.bloglist ul li .post-date { margin: 0; padding: 0; font-size: 80%; }
-
-.tagcloud h5 { margin: 10px 0; }
-.tagcloud p { overflow: hidden; }
-.tagcloud .big { font-size: 110%; }
-.tagcloud .bigger { font-size: 120%; }
