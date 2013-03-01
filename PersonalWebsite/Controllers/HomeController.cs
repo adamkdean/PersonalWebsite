@@ -28,14 +28,6 @@ namespace PersonalWebsite.Controllers
             model.BlogPosts = BlogPostHelper.GetRecentPosts(5);
             return PartialView(model);
         }
-
-        [ChildActionOnly]
-        public PartialViewResult RecentPostsFull()
-        {
-            var model = new RecentPostsFullViewModel();
-            model.BlogPosts = BlogPostHelper.GetRecentPosts(5);
-            return PartialView(model);
-        }
         #endregion
     }
 }
