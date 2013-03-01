@@ -23,7 +23,6 @@ namespace PersonalWebsite.Controllers
             return View();
         }
 
-
         //
         // GET: /Blog/Read/$id
 
@@ -110,7 +109,7 @@ namespace PersonalWebsite.Controllers
 
                     var post = context.BlogPosts.Create();
                     post.BlogTitle = WebHelper.StripTags(model.BlogTitle);
-                    post.BlogContent = WebHelper.StripTags(model.BlogContent);
+                    post.BlogContent = model.BlogContent; // WebHelper.StripTags(); we should trust ourselves.
                     post.DatePosted = DateTime.Now;
                     post.Tags.AddRange(taglist);                    
                     context.BlogPosts.Add(post);
@@ -190,7 +189,7 @@ namespace PersonalWebsite.Controllers
 
                     var post = context.BlogPosts.First(x => x.BlogPostId == model.BlogPostId);
                     post.BlogTitle = WebHelper.StripTags(model.BlogTitle);
-                    post.BlogContent = WebHelper.StripTags(model.BlogContent);
+                    post.BlogContent = model.BlogContent; // WebHelper.StripTags() removed. Trust your admins.
                     post.DateModified = DateTime.Now;
                     post.Tags.Clear();
                     post.Tags.AddRange(taglist);                    
@@ -255,7 +254,7 @@ namespace PersonalWebsite.Controllers
         public PartialViewResult TagCloud()
         {
             var model = new TagCloudViewModel();
-            model.Tags = TagHelper.GetRandomTags(10);
+            model.Tags = TagHelper.GetTagsByMostPopular();
             return PartialView(model);
         }        
         #endregion

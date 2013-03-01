@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Web;
@@ -71,17 +72,35 @@ namespace PersonalWebsite.Helpers
             return list;
         }
 
-        public static List<Tag> GetRandomTags(int limit)
+        public static List<Tag> GetRandomTags(int limit = 0)
         {
             var tags = new List<Tag>();
 
             using (var context = new WebsiteContext())
             {
-                tags = context.Tags
-                             .Include("BlogPosts")
-                             .OrderBy(x => Guid.NewGuid())
-                             .Take(limit)
-                             .ToList();
+                var query = (from t in context.Tags select t).Include("BlogPosts");
+
+                if (limit == 0) tags = query.ToList();
+                else tags = query.Take(limit).ToList();
+
+                tags.Shuffle(); // not to be confused with the Harlem Shake
+            }
+
+            return tags;
+        }
+
+        public static List<Tag> GetTagsByMostPopular(int limit = 0)
+        {
+            var tags = new List<Tag>();
+
+            using (var context = new WebsiteContext())
+            {
+                var query = (from t in context.Tags 
+                             orderby t.BlogPosts.Count descending
+                             select t).Include("BlogPosts");
+
+                if (limit == 0) tags = query.ToList();
+                else tags = query.Take(limit).ToList();
             }
 
             return tags;

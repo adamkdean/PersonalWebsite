@@ -46,6 +46,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\EntityFramework.Extended.5.0.0.68\lib\net45\EntityFramework.Extended.dll</HintPath>
     </Reference>
+    <Reference Include="MarkdownSharp">
+      <HintPath>..\packages\MarkdownSharp.1.13.0.0\lib\35\MarkdownSharp.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -137,6 +140,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helpers\BlogPostHelper.cs" />
+    <Compile Include="Helpers\ListExtensions.cs" />
     <Compile Include="Helpers\HtmlExtensions.cs" />
     <Compile Include="Helpers\DateHelper.cs" />
     <Compile Include="Helpers\WebHelper.cs" />
@@ -177,14 +181,45 @@
     <Content Include="Content\images\foundation\orbit\timer-black.png" />
     <Content Include="Content\images\views.png" />
     <Content Include="Content\images\portrait.jpg" />
-    <Content Include="Content\javascripts\app.js" />
+    <Content Include="Content\javascripts\auto-prettify.js" />
+    <Content Include="Content\javascripts\foundation-app.js" />
     <Content Include="Content\javascripts\foundation.min.js" />
     <Content Include="Content\javascripts\modernizr.foundation.js" />
+    <Content Include="Content\javascripts\prettify\lang-apollo.js" />
+    <Content Include="Content\javascripts\prettify\lang-basic.js" />
+    <Content Include="Content\javascripts\prettify\lang-clj.js" />
+    <Content Include="Content\javascripts\prettify\lang-css.js" />
+    <Content Include="Content\javascripts\prettify\lang-dart.js" />
+    <Content Include="Content\javascripts\prettify\lang-erlang.js" />
+    <Content Include="Content\javascripts\prettify\lang-go.js" />
+    <Content Include="Content\javascripts\prettify\lang-hs.js" />
+    <Content Include="Content\javascripts\prettify\lang-lisp.js" />
+    <Content Include="Content\javascripts\prettify\lang-llvm.js" />
+    <Content Include="Content\javascripts\prettify\lang-lua.js" />
+    <Content Include="Content\javascripts\prettify\lang-ml.js" />
+    <Content Include="Content\javascripts\prettify\lang-mumps.js" />
+    <Content Include="Content\javascripts\prettify\lang-n.js" />
+    <Content Include="Content\javascripts\prettify\lang-pascal.js" />
+    <Content Include="Content\javascripts\prettify\lang-proto.js" />
+    <Content Include="Content\javascripts\prettify\lang-r.js" />
+    <Content Include="Content\javascripts\prettify\lang-rd.js" />
+    <Content Include="Content\javascripts\prettify\lang-scala.js" />
+    <Content Include="Content\javascripts\prettify\lang-sql.js" />
+    <Content Include="Content\javascripts\prettify\lang-tcl.js" />
+    <Content Include="Content\javascripts\prettify\lang-tex.js" />
+    <Content Include="Content\javascripts\prettify\lang-vb.js" />
+    <Content Include="Content\javascripts\prettify\lang-vhdl.js" />
+    <Content Include="Content\javascripts\prettify\lang-wiki.js" />
+    <Content Include="Content\javascripts\prettify\lang-xq.js" />
+    <Content Include="Content\javascripts\prettify\lang-yaml.js" />
+    <Content Include="Content\javascripts\prettify\prettify.js" />
+    <Content Include="Content\javascripts\prettify\run_prettify.js" />
     <Content Include="Content\javascripts\tag-it.js" />
     <Content Include="Content\javascripts\tag-it.min.js" />
     <Content Include="Content\stylesheets\app.css" />
     <Content Include="Content\stylesheets\foundation.css" />
     <Content Include="Content\stylesheets\jquery.tagit.css" />
+    <Content Include="Content\stylesheets\prettify.css" />
     <Content Include="Content\stylesheets\tagit.ui-zendesk.css" />
     <Content Include="Global.asax" />
     <Content Include="connections.config">

@@ -12,8 +12,8 @@
             <h3>@Html.ActionLink(Model.BlogPost.BlogTitle, "View", new { id = Model.BlogPost.BlogPostId })</h3>
             <h6>Posted @PersonalWebsite.Helpers.DateHelper.GetReadableDate(Model.BlogPost.DatePosted).</h6>
             
-            @Html.Nl2P(Model.BlogPost.BlogContent)
-
+            @Html.Markdown(Model.BlogPost.BlogContent)
+            
             <p class="post-tag-text">
                 Tags: 
                 @foreach (var tag in Model.BlogPost.Tags)

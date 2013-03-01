@@ -1,0 +1,33 @@
+.pln { color: #000 }
+
+@media screen { 
+	.str { color: #800000; }
+	.kwd { color: #00008b; }
+	.com { color: gray; }
+	.typ { color: #2b91af; }
+	.lit { color: #800000; }
+    .pun, .opn, .clo { color: #000000; }	
+	.tag { color: #800000; }
+	.atn { color: #ff0000; }
+	.atv { color: #0000ff; }
+	.dec, .var { color: #800080; }
+	.fun { color: red; }
+}
+
+@media print, projection { 
+	.str { color: #060 }
+	.kwd { color: #006; font-weight: bold }
+	.com { color: #600; font-style: italic }
+	.typ { color: #404; font-weight: bold }
+	.lit { color: #044 }
+	.pun, .opn, .clo { color: #000 }
+	.tag { color: #006; font-weight: bold }
+	.atn { color: #404 }
+	.atv { color: #060 }
+}
+
+pre.prettyprint { padding: 5px; border: 0; }
+
+ol.linenums { margin-top: 0; margin-bottom: 0 }
+li.L0, li.L1, li.L2, li.L3, li.L5, li.L6, li.L7, li.L8 { list-style-type: none }
+li.L1, li.L3, li.L5, li.L7, li.L9 { background: #eee }

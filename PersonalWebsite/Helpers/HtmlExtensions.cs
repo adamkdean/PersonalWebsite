@@ -2,11 +2,19 @@
 using System.Text;
 using System.Web;
 using System.Web.Mvc;
+using MarkdownSharp;
 
 namespace PersonalWebsite.Helpers
 {
     public static class HtmlExtensions
     {
+        public static MvcHtmlString Markdown(this HtmlHelper htmlHelper, string text)
+        {
+            Markdown markdown = new Markdown();
+            string html = markdown.Transform(text);            
+            return MvcHtmlString.Create(html);
+        }
+
         public static MvcHtmlString Nl2P(this HtmlHelper htmlHelper, string text)
         {
             if (string.IsNullOrEmpty(text))
