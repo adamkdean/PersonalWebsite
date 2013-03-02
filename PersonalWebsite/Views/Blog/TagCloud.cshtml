@@ -1,7 +1,9 @@
 ﻿@model PersonalWebsite.Models.Blog.TagCloudViewModel
 
 <div class="tagcloud">
-    <h5>Tag Cloud</h5>                
+    <h5>Tag Cloud</h5>
+    @if (Model.Tags.Count > 0)
+    {
     <p>
         @foreach(var tag in Model.Tags)
         {
@@ -12,16 +14,25 @@
             {
                 modifer += "big";
             }
-            else if (count >= 10)
+            else if (count >= 10 && count < 25)
             {
                 modifer += "bigger";
-            }     
+            }
+            else if (count >= 25)
+            {
+                modifer += "biggest";
+            }
             
-            @Html.ActionLink(tag.TagName, "View", "Tag", 
-                routeValues: new { id = tag.TagId }, 
+            @Html.ActionLink(tag.TagName, "Tagged", "Blog", 
+                routeValues: new { id = tag.TagId, slug = tag.Slug }, 
                 htmlAttributes: new { @class = "label secondary " + modifer })
 
             @Html.Raw("\n")
         }
     </p>
+    }
+    else
+    {
+        <p>No tags.</p>
+    }
 </div>

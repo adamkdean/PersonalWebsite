@@ -1,6 +1,5 @@
-﻿@model PersonalWebsite.Models.Blog.ReadViewModel
-
-@using PersonalWebsite.Helpers
+﻿@using PersonalWebsite.Extensions
+@model PersonalWebsite.Models.Blog.ReadViewModel
 
 @{
     ViewBag.Title = "View";
@@ -9,17 +8,17 @@
 <div class="row">
     <div class="nine columns">
         <article>
-            <h3>@Html.ActionLink(Model.BlogPost.BlogTitle, "View", new { id = Model.BlogPost.BlogPostId })</h3>
+            <h3>@Html.ActionLink(Model.BlogPost.BlogTitle, "Read", new { id = Model.BlogPost.BlogPostId, slug = Model.BlogPost.Slug })</h3>
             <h6>Posted @PersonalWebsite.Helpers.DateHelper.GetReadableDate(Model.BlogPost.DatePosted).</h6>
             
             @Html.Markdown(Model.BlogPost.BlogContent)
             
             <p class="post-tag-text">
                 Tags: 
-                @foreach (var tag in Model.BlogPost.Tags)
+                @foreach (var tag in Model.BlogPost.Tags.OrderBy(x => x.TagName))
                 {
-                    @Html.ActionLink(tag.TagName, "View", "Tag", 
-                        routeValues: new { id = tag.TagId }, 
+                    @Html.ActionLink(tag.TagName, "Tagged", "Blog", 
+                        routeValues: new { id = tag.TagId, slug = tag.TagName }, 
                         htmlAttributes: new { @class = "label label-spacing radius" })
                 }
             </p>

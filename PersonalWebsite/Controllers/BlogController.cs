@@ -1,15 +1,16 @@
-﻿using EasyAuth;
-using PersonalWebsite.Helpers;
-using PersonalWebsite.Models;
-using System;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using EasyAuth;
 using EntityFramework.Extensions;
+using PersonalWebsite.Helpers;
+using PersonalWebsite.Models;
 using PersonalWebsite.Models.Blog;
-using System.Collections;
+using PersonalWebsite.Extensions;
 
 namespace PersonalWebsite.Controllers
 {
@@ -26,7 +27,7 @@ namespace PersonalWebsite.Controllers
         //
         // GET: /Blog/Read/$id
 
-        public ActionResult Read(int id = -1)
+        public ActionResult Read(int id = -1, string slug = "")
         {
             var model = new ReadViewModel();
 
@@ -42,8 +43,32 @@ namespace PersonalWebsite.Controllers
                              where t.BlogPostId == id
                              select t);
 
-                if (posts.Count() > 0) model.BlogPost = posts.First();                
-                else return RedirectToAction("Manage", "Blog");
+                model.BlogPost = posts.First();
+            }
+
+            return View(model);
+        }
+
+        //
+        // GET: /Blog/Tagged/$id
+
+        public ActionResult Tagged(int id = -1, string slug = "")
+        {
+            var model = new TaggedViewModel();
+
+            using (var context = new WebsiteContext())
+            {
+                if (!context.Tags.Any(x => x.TagId == id))
+                    RedirectToAction("Index", "Blog");
+
+                // eagerly load the blogposts/comments/tags? etc as the context will be disposed
+                var query = (from t in context.Tags
+                                              .Include("BlogPosts.Tags")
+                                              .Include("BlogPosts.Comments")
+                             where t.TagId == id
+                             select t);
+                var tag = (Tag)query.First();
+                model.BlogPosts = tag.BlogPosts;
             }
 
             return View(model);
@@ -93,6 +118,7 @@ namespace PersonalWebsite.Controllers
                 var tagcsv = "";
                 if (!string.IsNullOrEmpty(formCollection["tags"]))
                     tagcsv = formCollection["tags"];
+                tagcsv = tagcsv.ToLowerInvariant(); // keep your case down bro
                 var tags = TagHelper.GetTagArray(tagcsv);
                 
                 using (var context = new WebsiteContext())
@@ -110,8 +136,9 @@ namespace PersonalWebsite.Controllers
                     var post = context.BlogPosts.Create();
                     post.BlogTitle = WebHelper.StripTags(model.BlogTitle);
                     post.BlogContent = model.BlogContent; // WebHelper.StripTags(); we should trust ourselves.
+                    post.Slug = post.BlogTitle.Slugify();
                     post.DatePosted = DateTime.Now;
-                    post.Tags.AddRange(taglist);                    
+                    post.Tags.AddRange(taglist);
                     context.BlogPosts.Add(post);
                     context.SaveChanges();
                 }
@@ -148,7 +175,7 @@ namespace PersonalWebsite.Controllers
 
                     model.BlogPostId = post.BlogPostId;
                     model.BlogTitle = post.BlogTitle;
-                    model.BlogContent = post.BlogContent;
+                    model.BlogContent = post.BlogContent;                    
                     ViewBag.Tags = TagHelper.GetTagArray(post.Tags);
                 }
                 else return RedirectToAction("Manage", "Blog");
@@ -168,6 +195,7 @@ namespace PersonalWebsite.Controllers
             var tagcsv = "";
             if (!string.IsNullOrEmpty(formCollection["tags"]))
                 tagcsv = formCollection["tags"];
+            tagcsv = tagcsv.ToLowerInvariant(); // keep your case down bro
             var tags = TagHelper.GetTagArray(tagcsv);
 
             if (ModelState.IsValid)
@@ -190,6 +218,7 @@ namespace PersonalWebsite.Controllers
                     var post = context.BlogPosts.First(x => x.BlogPostId == model.BlogPostId);
                     post.BlogTitle = WebHelper.StripTags(model.BlogTitle);
                     post.BlogContent = model.BlogContent; // WebHelper.StripTags() removed. Trust your admins.
+                    post.Slug = post.BlogTitle.Slugify();
                     post.DateModified = DateTime.Now;
                     post.Tags.Clear();
                     post.Tags.AddRange(taglist);                    

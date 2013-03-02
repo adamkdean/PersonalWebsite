@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace PersonalWebsite.Helpers
+namespace PersonalWebsite.Extensions
 {
     public static class ListExtensions
     {

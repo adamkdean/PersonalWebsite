@@ -80,7 +80,6 @@ p { margin: 0 0 14px 0; }
 .bloglist h5 { margin: 5px 0; }
 .bloglist ul { list-style: none; }
 .bloglist ul li { padding: 0.4em 0; }
-
 .bloglist ul li .post-link { margin: 0; padding: 0; line-height: 1.2em; }
 .bloglist ul li .post-date { margin: 0; padding: 0; font-size: 80%; }
 
@@ -94,6 +93,7 @@ p { margin: 0 0 14px 0; }
 .tagcloud p { overflow: hidden; }
 .tagcloud .big { font-size: 110%; }
 .tagcloud .bigger { font-size: 120%; }
+.tagcloud .biggest { font-size: 130%; }
 
 /*---- BLOG ARCHIVE ------------------- */
 .blogarchive { margin-bottom: 20px; }

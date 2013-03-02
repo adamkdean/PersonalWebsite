@@ -12,6 +12,8 @@ namespace PersonalWebsite.Models
         public string BlogTitle { get; set; }
         public string BlogContent { get; set; }
 
+        public string Slug { get; set; }
+
         public DateTime DatePosted { get; set; }
         public DateTime? DateModified { get; set; }
 

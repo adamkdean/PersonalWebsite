@@ -1,11 +1,9 @@
-﻿using PersonalWebsite.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Data.Entity;
 using System.Linq;
-using System.Text;
-using System.Web;
+using PersonalWebsite.Models;
+using PersonalWebsite.Extensions;
 
 namespace PersonalWebsite.Helpers
 {
@@ -20,6 +18,7 @@ namespace PersonalWebsite.Helpers
                 {
                     var newtag = context.Tags.Create();
                     newtag.TagName = tag;
+                    newtag.Slug = tag.Slugify();                    
                     context.Tags.Add(newtag);
                     context.SaveChanges();                    
                 }
@@ -78,12 +77,16 @@ namespace PersonalWebsite.Helpers
 
             using (var context = new WebsiteContext())
             {
-                var query = (from t in context.Tags select t).Include("BlogPosts");
+                var query = (from t in context.Tags 
+                             where t.BlogPosts.Count() > 0
+                             select t).Include("BlogPosts");
 
                 if (limit == 0) tags = query.ToList();
                 else tags = query.Take(limit).ToList();
 
-                tags.Shuffle(); // not to be confused with the Harlem Shake
+                // // not to be confused with the Harlem Shake 
+                // (https://www.youtube.com/watch?v=4hpEnLtqUDg)
+                tags.Shuffle(); 
             }
 
             return tags;
@@ -95,7 +98,8 @@ namespace PersonalWebsite.Helpers
 
             using (var context = new WebsiteContext())
             {
-                var query = (from t in context.Tags 
+                var query = (from t in context.Tags
+                             where t.BlogPosts.Count() > 0
                              orderby t.BlogPosts.Count descending
                              select t).Include("BlogPosts");
 

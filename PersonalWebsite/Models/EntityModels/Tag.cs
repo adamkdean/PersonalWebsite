@@ -11,6 +11,8 @@ namespace PersonalWebsite.Models
         public int TagId { get; set; }
         public string TagName { get; set; }
 
+        public string Slug { get; set; }
+
         public virtual List<BlogPost> BlogPosts { get; set; }
 
         public Tag()

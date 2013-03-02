@@ -4,7 +4,7 @@ using System.Web;
 using System.Web.Mvc;
 using MarkdownSharp;
 
-namespace PersonalWebsite.Helpers
+namespace PersonalWebsite.Extensions
 {
     public static class HtmlExtensions
     {

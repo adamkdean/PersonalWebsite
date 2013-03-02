@@ -46,10 +46,17 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\EntityFramework.Extended.5.0.0.68\lib\net45\EntityFramework.Extended.dll</HintPath>
     </Reference>
+    <Reference Include="LowercaseRoutesMVC4">
+      <HintPath>..\packages\LowercaseRoutesMVC4.0.4.1\lib\LowercaseRoutesMVC4.dll</HintPath>
+    </Reference>
     <Reference Include="MarkdownSharp">
       <HintPath>..\packages\MarkdownSharp.1.13.0.0\lib\35\MarkdownSharp.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.4.5.11\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.Entity" />
@@ -75,9 +82,6 @@
     <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
-    </Reference>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\packages\Newtonsoft.Json.4.5.6\lib\net40\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System.Net.Http">
     </Reference>
@@ -136,12 +140,13 @@
     <Compile Include="Controllers\BlogController.cs" />
     <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helpers\BlogPostHelper.cs" />
-    <Compile Include="Helpers\ListExtensions.cs" />
-    <Compile Include="Helpers\HtmlExtensions.cs" />
+    <Compile Include="Extensions\ListExtensions.cs" />
+    <Compile Include="Extensions\HtmlExtensions.cs" />
     <Compile Include="Helpers\DateHelper.cs" />
     <Compile Include="Helpers\WebHelper.cs" />
     <Compile Include="Models\EntityModels\BlogPost.cs" />
@@ -150,6 +155,7 @@
     <Compile Include="Models\EntityModels\Tag.cs" />
     <Compile Include="Models\EntityModels\WebsiteContext.cs" />
     <Compile Include="Helpers\TagHelper.cs" />
+    <Compile Include="Models\ViewModels\Blog\TaggedViewModel.cs" />
     <Compile Include="Models\ViewModels\Blog\PostArchiveViewModel.cs" />
     <Compile Include="Models\ViewModels\Blog\ReadViewModel.cs" />
     <Compile Include="Models\ViewModels\Blog\RecentPostsViewModel.cs" />
@@ -258,6 +264,7 @@
     <Content Include="Views\Blog\Read.cshtml" />
     <Content Include="Views\Blog\Sidebar.cshtml" />
     <Content Include="Views\Blog\PostArchive.cshtml" />
+    <Content Include="Views\Blog\Tagged.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,4 +1,4 @@
-﻿@using PersonalWebsite.Helpers
+﻿@using PersonalWebsite.Extensions
 @model PersonalWebsite.Models.Blog.RecentPostsViewModel
 
 @if(Model.BlogPosts.Count == 0)
@@ -11,17 +11,17 @@ else
     foreach(var post in Model.BlogPosts)
     {        
         <article>
-            <h3>@Html.ActionLink(post.BlogTitle, "Read", new { id = post.BlogPostId })</h3>
+            <h3>@Html.ActionLink(post.BlogTitle, "Read", new { id = post.BlogPostId, slug = post.Slug })</h3>
             <h6>Posted @PersonalWebsite.Helpers.DateHelper.GetReadableDate(post.DatePosted).</h6>
             
             @Html.Markdown(post.BlogContent)
 
             <p class="post-tag-text">
                 Tags: 
-                @foreach(var tag in post.Tags)
+                @foreach (var tag in post.Tags.OrderBy(x => x.TagName))
                 {
-                    @Html.ActionLink(tag.TagName, "View", "Tag", 
-                        routeValues: new { id = tag.TagId }, 
+                    @Html.ActionLink(tag.TagName, "Tagged", "Blog", 
+                        routeValues: new { id = tag.TagId, slug = tag.Slug }, 
                         htmlAttributes: new { @class = "label label-spacing radius" })
                 }
             </p>
