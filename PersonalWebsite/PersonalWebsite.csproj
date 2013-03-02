@@ -57,6 +57,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Newtonsoft.Json.4.5.11\lib\net40\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="StacMan">
+      <HintPath>..\packages\StacMan.1.0.0.0\lib\net45\StacMan.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.Entity" />
@@ -174,6 +177,7 @@
     <Content Include="Content\images\checkbox_checked.png" />
     <Content Include="Content\images\checkbox_hover.png" />
     <Content Include="Content\images\comments.png" />
+    <Content Include="Content\images\email.png" />
     <Content Include="Content\images\favicon.ico" />
     <Content Include="Content\images\foundation\orbit\bullets.jpg" />
     <Content Include="Content\images\foundation\orbit\left-arrow-small.png" />
@@ -186,7 +190,7 @@
     <Content Include="Content\images\foundation\orbit\rotator-black.png" />
     <Content Include="Content\images\foundation\orbit\timer-black.png" />
     <Content Include="Content\images\views.png" />
-    <Content Include="Content\images\portrait.jpg" />
+    <Content Include="Content\images\portrait2.jpg" />
     <Content Include="Content\javascripts\auto-prettify.js" />
     <Content Include="Content\javascripts\foundation-app.js" />
     <Content Include="Content\javascripts\foundation.min.js" />
@@ -222,6 +226,7 @@
     <Content Include="Content\javascripts\prettify\run_prettify.js" />
     <Content Include="Content\javascripts\tag-it.js" />
     <Content Include="Content\javascripts\tag-it.min.js" />
+    <Content Include="Content\images\portrait.jpg" />
     <Content Include="Content\stylesheets\app.css" />
     <Content Include="Content\stylesheets\foundation.css" />
     <Content Include="Content\stylesheets\jquery.tagit.css" />
@@ -265,6 +270,7 @@
     <Content Include="Views\Blog\Sidebar.cshtml" />
     <Content Include="Views\Blog\PostArchive.cshtml" />
     <Content Include="Views\Blog\Tagged.cshtml" />
+    <Content Include="Views\Contact\TwitterFeed.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

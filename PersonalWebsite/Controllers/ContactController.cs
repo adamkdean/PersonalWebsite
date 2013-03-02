@@ -16,5 +16,13 @@ namespace PersonalWebsite.Controllers
             return View();
         }
 
+        #region ChildActions
+        [ChildActionOnly]
+        public PartialViewResult TwitterFeed()
+        {
+            return PartialView();
+        }
+        #endregion
+
     }
 }

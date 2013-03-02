@@ -84,6 +84,38 @@ p { margin: 0 0 14px 0; }
 .bloglist ul li .post-date { margin: 0; padding: 0; font-size: 80%; }
 
 /************************************
+ * PROFILE
+ ***********************************/
+
+.profile .portrait { text-align: center; } 
+.profile .portrait img { padding: 3px; border: 1px solid #ccc; }
+
+.profile p.skills { text-align: center; font-size: 90%; font-weight: bold; margin: 15px 0 2px 0; }
+.profile .progress { margin: 5px 0; }
+.profile .progress .meter { color: white; line-height: 20px; padding-left: 4px; font-size: 12px; font-weight: bold; }
+.profile .progress.secondary .meter { color: white; background: #aaa; }
+.profile .progress .meter.width10 { width: 10%; }
+.profile .progress .meter.width10.outside { color: #2ba6cb; text-indent: 10%; }
+.profile .progress .meter.width20 { width: 20%; }
+.profile .progress .meter.width20.outside { color: #2ba6cb; text-indent: 20%; }
+.profile .progress .meter.width30 { width: 30%; }
+.profile .progress .meter.width30.outside { color: #2ba6cb; text-indent: 30%; }
+.profile .progress .meter.width40 { width: 40%; }
+.profile .progress .meter.width40.outside { color: #2ba6cb; text-indent: 40%; }
+.profile .progress .meter.width50 { width: 50%; }
+.profile .progress .meter.width60 { width: 60%; }
+.profile .progress .meter.width70 { width: 70%; }
+.profile .progress .meter.width80 { width: 80%; }
+.profile .progress .meter.width90 { width: 90%; }
+.profile .progress .meter.width100 { width: 100%; }
+
+.profile .aboutme { padding: 4px 8px; background: #eee; }
+.profile .aboutme p { font-size: 90%; margin: 5px 0; }
+
+.profile .trait { display: block; width: 100%; padding: 4px; margin: 5px 0; }
+.profile .trait.has-tip { color: white; border: none;  }
+
+/************************************
  * BLOG
  ***********************************/
 
