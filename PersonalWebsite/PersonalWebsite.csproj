@@ -279,7 +279,6 @@
     <Content Include="Views\Blog\Edit.cshtml" />
     <Content Include="Views\Account\UpdatePassword.cshtml" />
     <Content Include="Views\Profile\Index.cshtml" />
-    <Content Include="Views\Profile\Manage.cshtml" />
     <Content Include="Views\Home\RecentPostsList.cshtml" />
     <Content Include="Views\Blog\TagCloud.cshtml" />
     <Content Include="Views\Blog\RecentPosts.cshtml" />
