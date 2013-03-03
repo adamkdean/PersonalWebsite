@@ -1,0 +1,31 @@
+﻿@model PersonalWebsite.Models.Profile.GitHubViewModel
+
+<h4>GitHub</h4>
+<p><strong>Followers:</strong> @string.Format("{0:n0}", Model.User.Followers)</p>
+<p><strong>Following:</strong> @string.Format("{0:n0}", Model.User.Following)</p>
+<p><strong>Public Repos:</strong> @string.Format("{0:n0}", Model.User.Public_Repos)</p>
+
+<h5>Repositories</h5>
+@foreach (var repo in Model.Repositories)
+{    
+    <div class="repo">
+        <div class="icon">
+        @if (repo.Fork) 
+        {
+            <img src="/Content/images/fork.png">
+        }
+        else
+        {
+            <img src="/Content/images/source.png">
+        }
+        </div>
+        <div class="name">    
+            <a href="@repo.Html_Url" target="_blank">@Html.Raw(repo.Name)</a><br>
+            <span class="description">@Html.Raw(repo.Description)</span>
+        </div>
+        <div class="star">    
+            @repo.Watchers <img src="/Content/images/star.png">
+        </div>
+        <div class="clear"></div>
+    </div>    
+}

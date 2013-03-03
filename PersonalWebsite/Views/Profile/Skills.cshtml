@@ -1,0 +1,15 @@
+﻿@model PersonalWebsite.Models.Profile.SkillsViewModel
+
+<p class="skills">Primary Skills</p>
+@foreach (var skill in Model.PrimarySkills)
+{
+    var width = "width" + skill.Value;
+    <div class="progress small twelve"><span class="meter @width">@skill.Title</span></div>
+}
+
+<p class="skills">Secondary Skills</p>
+@foreach (var skill in Model.SecondarySkills)
+{
+    var width = "width" + skill.Value;
+    <div class="progress secondary small twelve"><span class="meter @width">@skill.Title</span></div>            
+}

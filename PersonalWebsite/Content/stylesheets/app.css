@@ -115,6 +115,23 @@ p { margin: 0 0 14px 0; }
 .profile .trait { display: block; width: 100%; padding: 4px; margin: 5px 0; }
 .profile .trait.has-tip { color: white; border: none;  }
 
+.profile .github p { margin: 0 0 2px 0; }
+.profile .github h5 { margin: 20px 0 5px 0; }
+.profile .github .repo { padding: 8px 0; }
+.profile .github .repo .icon { float: left; width: 8%; text-align: left; padding-top: 3px; }
+.profile .github .repo .name { float: left; width: 72%; }
+.profile .github .repo .name .description { color: #333; font-size: 90%; display: inline-block; padding: 3px 0; line-height: 1.2em; }
+.profile .github .repo .star { float: left; width: 20%; text-align: right; }
+.profile .github .clear { clear: both; }
+
+.profile .stackoverflow p { margin: 0 0 2px 0; }
+.profile .stackoverflow h5 { margin: 20px 0 5px 0; }
+.profile .stackoverflow .badge_gold { background: #FFD700; color: #998100; }
+.profile .stackoverflow .badge_silver { background: #C0C0C0; color: #666666; }
+.profile .stackoverflow .badge_bronze { background: #CD7F32; color: #804F1F; }
+.profile .stackoverflow .votes_up { background: #00C200; color: #006000; }
+.profile .stackoverflow .votes_down { background: #C20000; color: #600000; }
+
 /************************************
  * BLOG
  ***********************************/

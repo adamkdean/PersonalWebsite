@@ -1,4 +1,6 @@
-﻿@{
+﻿@using PersonalWebsite.Classes
+
+@{
     ViewBag.Title = "Profile";
 }
 
@@ -8,30 +10,23 @@
             <img src="/Content/images/portrait.jpg"> 
         </div>
 
-        <p class="skills">Primary Skills</p>
-        <div class="progress small twelve"><span class="meter width90">C#</span></div>
-        <div class="progress small twelve"><span class="meter width80">ASP.NET</span></div>
-        <div class="progress small twelve"><span class="meter width60">MVC</span></div>
-
-        <p class="skills">Secondary Skills</p>
-        <div class="progress secondary small twelve"><span class="meter width80">HTML</span></div>
-        <div class="progress secondary small twelve"><span class="meter width70">CSS</span></div>
-        <div class="progress secondary small twelve"><span class="meter width50">JS</span></div>
-        <div class="progress secondary small twelve"><span class="meter width60">PHP</span></div>
-        <div class="progress secondary small twelve"><span class="meter width70">SQL</span></div>
-
-        <p class="skills">Traits</p>
-        <span class="label trait has-tip tip-bottom" data-width="200" 
-            title="Habitual learning has given my brain the ability to learn at an increased rate">
-            Fast Learner</span>
-        <span class="label trait has-tip tip-bottom" data-width="200" 
-            title="Long-term exposure to caffiene has rendered me immune to it's diuretic effects">
-            Caffiene Veteran</span>
+        @Html.Action("Skills")
+        @Html.Action("Traits")
     </div>
     <div class="ten columns">
-        <div class="aboutme">
-            @Html.Raw(ViewBag.AboutMe)
+        <div class="row">
+            <div class="twelve columns">
+                @Html.Action("AboutMe")
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="six columns github">
+                @Html.Action("GitHub")
+            </div>
+            <div class="six columns stackoverflow">
+                @Html.Action("StackOverflow")
+            </div>
         </div>
     </div>
-
 </div>

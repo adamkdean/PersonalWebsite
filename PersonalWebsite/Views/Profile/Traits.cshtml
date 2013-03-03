@@ -1,0 +1,7 @@
+﻿@model PersonalWebsite.Models.Profile.TraitsViewModel
+
+<p class="skills">Traits</p>
+@foreach (var trait in Model.Traits)
+{
+    <span class="label trait has-tip tip-right" data-width="280" title="@trait.Description">@trait.Title</span>
+}
