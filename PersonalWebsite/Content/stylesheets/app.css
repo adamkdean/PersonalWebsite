@@ -13,7 +13,14 @@ a.label.secondary:hover { background-color: #b6b6b6; color: #2e2e2e; }
 
 pre, code { background: #eee; line-height: 18px; font-weight: normal; border: none;
             font-family: Consolas, 'Courier New', monospace, serif; }
-pre { padding: 5px; margin: 0 0 10px 0; }
+pre {
+    padding: 5px; margin: 0 0 10px 0;
+    white-space: pre-wrap; /* css-3 */
+    white-space: -moz-pre-wrap; /* Mozilla, since 1999 */
+    white-space: -pre-wrap; /* Opera 4-6 */
+    white-space: -o-pre-wrap; /* Opera 7 */
+    word-wrap: break-word; /* Internet Explorer 5.5+ */
+}
 code { padding: 1px 5px; margin: 0; }
 pre code { padding: 0; }
 
