@@ -254,6 +254,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <SubType>Designer</SubType>
     </Content>
+    <None Include="Properties\PublishProfiles\adamkdean.co.uk.pubxml" />
     <None Include="Properties\PublishProfiles\new.adamkdean.co.uk.pubxml" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
