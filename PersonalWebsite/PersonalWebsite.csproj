@@ -292,6 +292,7 @@
     <Content Include="Views\Profile\Skills.cshtml" />
     <Content Include="Views\Profile\GitHub.cshtml" />
     <Content Include="Views\Profile\AboutMe.cshtml" />
+    <Content Include="Views\Account\Setup.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

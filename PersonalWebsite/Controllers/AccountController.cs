@@ -73,13 +73,21 @@ namespace PersonalWebsite.Controllers
         }
 
         //
-        // GET: /Account/Make
+        // GET: /Account/Setup
 
         [EzAllowAnonymous]
-        public ActionResult Make()
+        public ActionResult Setup()
         {
-            Authentication.UserStore.AddUser("test", "test");
-            return RedirectToAction("Login", "Account");            
+            if (Authentication.UserStore.GetAllUsers().Count == 0)
+            {
+                string username = "admin", password = "changeme";
+                Authentication.UserStore.AddUser(username, password);
+
+                ViewBag.Username = username;
+                ViewBag.Password = password;
+                return View();
+            }
+            else return RedirectToAction("Index", "Home");
         }
 
         //

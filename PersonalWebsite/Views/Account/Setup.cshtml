@@ -1,0 +1,20 @@
+﻿@{
+    ViewBag.Title = "Setup";
+}
+
+<div class="row">
+    <div class="twelve columns">
+        <h2>Setup</h2>
+
+        <p>A user has been created for you. Please change the password immediately.</p>
+
+        <p>
+            Username: @ViewBag.Username<br />
+            Password: @ViewBag.Password
+        </p>
+
+        <p>@Html.ActionLink("Login to your account", "Login", "Account")</p>
+
+        <p>This setup has now been disabled.</p>
+    </div>
+</div>
