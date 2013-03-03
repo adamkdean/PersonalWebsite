@@ -94,7 +94,7 @@ p { margin: 0 0 14px 0; }
     .welcome h2 { font-size: 200%; }
 }
 
-.choices { text-align: center; padding: 30px 0; }
+.choices { text-align: center; padding: 40px 0 10px 0; }
 .choices .row { margin-bottom: 20px; }
 .choices blockquote { text-align: left; }
 
