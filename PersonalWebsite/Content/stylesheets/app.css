@@ -173,8 +173,8 @@ p { margin: 0 0 14px 0; }
 .tagcloud h5 { margin: 10px 0; }
 .tagcloud p { overflow: hidden; }
 .tagcloud .big { font-size: 110%; }
-.tagcloud .bigger { font-size: 120%; }
-.tagcloud .biggest { font-size: 130%; }
+.tagcloud .bigger { font-size: 130%; }
+.tagcloud .biggest { font-size: 150%; }
 
 /*---- BLOG ARCHIVE ------------------- */
 .blogarchive { margin-bottom: 20px; }
