@@ -36,7 +36,7 @@
         &nbsp;
         @if (question.Title.Length > 40)
         {            
-            <a href="@question.Link" target="_blank">@Html.Raw(question.Title).ToString().Substring(0, 40)...</a>
+            <a href="@question.Link" target="_blank">@Html.Raw(question.Title.Substring(0, 40))...</a>
         }
         else
         {
@@ -64,7 +64,7 @@
         &nbsp;
         @if (answer.Title.Length > 40)
         {
-            <a href="@answer.Link" target="_blank">@Html.Raw(answer.Title).ToString().Substring(0, 40)...</a>
+            <a href="@answer.Link" target="_blank">@Html.Raw(answer.Title.Substring(0, 40))...</a>
         }
         else
         {
