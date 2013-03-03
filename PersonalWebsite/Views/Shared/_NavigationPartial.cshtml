@@ -1,6 +1,31 @@
-﻿<ul>
-    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-    <li>@Html.ActionLink("Blog", "Index", "Blog")</li>
-    <li>@Html.ActionLink("Profile", "Index", "Profile")</li>
-    <li>@Html.ActionLink("Contact", "Index", "Contact")</li>
+﻿@{
+    var controller = HttpContext.Current.Request.RequestContext.RouteData.Values["controller"].ToString();
+
+    var homeClass = "";
+    var blogClass = "";
+    var profileClass = "";
+    var contactClass = "";
+    
+    switch(controller)
+    {
+        case "home":
+            homeClass = "active";
+            break;
+        case "blog":
+            blogClass = "active";
+            break;
+        case "profile":
+            profileClass = "active";
+            break;
+        case "contact":
+            contactClass = "active";
+            break;
+    }    
+}
+
+<ul>
+    <li class="@homeClass">@Html.ActionLink("Home", "Index", "Home")</li>
+    <li class="@blogClass">@Html.ActionLink("Blog", "Index", "Blog")</li>
+    <li class="@profileClass">@Html.ActionLink("Profile", "Index", "Profile")</li>
+    <li class="@contactClass">@Html.ActionLink("Contact", "Index", "Contact")</li>
 </ul>
