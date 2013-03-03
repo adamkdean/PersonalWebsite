@@ -52,14 +52,18 @@ namespace PersonalWebsite.Helpers
             {
                 message = "less than a week ago";
             }
-            else if (ts.TotalDays < 28)
+            else if (ts.TotalDays < 26)
             {
-                message = string.Format("{0} days ago", ts.TotalDays);
+                message = string.Format("{0} days ago", (int)ts.TotalDays);
+            }
+            else if (ts.TotalDays >= 26 && ts.TotalDays <= 32)
+            {
+                message = "about a month ago";
             }
             else if (ts.TotalDays < 365)
             {
                 int months = (int)(ts.TotalDays / 28);
-                message = string.Format("about {0} months ago", months);
+                message = string.Format("about {0} month(s) ago", months);
             }
             else
             {
