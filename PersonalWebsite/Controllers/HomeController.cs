@@ -6,7 +6,6 @@ using System.Web.Mvc;
 using EasyAuth;
 using PersonalWebsite.Models;
 using PersonalWebsite.Helpers;
-using PersonalWebsite.Models.Home;
 
 namespace PersonalWebsite.Controllers
 {
@@ -19,15 +18,5 @@ namespace PersonalWebsite.Controllers
         {
             return View();
         }
-
-        #region ChildActions
-        [ChildActionOnly]
-        public PartialViewResult RecentPostsList()
-        {            
-            var model = new RecentPostsListViewModel();
-            model.BlogPosts = BlogPostHelper.GetRecentPosts(5);
-            return PartialView(model);
-        }
-        #endregion
     }
 }

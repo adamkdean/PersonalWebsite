@@ -76,12 +76,22 @@ p { margin: 0 0 14px 0; }
 /************************************
  * HOME
  ***********************************/
+.welcome {    
+    padding: 50px 0; text-align: center; background: #2ba6cb;
+    -webkit-border-radius: 10px; -moz-border-radius: 10px; border-radius: 10px;
+    background-image: linear-gradient(bottom, rgb(43,143,171) 0%, rgb(43,166,203) 100%);
+    background-image: -o-linear-gradient(bottom, rgb(43,143,171) 0%, rgb(43,166,203) 100%);
+    background-image: -moz-linear-gradient(bottom, rgb(43,143,171) 0%, rgb(43,166,203) 100%);
+    background-image: -webkit-linear-gradient(bottom, rgb(43,143,171) 0%, rgb(43,166,203) 100%);
+    background-image: -ms-linear-gradient(bottom, rgb(43,143,171) 0%, rgb(43,166,203) 100%);
+    background-image: -webkit-gradient( linear, left bottom, left top, color-stop(0, rgb(43,143,171)), color-stop(1, rgb(43,166,203)) );
+}
+.welcome h1 { font-size: 600%; color: white; }
+.welcome h2 { color: #eee; }
 
-.bloglist h5 { margin: 5px 0; }
-.bloglist ul { list-style: none; }
-.bloglist ul li { padding: 0.4em 0; }
-.bloglist ul li .post-link { margin: 0; padding: 0; line-height: 1.2em; }
-.bloglist ul li .post-date { margin: 0; padding: 0; font-size: 80%; }
+.choices { text-align: center; padding: 30px 0; }
+.choices .row { margin-bottom: 20px; }
+.choices blockquote { text-align: left; }
 
 /************************************
  * PROFILE
@@ -90,6 +100,7 @@ p { margin: 0 0 14px 0; }
 .profile .portrait { text-align: center; } 
 .profile .portrait img { padding: 3px; border: 1px solid #ccc; }
 
+/*---- SKILL/TRAIT NOGGIN ------------- */
 .profile p.skills { text-align: center; font-size: 90%; font-weight: bold; margin: 15px 0 2px 0; }
 .profile .progress { margin: 5px 0; }
 .profile .progress .meter { color: white; line-height: 20px; padding-left: 4px; font-size: 12px; font-weight: bold; }
@@ -115,6 +126,7 @@ p { margin: 0 0 14px 0; }
 .profile .trait { display: block; width: 100%; padding: 4px; margin: 5px 0; }
 .profile .trait.has-tip { color: white; border: none;  }
 
+/*---- GITHUB ------------------------- */
 .profile .github p { margin: 0 0 2px 0; }
 .profile .github h5 { margin: 20px 0 5px 0; }
 .profile .github .repo { padding: 8px 0; }
@@ -124,6 +136,7 @@ p { margin: 0 0 14px 0; }
 .profile .github .repo .star { float: left; width: 20%; text-align: right; }
 .profile .github .clear { clear: both; }
 
+/*---- STACK OVERFLOW ----------------- */
 .profile .stackoverflow p { margin: 0 0 2px 0; }
 .profile .stackoverflow h5 { margin: 20px 0 5px 0; }
 .profile .stackoverflow .badge_gold { background: #FFD700; color: #998100; }
@@ -135,6 +148,13 @@ p { margin: 0 0 14px 0; }
 /************************************
  * BLOG
  ***********************************/
+
+/*---- RECENT POSTS SIDEBAR ----------- */
+.bloglist h5 { margin: 5px 0; }
+.bloglist ul { list-style: none; }
+.bloglist ul li { padding: 0.4em 0; }
+.bloglist ul li .post-link { margin: 0; padding: 0; line-height: 1.2em; }
+.bloglist ul li .post-date { margin: 0; padding: 0; font-size: 80%; }
 
 /*---- TAG CLOUD ---------------------- */
 .tagcloud { margin-bottom: 20px; }

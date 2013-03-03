@@ -265,6 +265,14 @@ namespace PersonalWebsite.Controllers
         }
 
         [ChildActionOnly]
+        public PartialViewResult RecentPostsList()
+        {
+            var model = new RecentPostsListViewModel();
+            model.BlogPosts = BlogPostHelper.GetRecentPosts(5);
+            return PartialView(model);
+        }
+
+        [ChildActionOnly]
         public PartialViewResult Sidebar()
         {
             return PartialView();

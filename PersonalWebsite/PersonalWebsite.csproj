@@ -183,7 +183,7 @@
     <Compile Include="Models\ViewModels\Account\FailedAttemptsViewModel.cs" />
     <Compile Include="Models\ViewModels\Account\UpdatePasswordViewModel.cs" />
     <Compile Include="Models\ViewModels\Blog\TagCloudListViewModel.cs" />
-    <Compile Include="Models\ViewModels\Home\RecentPostsListViewModel.cs" />
+    <Compile Include="Models\ViewModels\Blog\RecentPostsListViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -279,7 +279,7 @@
     <Content Include="Views\Blog\Edit.cshtml" />
     <Content Include="Views\Account\UpdatePassword.cshtml" />
     <Content Include="Views\Profile\Index.cshtml" />
-    <Content Include="Views\Home\RecentPostsList.cshtml" />
+    <Content Include="Views\Blog\RecentPostsList.cshtml" />
     <Content Include="Views\Blog\TagCloud.cshtml" />
     <Content Include="Views\Blog\RecentPosts.cshtml" />
     <Content Include="Views\Blog\Read.cshtml" />
@@ -295,7 +295,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\ViewModels\Contact\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
