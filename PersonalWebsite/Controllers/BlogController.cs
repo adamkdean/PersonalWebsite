@@ -65,10 +65,10 @@ namespace PersonalWebsite.Controllers
                 var query = (from t in context.Tags
                                               .Include("BlogPosts.Tags")
                                               .Include("BlogPosts.Comments")
-                             where t.TagId == id
+                             where t.TagId == id                             
                              select t);
                 var tag = (Tag)query.First();
-                model.BlogPosts = tag.BlogPosts;
+                model.BlogPosts = tag.BlogPosts.OrderByDescending(x => x.DatePosted).ToList();
             }
 
             return View(model);
