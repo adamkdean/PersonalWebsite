@@ -86,8 +86,13 @@ p { margin: 0 0 14px 0; }
     background-image: -ms-linear-gradient(bottom, rgb(43,143,171) 0%, rgb(43,166,203) 100%);
     background-image: -webkit-gradient( linear, left bottom, left top, color-stop(0, rgb(43,143,171)), color-stop(1, rgb(43,166,203)) );
 }
+
 .welcome h1 { font-size: 600%; color: white; }
 .welcome h2 { color: #eee; }
+@media only screen and (max-width: 767px) {
+    .welcome h1 { font-size: 300%; }
+    .welcome h2 { font-size: 200%; }
+}
 
 .choices { text-align: center; padding: 30px 0; }
 .choices .row { margin-bottom: 20px; }
