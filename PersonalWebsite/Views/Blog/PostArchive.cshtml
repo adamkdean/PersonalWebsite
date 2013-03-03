@@ -56,7 +56,7 @@
     }
     else
     {
-        int year = 0, month = 0;
+        int year = 0, month = 0, monthYear = 0;
         bool ulOpenYear = false, ulOpenMonth = false;
         bool firstYear = true, firstMonth = true;
 
@@ -91,7 +91,7 @@
                 }
             }
 
-            if (month != post.DatePosted.Month)
+            if (monthYear != year || month != post.DatePosted.Month)
             {
                 if (ulOpenMonth)
                 {
@@ -101,6 +101,7 @@
 
                 ulOpenMonth = true;
                 month = post.DatePosted.Month;
+                monthYear = post.DatePosted.Year;
                 int count = Model.BlogPosts.Count(x => x.DatePosted.Year == year && x.DatePosted.Month == month);
                 @Html.Raw("<ul class=\"hierarchy ul-month\">")            
                 if (firstMonth)
