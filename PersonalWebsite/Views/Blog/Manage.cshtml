@@ -17,19 +17,12 @@
     <div class="twelve columns">
 
         <div class="row blog-manage-top">
-            <div class="twelve columns">
+            <div class="eight columns">
                 <h4>Blog Management</h4>
             </div>
-            <!--<div class="four columns">
-                <div class="row collapse blog-manage-search">
-                    <div class="ten columns">
-                        <input type="text" name="search" placeholder="Search blog posts" />
-                    </div>
-                    <div class="two columns">
-                        <a class="button expand postfix">Go</a>
-                    </div>
-                </div>
-            </div>-->
+            <div class="four columns">
+                @Html.ActionLink("New Post", "New", null, htmlAttributes: new { @class = "button small radius right" })
+            </div>
         </div>
   
         @using (Html.BeginForm("Delete", "Blog")) 
