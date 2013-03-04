@@ -2,13 +2,13 @@
     <div class="row">
         <div class="eight columns">
             <ul class="inline-list">
-                <li>@Html.ActionLink("Manage Blog", "Manage", "Blog")</li>
-                <li>@Html.ActionLink("Manage Account", "Index", "Account")</li>
+                <li>@Html.ActionLink("Manage Blog", MVC.Blog.Manage())</li>
+                <li>@Html.ActionLink("Manage Account", MVC.Account.Manage())</li>
             </ul>
         </div>
         <div class="four columns text-right">
             Logged in as <strong>@EasyAuth.Authentication.CurrentUser.Username</strong>. 
-            @Html.ActionLink("Logout", "Logout", "Account")
+            @Html.ActionLink("Logout", MVC.Account.Logout())
         </div>
     </div>
 </div>

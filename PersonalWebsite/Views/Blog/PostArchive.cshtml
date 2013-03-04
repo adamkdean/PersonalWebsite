@@ -116,7 +116,7 @@
             }
         
             @Html.Raw("<li class=\"archivepost\">&nbsp;&#xBB;&nbsp;")
-            @Html.ActionLink(post.BlogTitle, "Read", new { id = post.BlogPostId, slug = post.Slug })
+            @Html.ActionLink(post.BlogTitle, MVC.Blog.Read(post.BlogPostId, post.Slug))
             @Html.Raw("</li>")
         }
         if (ulOpenMonth)

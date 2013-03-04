@@ -8,7 +8,7 @@
         @Html.Action("FailedAttempts")
     </div>
     <div class="three columns offset-by-one">
-        @Html.ActionLink("Update Password", "UpdatePassword", null, htmlAttributes: new { @class = "button radius secondary account-button" })
-        @Html.ActionLink("Logout", "Logout", null, htmlAttributes: new { @class = "button radius secondary account-button" })
+        @Html.ActionLink("Update Password", MVC.Account.UpdatePassword(), htmlAttributes: new { @class = "button radius secondary account-button" })
+        @Html.ActionLink("Logout", MVC.Account.Logout(), htmlAttributes: new { @class = "button radius secondary account-button" })
     </div>   
 </div>

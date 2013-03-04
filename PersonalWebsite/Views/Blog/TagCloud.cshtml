@@ -23,8 +23,7 @@
                 modifer += "biggest";
             }
             
-            @Html.ActionLink(tag.TagName, "Tagged", "Blog", 
-                routeValues: new { id = tag.TagId, slug = tag.Slug }, 
+            @Html.ActionLink(tag.TagName, MVC.Blog.Tagged(tag.TagId, tag.Slug),                 
                 htmlAttributes: new { @class = "label secondary " + modifer })
 
             @Html.Raw("\n")
