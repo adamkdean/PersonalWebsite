@@ -8,6 +8,20 @@
     @Html.Markdown(Model.BlogPost.BlogContent)
 
     <p class="post-tag-text">
+        @{
+            var comments = "";            
+            if (Model.ShowComments == false) 
+            {
+                var link = Html.ActionLink("0 Comments", 
+                    MVC.Blog.Read(Model.BlogPost.BlogPostId, Model.BlogPost.Slug),
+                    htmlAttributes: new { Area = "disqus_thread" }
+                );
+                comments = link.ToString() + " | ";                
+            }
+        }
+
+        @Html.Raw(comments)
+
         Tags: 
         @foreach (var tag in Model.BlogPost.Tags.OrderBy(x => x.TagName))
         {
@@ -15,4 +29,18 @@
                 htmlAttributes: new { @class = "label label-spacing" })
         }
     </p>
+
+    @if (Model.ShowComments)
+    {
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+            var disqus_shortname = 'adamkdean';
+            (function () {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    }
 </article>

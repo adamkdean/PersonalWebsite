@@ -258,7 +258,7 @@ namespace PersonalWebsite.Controllers
         #region ChildActions
         [ChildActionOnly]
         public virtual PartialViewResult SinglePost(SinglePostViewModel model)
-        {            
+        {
             return PartialView(model);
         }
 

@@ -9,7 +9,7 @@
     <div class="nine columns">
         @Html.Action("SinglePost", new { 
             model = new PersonalWebsite.Models.Blog.SinglePostViewModel() { 
-                BlogPost = Model.BlogPost 
+                BlogPost = Model.BlogPost, ShowComments = true
             } 
         })
     </div>
