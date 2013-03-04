@@ -257,6 +257,12 @@ namespace PersonalWebsite.Controllers
 
         #region ChildActions
         [ChildActionOnly]
+        public PartialViewResult SinglePost(SinglePostViewModel model)
+        {            
+            return PartialView(model);
+        }
+
+        [ChildActionOnly]
         public PartialViewResult RecentPosts()
         {
             var model = new RecentPostsViewModel();

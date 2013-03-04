@@ -152,6 +152,7 @@
     <Compile Include="Controllers\BlogController.cs" />
     <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Models\ViewModels\Blog\SinglePostViewModel.cs" />
     <Compile Include="Models\ViewModels\Profile\GitHubViewModel.cs" />
     <Compile Include="Models\ViewModels\Profile\AboutMeViewModel.cs" />
     <Compile Include="Models\ViewModels\Profile\SkillsViewModel.cs" />
@@ -295,6 +296,7 @@
     <Content Include="Views\Profile\GitHub.cshtml" />
     <Content Include="Views\Profile\AboutMe.cshtml" />
     <Content Include="Views\Account\Setup.cshtml" />
+    <Content Include="Views\Blog\SinglePost.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

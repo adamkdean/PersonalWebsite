@@ -1,0 +1,19 @@
+﻿@using PersonalWebsite.Extensions
+@model PersonalWebsite.Models.Blog.SinglePostViewModel
+
+<article>
+    <h3>@Html.ActionLink(Model.BlogPost.BlogTitle, "Read", new { id = Model.BlogPost.BlogPostId, slug = Model.BlogPost.Slug })</h3>
+    <h6>Posted @PersonalWebsite.Helpers.DateHelper.GetReadableDate(Model.BlogPost.DatePosted).</h6>
+            
+    @Html.Markdown(Model.BlogPost.BlogContent)
+
+    <p class="post-tag-text">
+        Tags: 
+        @foreach (var tag in Model.BlogPost.Tags.OrderBy(x => x.TagName))
+        {
+            @Html.ActionLink(tag.TagName, "Tagged", "Blog", 
+                routeValues: new { id = tag.TagId, slug = tag.Slug }, 
+                htmlAttributes: new { @class = "label label-spacing" })
+        }
+    </p>
+</article>
