@@ -68,6 +68,7 @@ namespace PersonalWebsite.Controllers
                              where t.TagId == id                             
                              select t);
                 var tag = (Tag)query.First();
+                model.TagName = tag.TagName;
                 model.BlogPosts = tag.BlogPosts.OrderByDescending(x => x.DatePosted).ToList();
             }
 

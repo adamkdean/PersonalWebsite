@@ -1,9 +1,9 @@
-﻿@{
-    ViewBag.Title = "Tagged";
-}
-
-@using PersonalWebsite.Extensions
+﻿@using PersonalWebsite.Extensions
 @model PersonalWebsite.Models.Blog.TaggedViewModel
+
+@{
+    ViewBag.Title = Model.TagName;
+}
 
 <div class="row">
     <div class="nine columns">
