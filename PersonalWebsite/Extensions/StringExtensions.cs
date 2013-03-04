@@ -15,7 +15,7 @@ namespace PersonalWebsite.Extensions
             return Encoding.ASCII.GetString(bytes);
         }
 
-        public static string Slugify(this string s)
+        public static string Slugify(this string s, int maxLength = 50)
         {
             s = HttpUtility.HtmlDecode(s).RemoveAccent();
             s = Regex.Replace(s, @"[ ]{2,}", " ").Trim();
