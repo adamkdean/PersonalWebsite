@@ -50,7 +50,7 @@ p { margin: 0 0 14px 0; }
 .adminbar .inline-list { margin: 0 0 0 -22px; }
 /* Why 22px? foundation.css:762 -> ul.inline-list > li, ul.link-list > li { list-style: none; float: left; margin-left: 22px; display: block; } */
 
-.pi { text-align: right; padding: 70px 0 5px 0; }
+.pi { text-align: right; padding: 70px 0 10px 0; }
 .pi span { font-weight: bold; font-size: 90%; color: #aaa; border-bottom: dotted 1px #ccc; cursor: help; }
 .pi span:hover { font-family: "Courier New", monospace; font-weight: normal; border: none; }
 
