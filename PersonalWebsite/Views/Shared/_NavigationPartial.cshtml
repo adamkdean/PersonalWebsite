@@ -1,6 +1,6 @@
 ﻿@{
     var controller = HttpContext.Current.Request.RequestContext.RouteData.Values["controller"].ToString();
-
+    
     var homeClass = "";
     var blogClass = "";
     var profileClass = "";
@@ -8,9 +8,6 @@
     
     switch(controller)
     {
-        case "home":
-            homeClass = "active";
-            break;
         case "blog":
             blogClass = "active";
             break;
@@ -20,6 +17,7 @@
         case "contact":
             contactClass = "active";
             break;
+            
         default:
             homeClass = "active";
             break;
@@ -27,8 +25,8 @@
 }
 
 <ul>
-    <li class="@homeClass">@Html.ActionLink("Home", "Index", "Home")</li>
-    <li class="@blogClass">@Html.ActionLink("Blog", "Index", "Blog")</li>
-    <li class="@profileClass">@Html.ActionLink("Profile", "Index", "Profile")</li>
-    <li class="@contactClass">@Html.ActionLink("Contact", "Index", "Contact")</li>
+    <li class="@homeClass"><a href="~/">Home</a></li>
+    <li class="@blogClass">@Html.ActionLink("Blog", MVC.Blog.Index())</li>
+    <li class="@profileClass">@Html.ActionLink("Profile", MVC.Profile.Index())</li>
+    <li class="@contactClass">@Html.ActionLink("Contact", MVC.Contact.Index())</li>
 </ul>
