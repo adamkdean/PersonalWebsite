@@ -9,12 +9,12 @@ using PersonalWebsite.Helpers;
 
 namespace PersonalWebsite.Controllers
 {
-    public class HomeController : Controller
+    public partial class HomeController : Controller
     {
         //
         // GET: /Home/
 
-        public ActionResult Index()
+        public virtual ActionResult Index()
         {
             return View();
         }

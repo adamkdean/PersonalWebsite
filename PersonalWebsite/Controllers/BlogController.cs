@@ -14,12 +14,12 @@ using PersonalWebsite.Extensions;
 
 namespace PersonalWebsite.Controllers
 {
-    public class BlogController : Controller
+    public partial class BlogController : Controller
     {
         //
         // GET: /Blog/
 
-        public ActionResult Index()
+        public virtual ActionResult Index()
         {
             return View();
         }
@@ -27,7 +27,7 @@ namespace PersonalWebsite.Controllers
         //
         // GET: /Blog/Read/$id
 
-        public ActionResult Read(int id = -1, string slug = "")
+        public virtual ActionResult Read(int id = -1, string slug = "")
         {
             var model = new ReadViewModel();
 
@@ -52,7 +52,7 @@ namespace PersonalWebsite.Controllers
         //
         // GET: /Blog/Tagged/$id
 
-        public ActionResult Tagged(int id = -1, string slug = "")
+        public virtual ActionResult Tagged(int id = -1, string slug = "")
         {
             var model = new TaggedViewModel();
 
@@ -78,7 +78,7 @@ namespace PersonalWebsite.Controllers
         // GET: /Blog/Manage
 
         [EzAuthorize]
-        public ActionResult Manage()
+        public virtual ActionResult Manage()
         {
             var model = new ManageViewModel();
             
@@ -100,7 +100,7 @@ namespace PersonalWebsite.Controllers
         // GET: /Blog/New
 
         [EzAuthorize]
-        public ActionResult New()
+        public virtual ActionResult New()
         {
             return View();
         }
@@ -111,7 +111,7 @@ namespace PersonalWebsite.Controllers
         [HttpPost]
         [EzAuthorize]
         [ValidateInput(false)]
-        public ActionResult New(NewViewModel model, FormCollection formCollection)
+        public virtual ActionResult New(NewViewModel model, FormCollection formCollection)
         {
             if (ModelState.IsValid)
             {
@@ -153,7 +153,7 @@ namespace PersonalWebsite.Controllers
         // GET: /Blog/Edit
 
         [EzAuthorize]
-        public ActionResult Edit(int id = -1)
+        public virtual ActionResult Edit(int id = -1)
         {
             var model = new EditViewModel();
 
@@ -190,7 +190,7 @@ namespace PersonalWebsite.Controllers
         [HttpPost]
         [EzAuthorize]
         [ValidateInput(false)]
-        public ActionResult Edit(EditViewModel model, FormCollection formCollection)
+        public virtual ActionResult Edit(EditViewModel model, FormCollection formCollection)
         {
             var tagcsv = "";
             if (!string.IsNullOrEmpty(formCollection["tags"]))
@@ -237,7 +237,7 @@ namespace PersonalWebsite.Controllers
 
         [HttpPost]
         [EzAuthorize]
-        public ActionResult Delete(FormCollection formCollection)
+        public virtual ActionResult Delete(FormCollection formCollection)
         {
             List<int> list = new List<int>();
             foreach (string box in formCollection)
@@ -257,13 +257,13 @@ namespace PersonalWebsite.Controllers
 
         #region ChildActions
         [ChildActionOnly]
-        public PartialViewResult SinglePost(SinglePostViewModel model)
+        public virtual PartialViewResult SinglePost(SinglePostViewModel model)
         {            
             return PartialView(model);
         }
 
         [ChildActionOnly]
-        public PartialViewResult RecentPosts()
+        public virtual PartialViewResult RecentPosts()
         {
             var model = new RecentPostsViewModel();
             model.BlogPosts = BlogPostHelper.GetRecentPosts(5);
@@ -271,7 +271,7 @@ namespace PersonalWebsite.Controllers
         }
 
         [ChildActionOnly]
-        public PartialViewResult RecentPostsList()
+        public virtual PartialViewResult RecentPostsList()
         {
             var model = new RecentPostsListViewModel();
             model.BlogPosts = BlogPostHelper.GetRecentPosts(5);
@@ -279,13 +279,13 @@ namespace PersonalWebsite.Controllers
         }
 
         [ChildActionOnly]
-        public PartialViewResult Sidebar()
+        public virtual PartialViewResult Sidebar()
         {
             return PartialView();
         }
 
         [ChildActionOnly]
-        public PartialViewResult PostArchive()
+        public virtual PartialViewResult PostArchive()
         {
             var model = new PostArchiveViewModel();
             model.BlogPosts = BlogPostHelper.GetAllPosts(loadAssets: false);
@@ -294,7 +294,7 @@ namespace PersonalWebsite.Controllers
         }
 
         [ChildActionOnly]
-        public PartialViewResult TagCloud()
+        public virtual PartialViewResult TagCloud()
         {
             var model = new TagCloudViewModel();
             model.Tags = TagHelper.GetTagsByMostPopular();

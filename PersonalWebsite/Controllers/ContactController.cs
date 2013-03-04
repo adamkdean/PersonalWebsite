@@ -6,19 +6,19 @@ using System.Web.Mvc;
 
 namespace PersonalWebsite.Controllers
 {
-    public class ContactController : Controller
+    public partial class ContactController : Controller
     {
         //
         // GET: /Contact/
 
-        public ActionResult Index()
+        public virtual ActionResult Index()
         {
             return View();
         }
 
         #region ChildActions
         [ChildActionOnly]
-        public PartialViewResult TwitterFeed()
+        public virtual PartialViewResult TwitterFeed()
         {
             return PartialView();
         }

@@ -1,6 +1,5 @@
 ﻿using System.Web.Mvc;
 using System.Web.Routing;
-using LowercaseRoutesMVC4;
 
 namespace PersonalWebsite
 {
@@ -10,7 +9,7 @@ namespace PersonalWebsite
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
-            routes.MapRouteLowercase(
+            routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}/{slug}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional, slug = UrlParameter.Optional }

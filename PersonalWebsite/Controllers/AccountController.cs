@@ -10,12 +10,12 @@ using PersonalWebsite.Models.Account;
 namespace PersonalWebsite.Controllers
 {
     [EzAuthorize]
-    public class AccountController : Controller
+    public partial class AccountController : Controller
     {
         //
         // GET: /Account/
-        
-        public ActionResult Index()
+
+        public virtual ActionResult Index()
         {
             return View();
         }
@@ -24,7 +24,7 @@ namespace PersonalWebsite.Controllers
         // GET: /Account/Login
 
         [EzAllowAnonymous]
-        public ActionResult Login()
+        public virtual ActionResult Login()
         {
             return View();
         }
@@ -35,7 +35,7 @@ namespace PersonalWebsite.Controllers
         [HttpPost]
         [EzAllowAnonymous]
         [ValidateAntiForgeryToken]
-        public ActionResult Login(LoginViewModel model, string returnUrl)
+        public virtual ActionResult Login(LoginViewModel model, string returnUrl)
         {
             // textboxes filled in & user is valid
             if (ModelState.IsValid && Authentication.Login(model.Username, model.Password))
@@ -66,7 +66,7 @@ namespace PersonalWebsite.Controllers
         //
         // GET: /Account/Logout
 
-        public ActionResult Logout()
+        public virtual ActionResult Logout()
         {
             Authentication.Logout();
             return RedirectToAction("Index", "Home");
@@ -76,7 +76,7 @@ namespace PersonalWebsite.Controllers
         // GET: /Account/Setup
 
         [EzAllowAnonymous]
-        public ActionResult Setup()
+        public virtual ActionResult Setup()
         {
             if (Authentication.UserStore.GetAllUsers().Count == 0)
             {
@@ -93,7 +93,7 @@ namespace PersonalWebsite.Controllers
         //
         // GET: /Account/UpdatePassword
 
-        public ActionResult UpdatePassword()
+        public virtual ActionResult UpdatePassword()
         {
             return View();
         }
@@ -104,7 +104,7 @@ namespace PersonalWebsite.Controllers
         [HttpPost]
         [EzAllowAnonymous]
         [ValidateAntiForgeryToken]
-        public ActionResult UpdatePassword(UpdatePasswordViewModel model)
+        public virtual ActionResult UpdatePassword(UpdatePasswordViewModel model)
         {
             var user = Authentication.CurrentUser;
 
@@ -131,7 +131,7 @@ namespace PersonalWebsite.Controllers
         #region ChildActions
         [ChildActionOnly]
         [EzAllowAnonymous]
-        public PartialViewResult FailedAttempts()
+        public virtual PartialViewResult FailedAttempts()
         {
             const int limit = 10;
             var model = new FailedAttemptsViewModel();

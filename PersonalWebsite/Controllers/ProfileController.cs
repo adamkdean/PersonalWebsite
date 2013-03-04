@@ -10,12 +10,12 @@ using System;
 
 namespace PersonalWebsite.Controllers
 {
-    public class ProfileController : Controller
+    public partial class ProfileController : Controller
     {
         //
         // GET: /Profile/
 
-        public ActionResult Index()
+        public virtual ActionResult Index()
         {            
             return View();
         }
@@ -23,7 +23,7 @@ namespace PersonalWebsite.Controllers
         #region ChildActions
         [ChildActionOnly]
         [OutputCache(Duration = 900, VaryByParam = "none")] // 15 minutes
-        public PartialViewResult StackOverflow()
+        public virtual PartialViewResult StackOverflow()
         {
             var model = new StackOverflowViewModel();
 
@@ -60,7 +60,7 @@ namespace PersonalWebsite.Controllers
 
         [ChildActionOnly]
         [OutputCache(Duration = 900, VaryByParam = "none")] // 15 minutes
-        public PartialViewResult GitHub()
+        public virtual PartialViewResult GitHub()
         {
             var model = new GitHubViewModel();
 
@@ -82,7 +82,7 @@ namespace PersonalWebsite.Controllers
         }
 
         [ChildActionOnly]
-        public PartialViewResult AboutMe()
+        public virtual PartialViewResult AboutMe()
         {
             var model = new AboutMeViewModel();
 
@@ -97,7 +97,7 @@ namespace PersonalWebsite.Controllers
         }
 
         [ChildActionOnly]
-        public PartialViewResult Skills()
+        public virtual PartialViewResult Skills()
         {
             var model = new SkillsViewModel();
 
@@ -119,7 +119,7 @@ namespace PersonalWebsite.Controllers
         }
 
         [ChildActionOnly]
-        public PartialViewResult Traits()
+        public virtual PartialViewResult Traits()
         {
             var model = new TraitsViewModel();
 
