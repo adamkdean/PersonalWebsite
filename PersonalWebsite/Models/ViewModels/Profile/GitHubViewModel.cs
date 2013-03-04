@@ -7,5 +7,7 @@ namespace PersonalWebsite.Models.Profile
     {
         public GithubUser User { get; set; }
         public List<GithubRepo> Repositories { get; set; }
+
+        public string Exception { get; set; }
     }
 }

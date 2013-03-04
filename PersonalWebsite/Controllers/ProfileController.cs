@@ -64,12 +64,19 @@ namespace PersonalWebsite.Controllers
         {
             var model = new GitHubViewModel();
 
-            var github = new GithubV3ApiGateway();
-            model.User = github.GetUser("imdsm");
-            model.Repositories = github.GetUserRepos("imdsm")
-                                    .OrderByDescending(x => x.Updated_At)
-                                    .Take(5)
-                                    .ToList();
+            try
+            {
+                var github = new GithubV3ApiGateway();
+                model.User = github.GetUser("imdsm");
+                model.Repositories = github.GetUserRepos("imdsm")
+                                        .OrderByDescending(x => x.Updated_At)
+                                        .Take(5)
+                                        .ToList();
+            }
+            catch (Exception e)
+            {
+                model.Exception = e.Message;
+            }
 
             return PartialView(model);
         }
