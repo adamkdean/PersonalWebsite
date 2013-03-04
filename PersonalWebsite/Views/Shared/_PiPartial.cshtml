@@ -1,0 +1,14 @@
+﻿@{
+    var stopwatch = (System.Diagnostics.Stopwatch)HttpContext.Current.Items["Stopwatch"];
+    stopwatch.Stop();
+
+    var ts = stopwatch.Elapsed;
+    var elapsedTime = String.Format("Rendered in {0:n3} ms", ts.TotalMilliseconds);
+}
+
+<div class="row pi">
+    <div class="twelve columns">
+        <span onmouseover="this.innerHTML='@elapsedTime'" 
+                onmouseout="this.innerHTML='&pi;'">&pi;</span>
+    </div>
+</div>

@@ -45,11 +45,8 @@
     <div class="spacer"></div>
 
     @RenderBody()
-
-    <!--<div class="pi">
-        <span onmouseover="this.innerHTML='Rendered in 0.000 ms'" 
-              onmouseout="this.innerHTML='&pi;'">&pi;</span>
-    </div>-->
+    
+    @Html.Partial("_PiPartial")    
 
     <script src="/Content/javascripts/prettify/prettify.js" type="text/javascript" charset="utf-8"></script>
     <script src="/Content/javascripts/auto-prettify.js" type="text/javascript" charset="utf-8"></script>
