@@ -6,6 +6,7 @@ using PersonalWebsite.Classes;
 using PersonalWebsite.Models.Profile;
 using StackExchange.StacMan;
 using PersonalWebsite.Github;
+using System;
 
 namespace PersonalWebsite.Controllers
 {
@@ -21,28 +22,44 @@ namespace PersonalWebsite.Controllers
 
         #region ChildActions
         [ChildActionOnly]
-        [OutputCache(Duration = 300, VaryByParam = "none")]
+        [OutputCache(Duration = 900, VaryByParam = "none")] // 15 minutes
         public PartialViewResult StackOverflow()
         {
             var model = new StackOverflowViewModel();
 
-            var site = "stackoverflow";
-            var id = new List<int>() { 1138620 };
-            var client = new StacManClient();
+            try
+            {
+                var site = "stackoverflow";
+                var id = new List<int>() { 1138620 };
+                var client = new StacManClient(key: "B6EuGp0wJiOeWNiAd2za)w((");
+                
+                var users_response = client.Users.GetByIds(site, id, "!T6p4VHlBGj(I.LUZgV");
+                var questions_response = client.Users.GetQuestions(site, id);
+                var answers_response = client.Users.GetAnswers(site, id, "!-.mgWLrn264w");
 
-            var users_response = client.Users.GetByIds(site, id, "!T6p4VHlBGj(I.LUZgV");
-            var questions_response = client.Users.GetQuestions(site, id);
-            var answers_response = client.Users.GetAnswers(site, id, "!-.mgWLrn264w");
+                // default: client.ApiTimeoutMs = 5000;
+                users_response.Wait();
+                questions_response.Wait();
+                answers_response.Wait();
 
-            model.Profile = users_response.Result.Data.Items[0];
-            model.Questions = questions_response.Result.Data.Items.Take(5);
-            model.Answers = answers_response.Result.Data.Items.Take(5);
+                if (users_response.IsCompleted) model.Profile = users_response.Result.Data.Items[0];                
+                if (questions_response.IsCompleted) model.Questions = questions_response.Result.Data.Items.Take(5);
+                if (answers_response.IsCompleted) model.Answers = answers_response.Result.Data.Items.Take(5);
+                
+                if (users_response.Exception != null) model.Exception = users_response.Exception.Message;
+                else if (users_response.Exception != null) model.Exception = questions_response.Exception.Message;
+                else if (users_response.Exception != null) model.Exception = answers_response.Exception.Message;                
+            }
+            catch (Exception e)
+            {
+                model.Exception = e.Message;
+            }
 
             return PartialView(model);
         }
 
         [ChildActionOnly]
-        [OutputCache(Duration = 300, VaryByParam = "none")]
+        [OutputCache(Duration = 900, VaryByParam = "none")] // 15 minutes
         public PartialViewResult GitHub()
         {
             var model = new GitHubViewModel();

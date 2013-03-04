@@ -1,74 +1,82 @@
 ﻿@model PersonalWebsite.Models.Profile.StackOverflowViewModel
 
 <h4>StackOverflow</h4>
-<p><strong>Reputation: </strong>
-    @string.Format("{0:n0}", Model.Profile.Reputation)
-</p>
-<p><strong>Badges: </strong>
-    <span class="label badge_gold">@Model.Profile.BadgeCounts.Gold</span> 
-    <span class="label badge_silver">@Model.Profile.BadgeCounts.Silver</span> 
-    <span class="label badge_bronze">@Model.Profile.BadgeCounts.Bronze</span> 
-</p>
-<p><strong>Votes: </strong> 
-    <span class="label votes_up">@Model.Profile.UpVoteCount</span> 
-    <span class="label votes_down">@Model.Profile.DownVoteCount</span> 
-</p>
-<p><strong>Last Active: </strong> 
-    @PersonalWebsite.Helpers.DateHelper.GetReadableTimeSince(Model.Profile.LastAccessDate)
-</p>
-
-<h5>Latest Questions</h5>
-@foreach (var question in Model.Questions)
+@if (Model != null && Model.Profile != null && Model.Questions != null && Model.Answers != null)
 {
-    <p>
-        @if (question.Score > 0) 
-        {
-            <span class="label votes_up">@question.Score</span> 
-        }
-        else if (question.Score < 0) 
-        {
-            <span class="label votes_down">@question.Score</span> 
-        }
-        else
-        {
-            <span class="label secondary">@question.Score</span>
-        }
-        &nbsp;
-        @if (question.Title.Length > 40)
-        {            
-            <a href="@question.Link" target="_blank">@Html.Raw(question.Title.Substring(0, 40))...</a>
-        }
-        else
-        {
-            <a href="@question.Link" target="_blank">@Html.Raw(question.Title)</a>
-        }
+    <p><strong>Reputation: </strong>
+        @string.Format("{0:n0}", Model.Profile.Reputation)
     </p>
+    <p><strong>Badges: </strong>
+        <span class="label badge_gold">@Model.Profile.BadgeCounts.Gold</span> 
+        <span class="label badge_silver">@Model.Profile.BadgeCounts.Silver</span> 
+        <span class="label badge_bronze">@Model.Profile.BadgeCounts.Bronze</span> 
+    </p>
+    <p><strong>Votes: </strong> 
+        <span class="label votes_up">@Model.Profile.UpVoteCount</span> 
+        <span class="label votes_down">@Model.Profile.DownVoteCount</span> 
+    </p>
+    <p><strong>Last Active: </strong> 
+        @PersonalWebsite.Helpers.DateHelper.GetReadableTimeSince(Model.Profile.LastAccessDate)
+    </p>
+
+    <h5>Latest Questions</h5>
+    foreach (var question in Model.Questions)
+    {
+        <p>
+            @if (question.Score > 0) 
+            {
+                <span class="label votes_up">@question.Score</span> 
+            }
+            else if (question.Score < 0) 
+            {
+                <span class="label votes_down">@question.Score</span> 
+            }
+            else
+            {
+                <span class="label secondary">@question.Score</span>
+            }
+            &nbsp;
+            @if (question.Title.Length > 40)
+            {            
+                <a href="@question.Link" target="_blank">@Html.Raw(question.Title.Substring(0, 40))...</a>
+            }
+            else
+            {
+                <a href="@question.Link" target="_blank">@Html.Raw(question.Title)</a>
+            }
+        </p>
+    }
+
+    <h5>Latest Answers</h5>
+    foreach (var answer in Model.Answers)
+    {
+        <p>
+            @if (answer.Score > 0) 
+            {
+                <span class="label votes_up">@answer.Score</span> 
+            }
+            else if (answer.Score < 0) 
+            {
+                <span class="label votes_down">@answer.Score</span> 
+            }
+            else
+            {
+                <span class="label secondary">@answer.Score</span>
+            }
+            &nbsp;
+            @if (answer.Title.Length > 40)
+            {
+                <a href="@answer.Link" target="_blank">@Html.Raw(answer.Title.Substring(0, 40))...</a>
+            }
+            else
+            {
+                <a href="@answer.Link" target="_blank">@Html.Raw(answer.Title)</a>
+            }
+        </p>
+    }
 }
-
-<h5>Latest Answers</h5>
-@foreach (var answer in Model.Answers)
+else
 {
-    <p>
-        @if (answer.Score > 0) 
-        {
-            <span class="label votes_up">@answer.Score</span> 
-        }
-        else if (answer.Score < 0) 
-        {
-            <span class="label votes_down">@answer.Score</span> 
-        }
-        else
-        {
-            <span class="label secondary">@answer.Score</span>
-        }
-        &nbsp;
-        @if (answer.Title.Length > 40)
-        {
-            <a href="@answer.Link" target="_blank">@Html.Raw(answer.Title.Substring(0, 40))...</a>
-        }
-        else
-        {
-            <a href="@answer.Link" target="_blank">@Html.Raw(answer.Title)</a>
-        }
-    </p>
+    <p>StackOverflow API has broken.</p>
+    <p>@Model.Exception</p>
 }
