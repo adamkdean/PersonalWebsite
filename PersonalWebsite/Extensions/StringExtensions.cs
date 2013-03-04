@@ -15,7 +15,7 @@ namespace PersonalWebsite.Extensions
             return Encoding.ASCII.GetString(bytes);
         }
 
-        public static string Slugify(this string s, int maxLength = 50)
+        public static string Slugify(this string s, int maxLength = 70)
         {
             s = HttpUtility.HtmlDecode(s).RemoveAccent();
             s = Regex.Replace(s, @"[ ]{2,}", " ").Trim();
@@ -25,6 +25,7 @@ namespace PersonalWebsite.Extensions
             s = Regex.Replace(s, @"[-]{2,}", "-").Trim();
             while (s.EndsWith("-") && s.Length > 1)
                 s = s.Substring(0, s.Length - 1);
+            if (s.Length > maxLength) s = s.Substring(0, maxLength);
             return s;
         }
     }
