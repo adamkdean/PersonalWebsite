@@ -85,7 +85,7 @@ p { margin: 0 0 14px 0; }
  ***********************************/
 .welcome {    
     padding: 50px 0; text-align: center; background: #2ba6cb;
-    -webkit-border-radius: 10px; -moz-border-radius: 10px; border-radius: 10px;
+    -webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px;
     background-image: linear-gradient(bottom, rgb(43,143,171) 0%, rgb(43,166,203) 100%);
     background-image: -o-linear-gradient(bottom, rgb(43,143,171) 0%, rgb(43,166,203) 100%);
     background-image: -moz-linear-gradient(bottom, rgb(43,143,171) 0%, rgb(43,166,203) 100%);
