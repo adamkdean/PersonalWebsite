@@ -12,12 +12,12 @@
             var comments = "";            
             if (Model.ShowComments == false) 
             {
-                var link = Html.ActionLink("0 Comments",
+                var link = Html.ActionLink("No Comments",
                     MVC.Blog.Read(Model.BlogPost.BlogPostId, Model.BlogPost.Slug),
                     htmlAttributes: new { },
                     protocol: null,
                     hostName: null, 
-                    fragment: "#disqus_thread"
+                    fragment: "disqus_thread"
                 );
                 comments = link.ToString() + " | ";                
             }
