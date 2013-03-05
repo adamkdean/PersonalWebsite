@@ -4,8 +4,10 @@
 <article>
     <h3>@Html.ActionLink(Model.BlogPost.BlogTitle, MVC.Blog.Read(Model.BlogPost.BlogPostId, Model.BlogPost.Slug))</h3>
     <h6>Posted @PersonalWebsite.Helpers.DateHelper.GetReadableDate(Model.BlogPost.DatePosted).</h6>
-            
-    @Html.Markdown(Model.BlogPost.BlogContent)
+       
+    <div class="blog-post">
+        @Html.Markdown(Model.BlogPost.BlogContent)
+    </div>
 
     <p class="post-tag-text">
         @{

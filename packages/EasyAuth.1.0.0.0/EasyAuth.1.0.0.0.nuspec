@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>EasyAuth</id>
+    <version>1.0.0.0</version>
+    <title>EasyAuth</title>
+    <authors>Adam K Dean</authors>
+    <owners>Adam K Dean</owners>
+    <licenseUrl>https://github.com/Imdsm/EasyAuth/blob/master/LICENCE</licenseUrl>
+    <projectUrl>https://github.com/Imdsm/EasyAuth</projectUrl>
+    <iconUrl>http://i.imgur.com/XCL8ZAH.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>EasyAuth is a simple, secure, and easy to use lightweight alternative to ASP.NET Membership.</description>
+    <releaseNotes>See GitHub for more info.</releaseNotes>
+    <copyright>Copyright 2013 Adam K Dean</copyright>
+    <language />
+    <tags>EasyAuth Authentication</tags>
+    <dependencies>
+      <dependency id="EntityFramework.Extended" version="5.0.0.68" />
+    </dependencies>
+    <references>
+      <reference file="EasyAuth.dll" />
+    </references>
+  </metadata>
+</package>

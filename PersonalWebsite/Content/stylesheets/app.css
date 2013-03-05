@@ -160,6 +160,14 @@ p { margin: 0 0 14px 0; }
  * BLOG
  ***********************************/
 
+.blog-post h1 { font-size: 20px; line-height: 20px; margin: 5px 0; padding-bottom: 5px; border-bottom: 1px dotted black; }
+.blog-post h2 { font-size: 18px; line-height: 18px; margin: 5px 0; }
+.blog-post h3 { font-size: 16px; line-height: 16px; margin: 3px 0; }
+.blog-post h4 { font-size: 14px; line-height: 14px; margin: 2px 0; }
+.blog-post h5 { font-size: 12px; line-height: 12px; }
+
+.blog-post ul { margin-left: 18px; }
+
 /*---- RECENT POSTS SIDEBAR ----------- */
 .bloglist h5 { margin: 5px 0; }
 .bloglist ul { list-style: none; }

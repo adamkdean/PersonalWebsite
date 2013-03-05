@@ -39,8 +39,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EasyAuth">
-      <HintPath>bin\Release\EasyAuth.dll</HintPath>
+    <Reference Include="EasyAuth, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EasyAuth.1.0.0.0\lib\net45\EasyAuth.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework.Extended, Version=5.0.0.0, Culture=neutral, PublicKeyToken=05b7e29bdd433584, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
