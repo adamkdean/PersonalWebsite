@@ -2,27 +2,12 @@
  * SHARED
  ***********************************/
 
-/*html, body { height: 100%; }*/
-
 a:hover { text-decoration: underline; }
 a.button:hover { text-decoration: none; }
 a.label:hover { text-decoration: none; color: white; background: #2286a4; }
 a.label.alert:hover { background-color: #a70e12; }
 a.label.success:hover { background-color: #4d871d; }
 a.label.secondary:hover { background-color: #b6b6b6; color: #2e2e2e; }
-
-pre, code { background: #eee; line-height: 18px; font-weight: normal; border: none;
-            font-family: Consolas, 'Courier New', monospace, serif; }
-pre {
-    padding: 5px; margin: 0 0 10px 0;
-    white-space: pre-wrap; /* css-3 */
-    white-space: -moz-pre-wrap; /* Mozilla, since 1999 */
-    white-space: -pre-wrap; /* Opera 4-6 */
-    white-space: -o-pre-wrap; /* Opera 7 */
-    word-wrap: break-word; /* Internet Explorer 5.5+ */
-}
-code { padding: 1px 5px; margin: 0; }
-pre code { padding: 0; }
 
 p { margin: 0 0 14px 0; }
 
@@ -160,11 +145,24 @@ p { margin: 0 0 14px 0; }
  * BLOG
  ***********************************/
 
-.blog-post h1 { font-size: 20px; line-height: 20px; margin: 5px 0; padding-bottom: 5px; border-bottom: 1px dotted black; }
-.blog-post h2 { font-size: 18px; line-height: 18px; margin: 5px 0; }
-.blog-post h3 { font-size: 16px; line-height: 16px; margin: 3px 0; }
-.blog-post h4 { font-size: 14px; line-height: 14px; margin: 2px 0; }
-.blog-post h5 { font-size: 12px; line-height: 12px; }
+pre, code { background: #eee; line-height: 22px; font-weight: normal; border: none;
+            font-family: Consolas, 'Courier New', monospace, serif; }
+pre {
+    padding: 5px; margin: 0 0 18px 0;
+    white-space: pre-wrap; /* css-3 */
+    white-space: -moz-pre-wrap; /* Mozilla, since 1999 */
+    white-space: -pre-wrap; /* Opera 4-6 */
+    white-space: -o-pre-wrap; /* Opera 7 */
+    word-wrap: break-word; /* Internet Explorer 5.5+ */
+}
+code { padding: 1px 5px; margin: 0; }
+pre code { padding: 0; }
+
+.blog-post h1 { font-size: 20px; line-height: 20px; margin: 10px 0 5px 0; padding-bottom: 5px; border-bottom: 1px dotted black; }
+.blog-post h2 { font-size: 18px; line-height: 18px; margin: 9px 0 5px 0; }
+.blog-post h3 { font-size: 16px; line-height: 16px; margin: 8px 0 4px 0; }
+.blog-post h4 { font-size: 14px; line-height: 14px; margin: 7px 0 4px 0; }
+.blog-post h5 { font-size: 12px; line-height: 12px; margin: 6px 0 3px 0; }
 
 .blog-post ul { margin-left: 18px; }
 
