@@ -1,12 +1,5 @@
 This is the source code for my personal website.
 
-I doubt any of it is going to be stable.
-
-It incorporates the following projects of mine:  
-- https://github.com/Imdsm/EasyAuth  
-- https://github.com/Imdsm/HashProvider  
-
-
 ## License
 
 Copyright (c) 2013, Adam K Dean. All rights reserved.
