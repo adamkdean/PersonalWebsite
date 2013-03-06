@@ -17,10 +17,8 @@ namespace PersonalWebsite.Helpers
 
             using (var context = new WebsiteContext())
             {
-                // eagerly load the tags/comments etc as the context will be disposed
-                list = (from t in context.BlogPosts
-                                         .Include("Tags")
-                                         .Include("Comments")
+                // eagerly load the tags etc as the context will be disposed
+                list = (from t in context.BlogPosts.Include("Tags")                                         
                         orderby t.DatePosted descending
                         select t).Take(limit).ToList();                
             }
@@ -36,9 +34,7 @@ namespace PersonalWebsite.Helpers
             {
                 if (loadAssets)
                 {
-                    list = (from t in context.BlogPosts
-                                             .Include("Tags")
-                                             .Include("Comments")
+                    list = (from t in context.BlogPosts.Include("Tags")                                             
                             orderby t.DatePosted descending
                             select t).ToList();
                 }

@@ -36,10 +36,8 @@ namespace PersonalWebsite.Controllers
                 if (!context.BlogPosts.Any(x => x.BlogPostId == id))
                     RedirectToAction("Index", "Blog");
 
-                // eagerly load the tags/comments etc as the context will be disposed
-                var posts = (from t in context.BlogPosts
-                                             .Include("Tags")
-                                             .Include("Comments")
+                // eagerly load the tags etc as the context will be disposed
+                var posts = (from t in context.BlogPosts.Include("Tags")                                             
                              where t.BlogPostId == id
                              select t);
 
@@ -61,10 +59,8 @@ namespace PersonalWebsite.Controllers
                 if (!context.Tags.Any(x => x.TagId == id))
                     RedirectToAction("Index", "Blog");
 
-                // eagerly load the blogposts/comments/tags? etc as the context will be disposed
-                var query = (from t in context.Tags
-                                              .Include("BlogPosts.Tags")
-                                              .Include("BlogPosts.Comments")
+                // eagerly load the blogposts/tags? etc as the context will be disposed
+                var query = (from t in context.Tags.Include("BlogPosts.Tags")                                              
                              where t.TagId == id                             
                              select t);
                 var tag = (Tag)query.First();
@@ -85,10 +81,8 @@ namespace PersonalWebsite.Controllers
             
             using (var context = new WebsiteContext())
             {
-                // eagerly load the tags/comments etc as the context will be disposed
-                var posts = (from t in context.BlogPosts
-                                              .Include("Tags")
-                                              .Include("Comments")
+                // eagerly load the tags etc as the context will be disposed
+                var posts = (from t in context.BlogPosts.Include("Tags")                                              
                              orderby t.DatePosted descending 
                              select t).ToList();
                 model.BlogPosts = posts;
@@ -164,9 +158,7 @@ namespace PersonalWebsite.Controllers
                     RedirectToAction("Manage", "Blog");
 
                 // eagerly load the tags/comments etc as the context will be disposed
-                var posts = (from t in context.BlogPosts                            
-                                             .Include("Tags")
-                                             .Include("Comments")
+                var posts = (from t in context.BlogPosts.Include("Tags")                                             
                             where t.BlogPostId == id
                             select t);
 

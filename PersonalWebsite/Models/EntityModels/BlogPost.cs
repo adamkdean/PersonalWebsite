@@ -20,12 +20,10 @@ namespace PersonalWebsite.Models
         public int Views { get; set; }
 
         public virtual List<Tag> Tags { get; set; }
-        public virtual List<Comment> Comments { get; set; }
 
         public BlogPost()
         {
             Tags = new List<Tag>();
-            Comments = new List<Comment>();
         }
     }
 }

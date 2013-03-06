@@ -165,6 +165,15 @@
     <Compile Include="HomeController.generated.cs">
       <DependentUpon>T4MVC.tt</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201303032112516_InitialCreate.cs" />
+    <Compile Include="Migrations\201303032112516_InitialCreate.Designer.cs">
+      <DependentUpon>201303032112516_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201303062156054_RemovedBlogPostComments.cs" />
+    <Compile Include="Migrations\201303062156054_RemovedBlogPostComments.Designer.cs">
+      <DependentUpon>201303062156054_RemovedBlogPostComments.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ViewModels\Blog\SinglePostViewModel.cs" />
     <Compile Include="Models\ViewModels\Profile\GitHubViewModel.cs" />
     <Compile Include="Models\ViewModels\Profile\AboutMeViewModel.cs" />
@@ -181,7 +190,6 @@
     <Compile Include="Helpers\DateHelper.cs" />
     <Compile Include="Helpers\WebHelper.cs" />
     <Compile Include="Models\EntityModels\BlogPost.cs" />
-    <Compile Include="Models\EntityModels\Comment.cs" />
     <Compile Include="Models\EntityModels\FailedAttempt.cs" />
     <Compile Include="Models\EntityModels\Tag.cs" />
     <Compile Include="Models\EntityModels\WebsiteContext.cs" />
@@ -337,6 +345,14 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201303032112516_InitialCreate.resx">
+      <DependentUpon>201303032112516_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201303062156054_RemovedBlogPostComments.resx">
+      <DependentUpon>201303062156054_RemovedBlogPostComments.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
