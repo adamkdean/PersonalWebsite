@@ -4,25 +4,18 @@
 
 <div class="row">
     <div class="eight columns">
-        <h4>Direct Email</h4>
-        <p>
-            If you need to email me directly, please feel free, but you must prove your intelligence by
-            deciphering the following image. I look forward to hearing from you!
-        </p>
-        <img src="/Content/images/email.png"> 
-        <hr>
-
-        <h4>Online Presence</h4>
-        <p>I'm here, there, sometimes everywhere. This might help you find me.</p>
-        <p>            
-            <a href="http://github.com/Imdsm" class="button small secondary radius">GitHub</a> 
-            <a href="http://stackoverflow.com/users/1138620/adam-k-dean" class="button small secondary radius">StackOverflow</a>
-            <a href="http://www.linkedin.com/in/adamkdean" class="button small secondary radius">LinkedIn</a> 
-            <a href="http://www.facebook.com/imdsm" class="button small secondary radius">Facebook</a> 
-            <a href="http://twitter.com/Imdsm" class="button small secondary radius">Twitter</a> 
-        </p>        
+        <div class="row">
+            <div class="twelve columns">
+                <h4>Direct Email</h4>
+                <p>If you need to email me directly, please feel free to contact me at:</p>
+                <img src="/Content/images/email.png">
+                <hr>
+            </div>
+        </div>        
+        
+        @Html.Action("ContactForm")                       
     </div>
     <div class="four columns">
-        @Html.Action("TwitterFeed")
+        <!-- Html.Action("TwitterFeed") -->
     </div>
 </div>

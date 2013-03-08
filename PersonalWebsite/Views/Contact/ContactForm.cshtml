@@ -1,0 +1,67 @@
+﻿@using PersonalWebsite.Extensions
+@model PersonalWebsite.Models.Contact.ContactFormViewModel
+
+<h4>Contact Form</h4>
+
+@if (Model == null || !Model.Success)
+{
+    <p>Alternatively you can just scribble something below and fire it to me...</p>
+    
+    <div class="row contactform">
+        <div class="twelve columns">
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+                    
+            <div class="row">
+                <div class="two columns">@Html.LabelFor(x => x.Name)</div>
+                <div class="eight columns">
+                    @Html.TextBoxFor(x => x.Name)
+                    @Html.ValidationMessageSmallFor(x => x.Name)
+                </div>
+                <div class="two columns"></div>
+            </div>
+            <div class="row">
+                <div class="two columns">@Html.LabelFor(x => x.Email)</div>
+                <div class="eight columns">
+                    @Html.TextBoxFor(x => x.Email)
+                    @Html.ValidationMessageSmallFor(x => x.Email)
+                </div>
+                <div class="two columns"></div>
+            </div>
+            <div class="row">
+                <div class="two columns">@Html.LabelFor(x => x.Message)</div>
+                <div class="eight columns">
+                    @Html.TextAreaFor(x => x.Message)
+                    @Html.ValidationMessageSmallFor(x => x.Message)
+                </div>
+                <div class="two columns"></div>
+            </div>
+                        
+            <div class="row">
+                <div class="five columns">
+                    @if (!Html.ViewData.ModelState.IsValid)
+                    {
+                        @Html.ValidationSummary(true, null, htmlAttributes: new { @class = "account-validation-summary" })
+                    }
+                    else if (Model != null && Model.ErrorMessage != "")
+                    {
+                        <div class="validation-summary-errors account-validation-summary">
+                            <ul>
+                                <li>@Model.ErrorMessage</li>
+                            </ul>
+                        </div>
+                    }
+                </div>
+                <div class="five columns text-right"><input type="submit" value="Send" class="button" /></div>
+                <div class="two columns"></div>
+            </div>        
+        }
+        </div>
+    </div>
+}
+else
+{
+    <p>Thanks!</p>
+    <p>Your message has been sent. I'll try to respond to you soon!</p>
+}

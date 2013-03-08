@@ -1,4 +1,5 @@
-﻿@model PersonalWebsite.Models.Account.LoginViewModel
+﻿@using PersonalWebsite.Extensions
+@model PersonalWebsite.Models.Account.LoginViewModel
 
 @{
     ViewBag.Title = "Login";
@@ -17,6 +18,7 @@
                 </div>
                 <div class="six columns">
                     @Html.TextBoxFor(m => m.Username)
+                    @Html.ValidationMessageSmallFor(x => x.Username)
                 </div>
                 <div class="two columns"></div>
             </div>
@@ -26,7 +28,8 @@
                     @Html.LabelFor(m => m.Password, htmlAttributes: new { @class = "right inline" })
                 </div>
                 <div class="six columns">
-                    @Html.PasswordFor(m => m.Password)                        
+                    @Html.PasswordFor(m => m.Password)
+                    @Html.ValidationMessageSmallFor(x => x.Password)
                 </div>
                 <div class="two columns"></div>
             </div>
@@ -35,14 +38,14 @@
             {
             <div class="row">
                 <div class="six columns offset-by-four"> 
-                    @Html.ValidationSummary(false, null, htmlAttributes: new { @class = "account-validation-summary" })
+                    @Html.ValidationSummary(true, null, htmlAttributes: new { @class = "account-validation-summary" })
                 </div>
             </div>
             }
                 
             <div class="row">
                 <div class="eight columns offset-by-two">
-                    <input type="submit" value="Login" class="button radius right" />
+                    <input type="submit" value="Login" class="button right" />
                 </div>
             </div>
         }        

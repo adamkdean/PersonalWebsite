@@ -151,6 +151,7 @@
     <Compile Include="ContactController.generated.cs">
       <DependentUpon>T4MVC.tt</DependentUpon>
     </Compile>
+    <Compile Include="Extensions\ValidationExtensions.cs" />
     <Compile Include="Helpers\GitHub\GithubRepo.cs" />
     <Compile Include="Helpers\GitHub\GithubUser.cs" />
     <Compile Include="Helpers\GitHub\GithubOrg.cs" />
@@ -175,6 +176,7 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ViewModels\Blog\SinglePostViewModel.cs" />
+    <Compile Include="Models\ViewModels\Contact\ContactFormViewModel.cs" />
     <Compile Include="Models\ViewModels\Profile\GitHubViewModel.cs" />
     <Compile Include="Models\ViewModels\Profile\AboutMeViewModel.cs" />
     <Compile Include="Models\ViewModels\Profile\SkillsViewModel.cs" />
@@ -286,6 +288,9 @@
     <Content Include="connections.config">
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="mailSettings.config">
+      <SubType>Designer</SubType>
+    </Content>
     <None Include="Properties\PublishProfiles\adamkdean.co.uk via VPN.pubxml" />
     <None Include="Properties\PublishProfiles\adamkdean.co.uk.pubxml" />
     <None Include="Properties\PublishProfiles\local filesystem.pubxml" />
@@ -336,6 +341,7 @@
       <LastGenOutput>T4MVC.cs</LastGenOutput>
     </Content>
     <Content Include="Views\Shared\_PiPartial.cshtml" />
+    <Content Include="Views\Contact\ContactForm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
