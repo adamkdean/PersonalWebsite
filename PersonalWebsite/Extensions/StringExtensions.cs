@@ -25,7 +25,7 @@ namespace PersonalWebsite.Extensions
             s = Regex.Replace(s, @"[-]{2,}", "-").Trim();
             while (s.EndsWith("-") && s.Length > 1)
                 s = s.Substring(0, s.Length - 1);
-            if (s.Length > maxLength) s = s.Substring(0, maxLength);            
+            if (s.Length > maxLength) s = s.Substring(0, maxLength);
             return s;
         }
     }
