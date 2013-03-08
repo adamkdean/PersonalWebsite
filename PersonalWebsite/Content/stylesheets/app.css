@@ -195,9 +195,9 @@ pre code { padding: 0; }
 
 .blog-manage-table { border-collapse: collapse; border-spacing: 0; }
 .blog-manage-table td { vertical-align: middle; }
-.blog-manage-td-post { width: 65%; line-height: 150%; }
-.blog-manage-td-views, .blog-manage-td-comments { width: 10%; }
-.blog-manage-td-comments img, .blog-manage-td-views img { float: left; margin: 1px 3px 0 0; }
+.blog-manage-td-post { width: 85%; line-height: 150%; }
+/*.blog-manage-td-views, .blog-manage-td-comments { width: 10%; }
+.blog-manage-td-comments img, .blog-manage-td-views img { float: left; margin: 1px 3px 0 0; }*/
 .blog-manage-td-date { width: 10%; }
 
 .blog-manage-td-check { width: 5%; vertical-align: middle; }
