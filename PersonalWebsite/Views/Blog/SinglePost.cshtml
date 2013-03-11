@@ -2,6 +2,10 @@
 @using EasyAuth
 @model PersonalWebsite.Models.Blog.SinglePostViewModel
 
+@{ 
+    
+}
+
 <article>
     <h3>@Html.ActionLink(Model.BlogPost.BlogTitle, MVC.Blog.Read(Model.BlogPost.BlogPostId, Model.BlogPost.Slug))</h3>
     <h6>Posted @PersonalWebsite.Helpers.DateHelper.GetReadableDate(Model.BlogPost.DatePosted).</h6>
@@ -11,10 +15,19 @@
     </div>
 
     <p class="post-tag-text">
-        @{
-            var pretag = "";            
-            if (Model.ShowComments == false) 
+        @{            
+            var pretag = "";
+
+            // Model.ShowComments == true means it's a single blog post
+            // Model.ShowComments == false means it's displayed in a list
+            if (Model.ShowComments)
             {
+                // and so, as it's a single blog post, we open the posted month in the blog archive
+                HttpContext.Current.Items.Add("ArchiveOpenDate", Model.BlogPost.DatePosted);
+            }
+            else
+            {   
+                // as it's in a list, we provide a link to the post and it's comments
                 var link = Html.ActionLink("No Comments",
                     MVC.Blog.Read(Model.BlogPost.BlogPostId, Model.BlogPost.Slug),
                     htmlAttributes: new { },
@@ -24,6 +37,8 @@
                 );
                 pretag += link.ToString() + " | ";
             }
+            
+            // should we show or hide the Edit Post link (makes my life easier)?
             if (Authentication.IsAuthenticated())
             {                
                 var link = Html.ActionLink("Edit Post", MVC.Blog.Edit(Model.BlogPost.BlogPostId));                

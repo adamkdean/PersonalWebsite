@@ -47,6 +47,16 @@
     });
 </script>
 
+@{ 
+    bool useLatestMonth = true;
+    DateTime openDate = DateTime.Now;
+    if (HttpContext.Current.Items.Contains("ArchiveOpenDate"))
+    {
+        useLatestMonth = false;
+        openDate = (DateTime)HttpContext.Current.Items["ArchiveOpenDate"];        
+    }   
+}
+
 <div class="blogarchive">
     <h5>Blog Archive</h5>
 
@@ -80,10 +90,14 @@
                 year = post.DatePosted.Year;
                 int count = Model.BlogPosts.Count(x => x.DatePosted.Year == year);            
                 @Html.Raw("<ul class=\"hierarchy ul-year\">")
-                if (firstYear)
+                if (useLatestMonth && firstYear)
                 {                
                     @Html.Raw("<li class=\"archivedate li-year start-open\">" + year + " (" + count + ")</li>")
                     firstYear = false;
+                }
+                else if (!useLatestMonth && openDate.Year == year)
+                {
+                    @Html.Raw("<li class=\"archivedate li-month start-open\">" + DateHelper.GetMonthName(month) + " (" + count + ")</li>")                    
                 }
                 else
                 {
@@ -104,10 +118,14 @@
                 monthYear = post.DatePosted.Year;
                 int count = Model.BlogPosts.Count(x => x.DatePosted.Year == year && x.DatePosted.Month == month);
                 @Html.Raw("<ul class=\"hierarchy ul-month\">")            
-                if (firstMonth)
+                if (useLatestMonth && firstMonth)
                 {
                     @Html.Raw("<li class=\"archivedate li-month start-open\">" + DateHelper.GetMonthName(month) + " (" + count + ")</li>")
                     firstMonth = false;
+                }
+                else if (!useLatestMonth && openDate.Year == year && openDate.Month == month)
+                {
+                    @Html.Raw("<li class=\"archivedate li-month start-open\">" + DateHelper.GetMonthName(month) + " (" + count + ")</li>")                    
                 }
                 else
                 {
