@@ -66,7 +66,7 @@
     }
     else
     {
-        int year = 0, month = 0, monthYear = 0;
+        int year = 0, month = 1, monthYear = 0;
         bool ulOpenYear = false, ulOpenMonth = false;
         bool firstYear = true, firstMonth = true;
 
@@ -97,7 +97,7 @@
                 }
                 else if (!useLatestMonth && openDate.Year == year)
                 {
-                    @Html.Raw("<li class=\"archivedate li-month start-open\">" + DateHelper.GetMonthName(month) + " (" + count + ")</li>")                    
+                    @Html.Raw("<li class=\"archivedate li-year start-open\">" + year + " (" + count + ")</li>")
                 }
                 else
                 {
