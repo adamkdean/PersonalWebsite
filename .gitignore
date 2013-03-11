@@ -4,7 +4,7 @@
 # Configuration files we don't want to share
 Web.Debug.config
 Web.Release.config
-connections.config
+Web.config
 
 # User-specific files
 *.suo
