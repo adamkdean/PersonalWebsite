@@ -41,8 +41,8 @@ p { margin: 0 0 14px 0; }
 
 
 .field-validation-error { color: #96160B; font-size: 90%; }
-.field-validation-error ul { list-style: none; }
-.field-validation-error ul li { color: #96160B; font-size: 90%; }
+.validation-summary-errors ul { list-style: none; }
+.validation-summary-errors ul li { color: #96160B; font-size: 90%; }
 
 /* change to 50ms, eradicate laggy feeling */
 .button {

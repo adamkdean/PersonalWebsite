@@ -1,4 +1,5 @@
 ﻿@using PersonalWebsite.Extensions
+@using EasyAuth
 @model PersonalWebsite.Models.Blog.SinglePostViewModel
 
 <article>
@@ -11,7 +12,7 @@
 
     <p class="post-tag-text">
         @{
-            var comments = "";            
+            var pretag = "";            
             if (Model.ShowComments == false) 
             {
                 var link = Html.ActionLink("No Comments",
@@ -21,11 +22,16 @@
                     hostName: null, 
                     fragment: "disqus_thread"
                 );
-                comments = link.ToString() + " | ";
+                pretag += link.ToString() + " | ";
+            }
+            if (Authentication.IsAuthenticated())
+            {                
+                var link = Html.ActionLink("Edit Post", MVC.Blog.Edit(Model.BlogPost.BlogPostId));                
+                pretag += link.ToString() + " | ";
             }
         }
 
-        @Html.Raw(comments)
+        @Html.Raw(pretag)
 
         Tags: 
         @foreach (var tag in Model.BlogPost.Tags.OrderBy(x => x.TagName))

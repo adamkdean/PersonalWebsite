@@ -50,7 +50,7 @@
                             <label for="checkbox_@item.BlogPostId"><span></span></label>
                         </td>
                         <td class="blog-manage-td-post">
-                            @Html.ActionLink(item.BlogTitle, MVC.Blog.Edit(item.BlogPostId))<br>                            
+                            @Html.ActionLink(item.BlogTitle, MVC.Blog.Edit(item.BlogPostId))<br>
                             @foreach (var tag in item.Tags)
                             {
                                 <span class="label">@tag.TagName</span>

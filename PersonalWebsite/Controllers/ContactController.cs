@@ -21,9 +21,9 @@ namespace PersonalWebsite.Controllers
         {            
             return PartialView();
         }
-
-        [HttpPost, ValidateSpamPrevention]
+        
         [ChildActionOnly]
+        [HttpPost, ValidateSpamPrevention]
         public virtual PartialViewResult ContactForm(ContactFormViewModel model)
         {
             if (ModelState.IsValid)
@@ -58,6 +58,5 @@ namespace PersonalWebsite.Controllers
             return PartialView();
         }
         #endregion
-
     }
 }
