@@ -291,19 +291,10 @@
     <Content Include="Content\stylesheets\prettify.css" />
     <Content Include="Content\stylesheets\tagit.ui-zendesk.css" />
     <Content Include="Global.asax" />
-    <Content Include="connections.config">
-      <SubType>Designer</SubType>
-    </Content>
-    <Content Include="mailSettings.config">
-      <SubType>Designer</SubType>
-    </Content>
     <None Include="Properties\PublishProfiles\adamkdean.co.uk via VPN.pubxml" />
     <None Include="Properties\PublishProfiles\adamkdean.co.uk.pubxml" />
     <None Include="Properties\PublishProfiles\local filesystem.pubxml" />
     <None Include="Properties\PublishProfiles\new.adamkdean.co.uk.pubxml" />
-    <None Include="Scripts\jquery-1.9.1.intellisense.js" />
-    <Content Include="Scripts\jquery-1.9.1.js" />
-    <Content Include="Scripts\jquery-1.9.1.min.js" />
     <Content Include="T4MVC.tt.settings.xml" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -351,7 +342,6 @@
     </Content>
     <Content Include="Views\Shared\_PiPartial.cshtml" />
     <Content Include="Views\Contact\ContactForm.cshtml" />
-    <Content Include="Scripts\jquery-1.9.1.min.map" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

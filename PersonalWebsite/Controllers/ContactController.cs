@@ -1,4 +1,5 @@
 ﻿using PersonalWebsite.Models.Contact;
+using PoliteCaptcha;
 using System.Net.Mail;
 using System.Web.Mvc;
 
@@ -21,8 +22,8 @@ namespace PersonalWebsite.Controllers
             return PartialView();
         }
 
-        [HttpPost]
-        [ChildActionOnly]        
+        [HttpPost, ValidateSpamPrevention]
+        [ChildActionOnly]
         public virtual PartialViewResult ContactForm(ContactFormViewModel model)
         {
             if (ModelState.IsValid)

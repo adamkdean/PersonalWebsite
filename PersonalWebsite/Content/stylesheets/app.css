@@ -41,6 +41,8 @@ p { margin: 0 0 14px 0; }
 
 
 .field-validation-error { color: #96160B; font-size: 90%; }
+.field-validation-error ul { list-style: none; }
+.field-validation-error ul li { color: #96160B; font-size: 90%; }
 
 /* change to 50ms, eradicate laggy feeling */
 .button {
@@ -53,10 +55,7 @@ p { margin: 0 0 14px 0; }
 /************************************
  * ADMIN
  ***********************************/
-
 .account-button { float: right; width: 100%; margin-bottom: 5px; }
-.account-validation-summary ul { list-style: none; }
-.account-validation-summary ul li { color: #96160B; font-size: 90%; }
 .account-failedattempts { list-style: none; }
 .account-failedattempts li { font-size: 90%; }
 
@@ -92,7 +91,6 @@ p { margin: 0 0 14px 0; }
 /************************************
  * PROFILE
  ***********************************/
-
 .profile .portrait { text-align: center; } 
 .profile .portrait img { padding: 3px; border: 1px solid #ccc; }
 
@@ -141,10 +139,15 @@ p { margin: 0 0 14px 0; }
 .profile .stackoverflow .votes_up { background: #00C200; color: #006000; }
 .profile .stackoverflow .votes_down { background: #C20000; color: #600000; }
 
+
+/************************************
+ * CONTACT
+ ***********************************/
+.contactform textarea { height: 140px; }
+
 /************************************
  * BLOG
  ***********************************/
-
 pre, code { background: #eee; line-height: 22px; font-weight: normal; border: none;
             font-family: Consolas, 'Courier New', monospace, serif; }
 pre {
