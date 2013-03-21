@@ -89,8 +89,7 @@ namespace PersonalWebsite.Controllers
             StringBuilder sb = new StringBuilder();
             sb.Append("<p>Self-taught programmer with experience using a vast array of languages.</p>");
             sb.Append("<p>These days I focus on C# ASP.NET using frameworks such as MVC4 and EF. I have been writing code in C# consistently since 2006, having experience with .NET 2.0 and ASP.NET web forms right up to .NET 4.5 and MVC4.</p>");
-            sb.Append("<p>I am also a deft hand at design, having years of experience in hand-coding designs using HTML/CSS and using frameworks such as Bootstrap, Foundation and jQuery as well as design software like Adobe Photoshop, Illustrator and even InDesign for print media.</p>");
-            sb.Append("<p>I am currently in the process of learning TDD, MVC4, and EF.</p>");
+            sb.Append("<p>I am also a deft hand at design, having years of experience in hand-coding designs using HTML/CSS and using frameworks such as Bootstrap, Foundation and jQuery as well as design software like Adobe Photoshop, Illustrator and even InDesign for print media.</p>");            
             model.Blurb = sb.ToString();
 
             return PartialView(model);

@@ -21,7 +21,7 @@
                 <h4>Blog Management</h4>
             </div>
             <div class="four columns">
-                @Html.ActionLink("New Post", MVC.Blog.New(), htmlAttributes: new { @class = "button small radius right" })
+                @Html.ActionLink("New Post", MVC.Blog.New(), htmlAttributes: new { @class = "button small right" })
             </div>
         </div>
   
@@ -81,10 +81,10 @@
                         <label for="checkbox_all"><span></span></label>
                     </td>
                     <td class="blog-manage-td-post">
-                        <input type="submit" value="Delete" class="button small radius secondary"
+                        <input type="submit" value="Delete" class="button small secondary"
                             onclick="return confirm('Are you sure you want to delete the selected post(s)?');" />                        
                     </td>
-                    <td>@Html.ActionLink("New Post", MVC.Blog.New(), htmlAttributes: new { @class = "button small radius right" })</td>
+                    <td>@Html.ActionLink("New Post", MVC.Blog.New(), htmlAttributes: new { @class = "button small right" })</td>
                 </tr>
             </tfoot>
         </table>
