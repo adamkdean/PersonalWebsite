@@ -9,4 +9,5 @@ As I push this to my website and GitHub at different times, do not assume that w
 - Add projects page
 - Add search ability to blog
 - Change profile picture to use Gravatar
-- Remove views from BlogPost entity model
+- <del>Add popular posts section to blog</del>
+- <del>Remove views from BlogPost entity model</del>
