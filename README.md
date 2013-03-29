@@ -1,15 +1,12 @@
-This is the source code for my personal website.
+## About
+This is the source code for my personal website: [www.adamkdean.co.uk](http://www.adamkdean.co.uk).
 
-As I push this to my website and github at different times, do not assume that what is live on my website is what is in this repo.
+As I push this to my website and GitHub at different times, do not assume that what is live on my website is what is in this repo or vice versa.
 
-TODO LIST
-=========
+## Todo List
 
-Features
 - Add links page
 - Add projects page
 - Add search ability to blog
 - Change profile picture to use Gravatar
-
-Other
 - Remove views from BlogPost entity model
