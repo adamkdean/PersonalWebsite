@@ -26,7 +26,7 @@
                 }
                 else
                 {
-                    <p class="post-views">Viewed @post.Views times.</p>
+                    <p class="post-views">Viewed @string.Format("{0:n0}", post.Views) times.</p>
                 }
             </li>
         }
