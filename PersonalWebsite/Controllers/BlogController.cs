@@ -257,8 +257,8 @@ namespace PersonalWebsite.Controllers
         {
             return PartialView(model);
         }
-
-        [ChildActionOnly]
+        
+        [ChildActionOnly]        
         public virtual PartialViewResult RecentPosts()
         {
             var model = new RecentPostsViewModel();
@@ -271,6 +271,14 @@ namespace PersonalWebsite.Controllers
         {
             var model = new RecentPostsListViewModel();
             model.BlogPosts = BlogPostHelper.GetRecentPosts(5);
+            return PartialView(model);
+        }
+        
+        [ChildActionOnly]
+        public virtual PartialViewResult PopularPostsList()
+        {
+            var model = new PopularPostsListViewModel();
+            model.BlogPosts = BlogPostHelper.GetPopularPosts(5);
             return PartialView(model);
         }
 

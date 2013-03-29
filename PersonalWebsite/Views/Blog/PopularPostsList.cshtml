@@ -1,0 +1,35 @@
+﻿@model PersonalWebsite.Models.Blog.PopularPostsListViewModel
+
+<div class="bloglist">
+    <h5>Popular Posts</h5>    
+    @if(Model.BlogPosts.Count == 0)
+    {
+        <p>No blog posts.</p>
+    }
+    else            
+    {
+        <ul>
+        @foreach(var post in Model.BlogPosts)
+        {
+            <li>
+                <p class="post-link">
+                    @Html.ActionLink(post.BlogTitle, MVC.Blog.Read(post.BlogPostId, post.Slug))
+                </p>
+                
+                @if (post.Views == 1) 
+                {
+                    <p class="post-views">Viewed once.</p>
+                }
+                else if (post.Views == 2) 
+                {
+                    <p class="post-views">Viewed twice.</p>
+                }
+                else
+                {
+                    <p class="post-views">Viewed @post.Views times.</p>
+                }
+            </li>
+        }
+        </ul>
+    }
+</div>

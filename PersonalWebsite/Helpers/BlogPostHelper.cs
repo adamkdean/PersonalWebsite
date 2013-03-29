@@ -10,7 +10,7 @@ using System.Web;
 namespace PersonalWebsite.Helpers
 {
     public static class BlogPostHelper
-    {
+    {        
         public static List<BlogPost> GetRecentPosts(int limit = 5)
         {
             var list = new List<BlogPost>();
@@ -25,6 +25,22 @@ namespace PersonalWebsite.Helpers
 
             return list;
         }
+
+        public static List<BlogPost> GetPopularPosts(int limit = 5)
+        {
+            var list = new List<BlogPost>();
+
+            using (var context = new WebsiteContext())
+            {
+                // eagerly load the tags etc as the context will be disposed
+                list = (from t in context.BlogPosts.Include("Tags")                                         
+                        orderby t.Views descending
+                        where t.Views > 0
+                        select t).Take(limit).ToList();                
+            }
+
+            return list;
+        }        
 
         public static List<BlogPost> GetAllPosts(bool loadAssets = true)
         {
