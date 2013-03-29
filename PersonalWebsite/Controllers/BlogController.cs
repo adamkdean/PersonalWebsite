@@ -41,7 +41,10 @@ namespace PersonalWebsite.Controllers
                              where t.BlogPostId == id
                              select t);
 
+                // get the blog post, but increment the views while we're at it!
                 model.BlogPost = posts.First();
+                model.BlogPost.Views++;
+                context.SaveChanges();
             }
 
             return View(model);
