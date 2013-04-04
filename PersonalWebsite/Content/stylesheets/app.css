@@ -112,6 +112,7 @@ p { margin: 0 0 14px 0; }
 .profile .progress .meter.width80 { width: 80%; }
 .profile .progress .meter.width90 { width: 90%; }
 .profile .progress .meter.width100 { width: 100%; }
+.profile .progress .meter.has-tip { color: white; border: none; }
 
 .profile .aboutme { padding: 4px 8px; background: #eee; }
 .profile .aboutme p { font-size: 90%; margin: 5px 0; }

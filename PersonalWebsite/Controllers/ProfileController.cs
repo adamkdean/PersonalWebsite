@@ -100,18 +100,56 @@ namespace PersonalWebsite.Controllers
         {
             var model = new SkillsViewModel();
 
-            var primarySkills = new List<Skill>();
-            primarySkills.Add(new Skill("C#", 90));
-            primarySkills.Add(new Skill("ASP.NET", 80));
-            primarySkills.Add(new Skill("MVC", 60));
-            model.PrimarySkills = primarySkills;
+            string dummyString = "Lorem ipsum dolor sit amet, consectetur adipiscing elit.";
 
+            var primarySkills = new List<Skill>();
             var secondarySkills = new List<Skill>();
-            secondarySkills.Add(new Skill("HTML", 80));
-            secondarySkills.Add(new Skill("CSS", 70));
-            secondarySkills.Add(new Skill("JS", 50));
-            secondarySkills.Add(new Skill("PHP", 60));
-            secondarySkills.Add(new Skill("SQL", 70));
+
+            // primary skills
+            primarySkills.Add(new Skill(80, "C#",
+                @"Understanding: Very Strong<br>" + 
+                "Experience: 6 Years<br><br>" +
+                "My primary language for both software and web development. Technologies include MSSQL, MySQL, MVC, EF, XNA, Mono and more."
+            ));
+            primarySkills.Add(new Skill(70, "ASP.NET",
+                "Understanding: Strong<br>" +
+                "Experience: 5 Years<br><br>" +
+                "My go to framework for web applications. I have experience with asp.net-webforms but focus more on asp.net-mvc these days."
+            ));
+            primarySkills.Add(new Skill(60, "MVC",
+                "Understanding: Solid<br>" +
+                "Experience: Less than a year<br><br>" +
+                "I've been focusing on learning MVC this past year, primarily asp.net-mvc. I have a solid understanding of how it works."
+            ));
+
+            // secondary skills
+            secondarySkills.Add(new Skill(80, "HTML",
+                "Understanding: Very Strong<br>" +
+                "Experience: 8 Years<br><br>" +
+                "I have been writing HTML for almost as long as I've been programming. I can hand code designs, but also have experience of boilerplate frameworks like Bootstrap and Foundation."
+            ));
+            secondarySkills.Add(new Skill(70, "CSS",
+                "Understanding: Strong<br>" +
+                "Experience: 6 Years<br><br>" +
+                "CSS has been helping me make my websites look good for the last six years or so. I like to think I am well acquainted with it's many features and intricacies."
+            ));
+            secondarySkills.Add(new Skill(50, "JS",
+                "Understanding: Mediocre<br>" +
+                "Experience: On and off for years<br><br>" +
+                "My use of JavaScript has been sporadic. I use it when the project requires it, but I don't focus on it primarily. I have had success applying it to websites and canvas apps."
+            ));
+            secondarySkills.Add(new Skill(60, "PHP",
+                "Understanding: Solid<br>" +
+                "Experience: 8 Years<br><br>" +
+                "My first web development language. I have a solid understanding of it, but focus more on .NET these days."
+            ));
+            secondarySkills.Add(new Skill(60, "SQL",
+                "Understanding: Solid<br>" +
+                "Experience: 8 Years<br><br>" +
+                "I have a solid understanding of SQL and experience using all sorts of it from MySQL and MSSQL to Transact-SQL and Stored Procedures."
+            ));
+
+            model.PrimarySkills = primarySkills;
             model.SecondarySkills = secondarySkills;
 
             return PartialView(model);
