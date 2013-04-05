@@ -1,25 +1,25 @@
 ﻿@model PersonalWebsite.Models.Blog.RecentPostsListViewModel
 
 <div class="bloglist">
-    <h5>Recent Posts</h5>
-    <ul>
-        @if(Model.BlogPosts.Count == 0)
+    <h5>Recent Posts</h5>    
+    @if(Model.BlogPosts.Count == 0)
+    {
+        <p>No blog posts.</p>
+    }
+    else            
+    {
+        <ul>
+        @foreach(var post in Model.BlogPosts)
         {
-            <p>No blog posts.</p>
+            <li>
+                <p class="post-link">
+                    @Html.ActionLink(post.BlogTitle, MVC.Blog.Read(post.BlogPostId, post.Slug))
+                </p>
+                <p class="post-date">Posted 
+                    <em>@PersonalWebsite.Helpers.DateHelper.GetReadableTimeSince(post.DatePosted)</em>.
+                </p>                    
+            </li>
         }
-        else            
-        {
-            foreach(var post in Model.BlogPosts)
-            {
-                <li>
-                    <p class="post-link">
-                        @Html.ActionLink(post.BlogTitle, MVC.Blog.Read(post.BlogPostId, post.Slug))
-                    </p>
-                    <p class="post-date">Posted 
-                        <em>@PersonalWebsite.Helpers.DateHelper.GetReadableTimeSince(post.DatePosted)</em>.
-                    </p>                    
-                </li>
-            }
-        }
-    </ul>
+        </ul>
+    }    
 </div>
