@@ -66,8 +66,7 @@ p { margin: 0 0 14px 0; }
  * HOME
  ***********************************/
 .welcome {    
-    padding: 50px 0; text-align: center; background: #2ba6cb;
-    -webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px;
+    padding: 50px 0; text-align: center; background: #2ba6cb;    
     background-image: linear-gradient(bottom, rgb(43,143,171) 0%, rgb(43,166,203) 100%);
     background-image: -o-linear-gradient(bottom, rgb(43,143,171) 0%, rgb(43,166,203) 100%);
     background-image: -moz-linear-gradient(bottom, rgb(43,143,171) 0%, rgb(43,166,203) 100%);
@@ -76,16 +75,23 @@ p { margin: 0 0 14px 0; }
     background-image: -webkit-gradient( linear, left bottom, left top, color-stop(0, rgb(43,143,171)), color-stop(1, rgb(43,166,203)) );
 }
 
-.welcome h1 { font-size: 600%; color: white; }
-.welcome h2 { color: #eee; }
+.welcome h1 { font-size: 500%; color: white; }
+.welcome h2 { font-size: 200%; color: #fafafa; }
 @media only screen and (max-width: 767px) {
+    .welcome { margin: 0 25px; padding: 25px 0; }    
     .welcome h1 { font-size: 300%; }
-    .welcome h2 { font-size: 200%; }
+    .welcome h2 { font-size: 150%; }
 }
 
-.choices { text-align: center; padding: 40px 0 10px 0; }
+.infoboxes { margin: 12px auto; }
+.infoboxes div { background: #eee; box-sizing: border-box; }
+.infoboxes div.infoleft { border-right: 6px solid white; }
+.infoboxes div.infocentre { border-left: 3px solid white; border-right: 3px solid white; }
+.infoboxes div.inforight { border-left: 6px solid white; }
+
+/*.choices { text-align: center; padding: 40px 0 10px 0; }
 .choices .row { margin-bottom: 20px; }
-.choices blockquote { text-align: left; }
+.choices blockquote { text-align: left; }*/
 
 /************************************
  * PROFILE
