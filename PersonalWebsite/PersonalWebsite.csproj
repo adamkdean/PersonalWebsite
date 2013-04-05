@@ -181,6 +181,7 @@
       <DependentUpon>201303062156054_RemovedBlogPostComments.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\ViewModels\Blog\SearchViewModel.cs" />
     <Compile Include="Models\ViewModels\Blog\PopularPostsListViewModel.cs" />
     <Compile Include="Models\ViewModels\Blog\SinglePostViewModel.cs" />
     <Compile Include="Models\ViewModels\Contact\ContactFormViewModel.cs" />
@@ -325,7 +326,7 @@
     <Content Include="Views\Blog\TagCloud.cshtml" />
     <Content Include="Views\Blog\RecentPosts.cshtml" />
     <Content Include="Views\Blog\Read.cshtml" />
-    <Content Include="Views\Blog\Sidebar.cshtml" />
+    <Content Include="Views\Blog\SideBar.cshtml" />
     <Content Include="Views\Blog\PostArchive.cshtml" />
     <Content Include="Views\Blog\Tagged.cshtml" />
     <Content Include="Views\Contact\TwitterFeed.cshtml" />
@@ -344,6 +345,7 @@
     <Content Include="Views\Shared\_PiPartial.cshtml" />
     <Content Include="Views\Contact\ContactForm.cshtml" />
     <Content Include="Views\Blog\PopularPostsList.cshtml" />
+    <Content Include="Views\Blog\SearchBar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

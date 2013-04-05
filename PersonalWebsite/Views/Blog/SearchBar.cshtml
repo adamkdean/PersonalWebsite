@@ -1,0 +1,8 @@
+﻿@model PersonalWebsite.Models.Blog.SearchViewModel
+
+<div class="blogsearch">
+    @using (Html.BeginForm(MVC.Blog.Search(), FormMethod.Post, null))
+    {        
+        @Html.TextBoxFor(m => m.SearchTerm, new { @placeholder = "Search Blog" })        
+    }
+</div>

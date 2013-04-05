@@ -303,7 +303,14 @@ namespace PersonalWebsite.Controllers
             var model = new TagCloudViewModel();
             model.Tags = TagHelper.GetTagsByMostPopular();
             return PartialView(model);
-        }        
+        }
+
+        [ChildActionOnly]
+        public virtual PartialViewResult SearchBar()
+        {
+            var model = new SearchViewModel();
+            return PartialView(model);
+        }
         #endregion
     }
 }
