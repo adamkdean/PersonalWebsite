@@ -100,8 +100,6 @@ namespace PersonalWebsite.Controllers
         {
             var model = new SkillsViewModel();
 
-            string dummyString = "Lorem ipsum dolor sit amet, consectetur adipiscing elit.";
-
             var primarySkills = new List<Skill>();
             var secondarySkills = new List<Skill>();
 
