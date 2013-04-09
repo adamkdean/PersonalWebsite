@@ -300,6 +300,7 @@
     <Content Include="Content\fonts\iconic_fill.otf" />
     <Content Include="Content\fonts\iconic_fill.ttf" />
     <Content Include="Content\fonts\iconic_fill.woff" />
+    <Content Include="Files\adamkdean-curriculum-vitae.pdf" />
     <None Include="Properties\PublishProfiles\adamkdean.co.uk via VPN.pubxml" />
     <None Include="Properties\PublishProfiles\adamkdean.co.uk.pubxml" />
     <None Include="Properties\PublishProfiles\local filesystem.pubxml" />
