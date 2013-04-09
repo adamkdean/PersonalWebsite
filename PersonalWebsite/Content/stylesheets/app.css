@@ -134,7 +134,7 @@ p { margin: 0 0 14px 0; }
 .profile .github .repo .icon { float: left; width: 8%; text-align: left; padding-top: 3px; }
 .profile .github .repo .name { float: left; width: 72%; }
 .profile .github .repo .name .description { color: #333; font-size: 90%; display: inline-block; padding: 3px 0; line-height: 1.2em; }
-.profile .github .repo .star { float: left; width: 20%; text-align: right; }
+.profile .github .repo .gitstar { float: left; width: 20%; text-align: right; }
 .profile .github .clear { clear: both; }
 
 /*---- STACK OVERFLOW ----------------- */
