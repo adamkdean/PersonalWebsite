@@ -11,18 +11,36 @@
 
 <div class="row infoboxes">
     <div class="infoleft four columns">
-        <h3>Dev Blog</h3>
+        <h3><span class="iconic rss_alt"></span> Blog</h3>
         <p>I write about my creative endeavours as a web developer. Whethers it's snippets of code, meandering thoughts or tutorials.</p>        
-        <p>@Html.ActionLink("Read More", MVC.Blog.Index(), new { @class = "button" })</p>
+        <p>@Html.ActionLink("Start Reading", MVC.Blog.Index(), new { @class = "small button" })</p>
     </div>
     <div class="infocentre four columns">
-        <h3>Code</h3>
-        <p>I write code every day. When I'm not writing it, I'm thinking about it, or dreaming about it. For an overview, view my coding profile.</p>
-        <p><a href="https://coderbits.com/Imdsm" class="button">Coderbits Profile</a></p>
+        <h3><span class="iconic user"></span> Profile</h3>
+        <p>For a more semi-professional summary of my skills & expertise, and for an overview of my geek activity, take a look at my profile.</p>        
+        <p>@Html.ActionLink("View Profile", MVC.Profile.Index(), new { @class = "small button" })</p>
     </div>
     <div class="inforight four columns">
-        <h3>Projects</h3>
-        <p>Almost every project I do, I put onto GitHub. Feel free to view my projects, fork them, star them or even share them.</p>
-        <p><a href="https://github.com/Imdsm" class="button">GitHub Overview</a></p>
+        <h3><span class="iconic mail"></span> Contact</h3>
+        <p>I like to be available. I pride myself on being an easily contactable fellow. So if you've got something to say, this page'll help you.</p>        
+        <p>@Html.ActionLink("Contact Me", MVC.Contact.Index(), new { @class = "small button" })</p>
     </div>
+</div>
+
+<div class="row infoboxes">
+    <div class="infoleft four columns">
+        <h3><span class="iconic paperclip"></span> CV</h3>
+        <p>Whether you're a recruiter, an agency or a fellow developer, you might want to look at my CV. The PDF is available here.</p>
+        <p><a href="http://www.adamkdean.co.uk/files/adamkdean-curriculum-vitae.pdf" class="small button">Curriculum Vitae</a></p>
+    </div>
+    <div class="infocentre four columns">
+        <h3><span class="iconic chart_alt"></span> Code</h3>
+        <p>I write code every day. When I'm not writing it, I'm thinking about it, or dreaming about it. For an overview, view my coding profile.</p>
+        <p><a href="http://coderbits.com/Imdsm" class="small button">Coderbits Profile</a></p>
+    </div>
+    <div class="inforight four columns">
+        <h3><span class="iconic book_alt"></span> Projects</h3>
+        <p>Almost every project I do, I put onto GitHub. Feel free to view my projects, fork them, star them or even share them.</p>
+        <p><a href="http://github.com/Imdsm" class="small button">GitHub Overview</a></p>
+    </div>    
 </div>

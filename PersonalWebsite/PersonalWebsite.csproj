@@ -230,6 +230,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\fonts\iconic_fill.svg" />
     <Content Include="Content\images\checkbox.png" />
     <Content Include="Content\images\checkbox_checked.png" />
     <Content Include="Content\images\checkbox_hover.png" />
@@ -289,10 +290,16 @@
     <Content Include="Content\images\portrait.jpg" />
     <Content Include="Content\stylesheets\app.css" />
     <Content Include="Content\stylesheets\foundation.css" />
+    <Content Include="Content\stylesheets\iconic_fill.css" />
     <Content Include="Content\stylesheets\jquery.tagit.css" />
     <Content Include="Content\stylesheets\prettify.css" />
     <Content Include="Content\stylesheets\tagit.ui-zendesk.css" />
     <Content Include="Global.asax" />
+    <Content Include="Content\fonts\iconic_fill.afm" />
+    <Content Include="Content\fonts\iconic_fill.eot" />
+    <Content Include="Content\fonts\iconic_fill.otf" />
+    <Content Include="Content\fonts\iconic_fill.ttf" />
+    <Content Include="Content\fonts\iconic_fill.woff" />
     <None Include="Properties\PublishProfiles\adamkdean.co.uk via VPN.pubxml" />
     <None Include="Properties\PublishProfiles\adamkdean.co.uk.pubxml" />
     <None Include="Properties\PublishProfiles\local filesystem.pubxml" />
