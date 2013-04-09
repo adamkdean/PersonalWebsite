@@ -118,7 +118,7 @@ namespace PersonalWebsite.Controllers
             ));
             primarySkills.Add(new Skill(60, "MVC",
                 "Understanding: Solid<br>" +
-                "Experience: Less than a year<br><br>" +
+                "Experience: 1 Year<br><br>" +
                 "I've been focusing on learning MVC this past year, primarily asp.net-mvc. I have a solid understanding of how it works."
             ));
 
@@ -130,17 +130,17 @@ namespace PersonalWebsite.Controllers
             ));
             secondarySkills.Add(new Skill(70, "CSS",
                 "Understanding: Strong<br>" +
-                "Experience: 6 Years<br><br>" +
-                "CSS has been helping me make my websites look good for the last six years or so. I like to think I am well acquainted with it's many features and intricacies."
+                "Experience: 7 Years<br><br>" +
+                "CSS has been helping me make my websites look good for the last seven years or so. I like to think I am well acquainted with it's many features and intricacies."
             ));
             secondarySkills.Add(new Skill(50, "JS",
-                "Understanding: Mediocre<br>" +
-                "Experience: On and off for years<br><br>" +
-                "My use of JavaScript has been sporadic. I use it when the project requires it, but I don't focus on it primarily. I have had success applying it to websites and canvas apps."
+                "Understanding: Good<br>" +
+                "Experience: 2+ Years<br><br>" +
+                "My use of JavaScript has been sporadic. I don't focus on it primarily but have had success applying both jQuery and classic javascript to websites and canvas apps."
             ));
             secondarySkills.Add(new Skill(60, "PHP",
                 "Understanding: Solid<br>" +
-                "Experience: 8 Years<br><br>" +
+                "Experience: 5 Years<br><br>" +
                 "My first web development language. I have a solid understanding of it, but focus more on .NET these days."
             ));
             secondarySkills.Add(new Skill(60, "SQL",
