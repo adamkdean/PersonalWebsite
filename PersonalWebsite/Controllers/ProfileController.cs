@@ -22,66 +22,6 @@ namespace PersonalWebsite.Controllers
 
         #region ChildActions
         [ChildActionOnly]
-        [OutputCache(Duration = 900, VaryByParam = "none")] // 15 minutes
-        public virtual PartialViewResult StackOverflow()
-        {
-            var model = new StackOverflowViewModel();
-
-            try
-            {
-                var site = "stackoverflow";
-                var id = new List<int>() { 1138620 };
-                var client = new StacManClient(key: "B6EuGp0wJiOeWNiAd2za)w((");
-                
-                var users_response = client.Users.GetByIds(site, id, "!T6p4VHlBGj(I.LUZgV");
-                var questions_response = client.Users.GetQuestions(site, id);
-                var answers_response = client.Users.GetAnswers(site, id, "!-.mgWLrn264w");
-
-                // default: client.ApiTimeoutMs = 5000;
-                users_response.Wait();
-                questions_response.Wait();
-                answers_response.Wait();
-
-                if (users_response.IsCompleted) model.Profile = users_response.Result.Data.Items[0];                
-                if (questions_response.IsCompleted) model.Questions = questions_response.Result.Data.Items.Take(5);
-                if (answers_response.IsCompleted) model.Answers = answers_response.Result.Data.Items.Take(5);
-                
-                if (users_response.Exception != null) model.Exception = users_response.Exception.Message;
-                else if (users_response.Exception != null) model.Exception = questions_response.Exception.Message;
-                else if (users_response.Exception != null) model.Exception = answers_response.Exception.Message;                
-            }
-            catch (Exception e)
-            {
-                model.Exception = e.Message;
-            }
-
-            return PartialView(model);
-        }
-
-        [ChildActionOnly]
-        [OutputCache(Duration = 900, VaryByParam = "none")] // 15 minutes
-        public virtual PartialViewResult GitHub()
-        {
-            var model = new GitHubViewModel();
-
-            try
-            {
-                var github = new GithubV3ApiGateway();
-                model.User = github.GetUser("imdsm");
-                model.Repositories = github.GetUserRepos("imdsm")
-                                        .OrderByDescending(x => x.Updated_At)
-                                        .Take(5)
-                                        .ToList();
-            }
-            catch (Exception e)
-            {
-                model.Exception = e.Message;
-            }
-
-            return PartialView(model);
-        }
-
-        [ChildActionOnly]
         public virtual PartialViewResult AboutMe()
         {
             var model = new AboutMeViewModel();
@@ -172,6 +112,4 @@ namespace PersonalWebsite.Controllers
         #endregion
 
     }
-
-    
 }
