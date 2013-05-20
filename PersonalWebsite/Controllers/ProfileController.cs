@@ -1,11 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Web.Mvc;
 using PersonalWebsite.Classes;
 using PersonalWebsite.Models.Profile;
-using System;
-using ScriptCs.Coderbits;
+using CSharp.Coderbits;
 
 namespace PersonalWebsite.Controllers
 {
@@ -37,11 +37,15 @@ namespace PersonalWebsite.Controllers
         [ChildActionOnly]
         public virtual PartialViewResult PieCharts()
         {
-            var model = new PieChartsViewModel();
-
-            // pies!
             // https://github.com/scottksmith95/CSharp.Coderbits
 
+            // Todo: debug. this just HANGS!
+
+            //var coderbitsApi = new Api();
+            //ApiModel coderbitsModel = coderbitsApi.GetProfile("Imdsm");
+            //coderbitsModel.top_languages
+
+            var model = new PieChartsViewModel();
             return PartialView(model);
         }
 
