@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>ScriptCs.Coderbits</id>
+    <version>1.0.2</version>
+    <title>ScriptCs.Coderbits</title>
+    <authors>Scott Smith</authors>
+    <owners>Scott Smith</owners>
+    <licenseUrl>http://opensource.org/licenses/MIT</licenseUrl>
+    <projectUrl>https://github.com/scottksmith95/ScriptCs.Coderbits</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>ScriptCS Script Pack for Coderbits</description>
+    <releaseNotes>Initial release.</releaseNotes>
+    <copyright>Copyright 2013</copyright>
+    <language />
+    <tags>ScriptCS</tags>
+    <dependencies>
+      <dependency id="CSharp.Coderbits" version="1.0.1" />
+      <dependency id="ScriptCs.Contracts" version="0.4.0" />
+    </dependencies>
+  </metadata>
+</package>
