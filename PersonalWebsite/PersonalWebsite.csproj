@@ -64,9 +64,6 @@
     <Reference Include="ServiceStack.Text">
       <HintPath>..\packages\ServiceStack.Text.3.9.37\lib\net35\ServiceStack.Text.dll</HintPath>
     </Reference>
-    <Reference Include="StacMan">
-      <HintPath>..\packages\StacMan.1.0.0.0\lib\net45\StacMan.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.Entity" />
@@ -158,10 +155,6 @@
       <DependentUpon>T4MVC.tt</DependentUpon>
     </Compile>
     <Compile Include="Extensions\ValidationExtensions.cs" />
-    <Compile Include="Helpers\GitHub\GithubRepo.cs" />
-    <Compile Include="Helpers\GitHub\GithubUser.cs" />
-    <Compile Include="Helpers\GitHub\GithubOrg.cs" />
-    <Compile Include="Helpers\GitHub\GithubV3ApiGateway.cs" />
     <Compile Include="Classes\Skill.cs" />
     <Compile Include="Classes\Trait.cs" />
     <Compile Include="Controllers\ProfileController.cs" />
@@ -185,11 +178,10 @@
     <Compile Include="Models\ViewModels\Blog\PopularPostsListViewModel.cs" />
     <Compile Include="Models\ViewModels\Blog\SinglePostViewModel.cs" />
     <Compile Include="Models\ViewModels\Contact\ContactFormViewModel.cs" />
-    <Compile Include="Models\ViewModels\Profile\GitHubViewModel.cs" />
+    <Compile Include="Models\ViewModels\Profile\PieChartsViewModel.cs" />
     <Compile Include="Models\ViewModels\Profile\AboutMeViewModel.cs" />
     <Compile Include="Models\ViewModels\Profile\SkillsViewModel.cs" />
     <Compile Include="Models\ViewModels\Profile\TraitsViewModel.cs" />
-    <Compile Include="Models\ViewModels\Profile\StackOverflowViewModel.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -338,10 +330,8 @@
     <Content Include="Views\Blog\PostArchive.cshtml" />
     <Content Include="Views\Blog\Tagged.cshtml" />
     <Content Include="Views\Contact\TwitterFeed.cshtml" />
-    <Content Include="Views\Profile\StackOverflow.cshtml" />
     <Content Include="Views\Profile\Traits.cshtml" />
     <Content Include="Views\Profile\Skills.cshtml" />
-    <Content Include="Views\Profile\GitHub.cshtml" />
     <Content Include="Views\Profile\AboutMe.cshtml" />
     <Content Include="Views\Account\Setup.cshtml" />
     <Content Include="Views\Blog\SinglePost.cshtml" />
@@ -354,6 +344,7 @@
     <Content Include="Views\Contact\ContactForm.cshtml" />
     <Content Include="Views\Blog\PopularPostsList.cshtml" />
     <Content Include="Views\Blog\SearchBar.cshtml" />
+    <Content Include="Views\Profile\PieCharts.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
