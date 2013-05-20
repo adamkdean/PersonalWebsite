@@ -61,6 +61,7 @@ namespace PersonalWebsite.Controllers
         public class ActionNamesClass
         {
             public readonly string Index = "Index";
+            public readonly string ContactForm = "ContactForm";
             public readonly string TwitterFeed = "TwitterFeed";
         }
 
@@ -68,10 +69,19 @@ namespace PersonalWebsite.Controllers
         public class ActionNameConstants
         {
             public const string Index = "Index";
+            public const string ContactForm = "ContactForm";
             public const string TwitterFeed = "TwitterFeed";
         }
 
 
+        static readonly ActionParamsClass_ContactForm s_params_ContactForm = new ActionParamsClass_ContactForm();
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public ActionParamsClass_ContactForm ContactFormParams { get { return s_params_ContactForm; } }
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public class ActionParamsClass_ContactForm
+        {
+            public readonly string model = "model";
+        }
         static readonly ViewsClass s_views = new ViewsClass();
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
         public ViewsClass Views { get { return s_views; } }
@@ -82,9 +92,11 @@ namespace PersonalWebsite.Controllers
             public _ViewNamesClass ViewNames { get { return s_ViewNames; } }
             public class _ViewNamesClass
             {
+                public readonly string ContactForm = "ContactForm";
                 public readonly string Index = "Index";
                 public readonly string TwitterFeed = "TwitterFeed";
             }
+            public readonly string ContactForm = "~/Views/Contact/ContactForm.cshtml";
             public readonly string Index = "~/Views/Contact/Index.cshtml";
             public readonly string TwitterFeed = "~/Views/Contact/TwitterFeed.cshtml";
         }
@@ -101,6 +113,25 @@ namespace PersonalWebsite.Controllers
         {
             var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.Index);
             IndexOverride(callInfo);
+            return callInfo;
+        }
+
+        partial void ContactFormOverride(T4MVC_System_Web_Mvc_PartialViewResult callInfo);
+
+        public override System.Web.Mvc.PartialViewResult ContactForm()
+        {
+            var callInfo = new T4MVC_System_Web_Mvc_PartialViewResult(Area, Name, ActionNames.ContactForm);
+            ContactFormOverride(callInfo);
+            return callInfo;
+        }
+
+        partial void ContactFormOverride(T4MVC_System_Web_Mvc_PartialViewResult callInfo, PersonalWebsite.Models.Contact.ContactFormViewModel model);
+
+        public override System.Web.Mvc.PartialViewResult ContactForm(PersonalWebsite.Models.Contact.ContactFormViewModel model)
+        {
+            var callInfo = new T4MVC_System_Web_Mvc_PartialViewResult(Area, Name, ActionNames.ContactForm);
+            ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "model", model);
+            ContactFormOverride(callInfo, model);
             return callInfo;
         }
 

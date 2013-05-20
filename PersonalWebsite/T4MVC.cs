@@ -85,6 +85,19 @@ namespace Links
         public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
         public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public static class fonts {
+            private const string URLPATH = "~/Content/fonts";
+            public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
+            public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
+            public static readonly string iconic_fill_afm = Url("iconic_fill.afm");
+            public static readonly string iconic_fill_eot = Url("iconic_fill.eot");
+            public static readonly string iconic_fill_otf = Url("iconic_fill.otf");
+            public static readonly string iconic_fill_svg = Url("iconic_fill.svg");
+            public static readonly string iconic_fill_ttf = Url("iconic_fill.ttf");
+            public static readonly string iconic_fill_woff = Url("iconic_fill.woff");
+        }
+    
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
         public static class images {
             private const string URLPATH = "~/Content/images";
             public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
@@ -217,6 +230,8 @@ namespace Links
             public static readonly string app_css = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/app.min.css") ? Url("app.min.css") : Url("app.css");
                  
             public static readonly string foundation_css = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/foundation.min.css") ? Url("foundation.min.css") : Url("foundation.css");
+                 
+            public static readonly string iconic_fill_css = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/iconic_fill.min.css") ? Url("iconic_fill.min.css") : Url("iconic_fill.css");
                  
             public static readonly string jquery_tagit_css = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/jquery.tagit.min.css") ? Url("jquery.tagit.min.css") : Url("jquery.tagit.css");
                  

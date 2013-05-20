@@ -39,6 +39,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CSharp.Coderbits">
+      <HintPath>..\packages\CSharp.Coderbits.1.0.1\lib\net45\CSharp.Coderbits.dll</HintPath>
+    </Reference>
     <Reference Include="EasyAuth, Version=1.0.0.2, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\EasyAuth.1.0.0.2\lib\net45\EasyAuth.dll</HintPath>
@@ -61,10 +64,17 @@
     <Reference Include="Recaptcha">
       <HintPath>..\packages\recaptcha.1.0.5.0\lib\.NetFramework 4.0\Recaptcha.dll</HintPath>
     </Reference>
+    <Reference Include="ScriptCs.Coderbits">
+      <HintPath>..\packages\ScriptCs.Coderbits.1.0.2\lib\net45\ScriptCs.Coderbits.dll</HintPath>
+    </Reference>
+    <Reference Include="ScriptCs.Contracts">
+      <HintPath>..\packages\ScriptCs.Contracts.0.4.0\lib\net45\ScriptCs.Contracts.dll</HintPath>
+    </Reference>
     <Reference Include="ServiceStack.Text">
       <HintPath>..\packages\ServiceStack.Text.3.9.37\lib\net35\ServiceStack.Text.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.Entity" />
     <Reference Include="System.Drawing" />

@@ -61,9 +61,8 @@ namespace PersonalWebsite.Controllers
         public class ActionNamesClass
         {
             public readonly string Index = "Index";
-            public readonly string StackOverflow = "StackOverflow";
-            public readonly string GitHub = "GitHub";
             public readonly string AboutMe = "AboutMe";
+            public readonly string PieCharts = "PieCharts";
             public readonly string Skills = "Skills";
             public readonly string Traits = "Traits";
         }
@@ -72,9 +71,8 @@ namespace PersonalWebsite.Controllers
         public class ActionNameConstants
         {
             public const string Index = "Index";
-            public const string StackOverflow = "StackOverflow";
-            public const string GitHub = "GitHub";
             public const string AboutMe = "AboutMe";
+            public const string PieCharts = "PieCharts";
             public const string Skills = "Skills";
             public const string Traits = "Traits";
         }
@@ -91,17 +89,15 @@ namespace PersonalWebsite.Controllers
             public class _ViewNamesClass
             {
                 public readonly string AboutMe = "AboutMe";
-                public readonly string GitHub = "GitHub";
                 public readonly string Index = "Index";
+                public readonly string PieCharts = "PieCharts";
                 public readonly string Skills = "Skills";
-                public readonly string StackOverflow = "StackOverflow";
                 public readonly string Traits = "Traits";
             }
             public readonly string AboutMe = "~/Views/Profile/AboutMe.cshtml";
-            public readonly string GitHub = "~/Views/Profile/GitHub.cshtml";
             public readonly string Index = "~/Views/Profile/Index.cshtml";
+            public readonly string PieCharts = "~/Views/Profile/PieCharts.cshtml";
             public readonly string Skills = "~/Views/Profile/Skills.cshtml";
-            public readonly string StackOverflow = "~/Views/Profile/StackOverflow.cshtml";
             public readonly string Traits = "~/Views/Profile/Traits.cshtml";
         }
     }
@@ -120,30 +116,21 @@ namespace PersonalWebsite.Controllers
             return callInfo;
         }
 
-        partial void StackOverflowOverride(T4MVC_System_Web_Mvc_PartialViewResult callInfo);
-
-        public override System.Web.Mvc.PartialViewResult StackOverflow()
-        {
-            var callInfo = new T4MVC_System_Web_Mvc_PartialViewResult(Area, Name, ActionNames.StackOverflow);
-            StackOverflowOverride(callInfo);
-            return callInfo;
-        }
-
-        partial void GitHubOverride(T4MVC_System_Web_Mvc_PartialViewResult callInfo);
-
-        public override System.Web.Mvc.PartialViewResult GitHub()
-        {
-            var callInfo = new T4MVC_System_Web_Mvc_PartialViewResult(Area, Name, ActionNames.GitHub);
-            GitHubOverride(callInfo);
-            return callInfo;
-        }
-
         partial void AboutMeOverride(T4MVC_System_Web_Mvc_PartialViewResult callInfo);
 
         public override System.Web.Mvc.PartialViewResult AboutMe()
         {
             var callInfo = new T4MVC_System_Web_Mvc_PartialViewResult(Area, Name, ActionNames.AboutMe);
             AboutMeOverride(callInfo);
+            return callInfo;
+        }
+
+        partial void PieChartsOverride(T4MVC_System_Web_Mvc_PartialViewResult callInfo);
+
+        public override System.Web.Mvc.PartialViewResult PieCharts()
+        {
+            var callInfo = new T4MVC_System_Web_Mvc_PartialViewResult(Area, Name, ActionNames.PieCharts);
+            PieChartsOverride(callInfo);
             return callInfo;
         }
 

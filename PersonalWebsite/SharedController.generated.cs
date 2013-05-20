@@ -38,11 +38,13 @@ namespace T4MVC
                 public readonly string _AdminPartial = "_AdminPartial";
                 public readonly string _Layout = "_Layout";
                 public readonly string _NavigationPartial = "_NavigationPartial";
+                public readonly string _PiPartial = "_PiPartial";
                 public readonly string Error = "Error";
             }
             public readonly string _AdminPartial = "~/Views/Shared/_AdminPartial.cshtml";
             public readonly string _Layout = "~/Views/Shared/_Layout.cshtml";
             public readonly string _NavigationPartial = "~/Views/Shared/_NavigationPartial.cshtml";
+            public readonly string _PiPartial = "~/Views/Shared/_PiPartial.cshtml";
             public readonly string Error = "~/Views/Shared/Error.cshtml";
         }
     }

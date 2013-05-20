@@ -5,6 +5,7 @@ using System.Web.Mvc;
 using PersonalWebsite.Classes;
 using PersonalWebsite.Models.Profile;
 using System;
+using ScriptCs.Coderbits;
 
 namespace PersonalWebsite.Controllers
 {
@@ -39,6 +40,7 @@ namespace PersonalWebsite.Controllers
             var model = new PieChartsViewModel();
 
             // pies!
+            // https://github.com/scottksmith95/CSharp.Coderbits
 
             return PartialView(model);
         }

@@ -1,5 +1,86 @@
 ﻿@model PersonalWebsite.Models.Profile.PieChartsViewModel
 
-<div class="piecharts">
-    pie charts
-</div>
+<div id="pie-charts"></div>
+
+<!-- should we include them here or? fuck it. it'll do. -->
+<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+<script type="text/javascript" src="https://raw.github.com/DmitryBaranovskiy/g.raphael/master/min/g.raphael-min.js"></script>
+<script type="text/javascript" src="https://raw.github.com/DmitryBaranovskiy/g.raphael/master/min/g.pie-min.js"></script>
+
+<script type="text/javascript">
+    var aTitle = "Languages";
+    var aVals = [126, 50, 30, 24, 15];
+    var aKeys = ['aaaaaaaaaaa %%', 'aaaaaaaaaaa %%', 'aaaaaaaaaaaa %%', 'aaaaaaaaaaaa %%', 'aaaaaaaaaaaa %%'];
+
+    var bTitle = "Environments";
+    var bVals = [126, 50, 30, 24, 15];
+    var bKeys = ['b %%', 'b %%', 'b %%', 'b %%', 'b %%'];
+
+    var cTitle = "Frameworks";
+    var cVals = [126, 50, 30, 24, 15];
+    var cKeys = ['c %%', 'c %%', 'c %%', 'c %%', 'c %%'];
+
+    var dTitle = "Tools";
+    var dVals = [126, 50, 30, 24, 15];
+    var dKeys = ['d %%', 'd %%', 'd %%', 'd %%', 'd %%'];
+</script>
+
+<script type="text/javascript">
+window.onload = function () {            
+    var zoomPie = function (self) {
+        self.sector.stop();
+        self.sector.scale(1.1, 1.1, self.cx, self.cy);
+
+        if (self.label) {
+            self.label[0].stop();
+            self.label[0].attr({ r: 7.5 });
+            self.label[1].attr({ "font-weight": 800 });
+        }
+    };
+
+    var unzoomPie = function (self) {
+        self.sector.animate({ transform: 's1 1 ' + self.cx + ' ' + self.cy }, 500, "bounce");
+
+        if (self.label) {
+            self.label[0].animate({ r: 5 }, 500, "bounce");
+            self.label[1].attr({ "font-weight": 400 });
+        }
+    };
+
+    var createPie = function (r, x, y, radius, values, keys, colors) {
+        var pie = r.piechart(x, y, radius, values, { colors: colors, legend: keys, legendpos: "south", legendcolor: "#000", stroke: "#FFF8D3", strokewidth: "1" });
+
+        pie.hover(function () {
+            zoomPie(this);
+        }, function () {
+            unzoomPie(this);
+        });
+    };
+
+    var createPieLabel = function (r, x, y, value) {
+        r.text(x, y, value).attr({ font: "20px Helvetica, Arial, sans-serif" }).attr({ fill: "#000" });
+    };
+
+    // config vars
+    var colors = ['#2ba8cb', '#68b6cb', '#8bbdcb', '#b4cdd4', '#d9dedf'];
+    var labelTop = 50;
+    var chartTop = 160;
+    var margin = 40;
+    var radius = 75;
+    var start = 90;
+    var offset = (radius * 2) + margin;
+
+    // draw charts
+    var r = Raphael('pie-charts');        
+    createPieLabel(r, start, labelTop, aTitle);
+    createPieLabel(r, start + offset, labelTop, bTitle);
+    createPieLabel(r, start + (offset * 2), labelTop, cTitle);
+    createPieLabel(r, start + (offset * 3), labelTop, dTitle);
+    createPie(r, start, chartTop, radius, aVals, aKeys, colors);
+    createPie(r, start + offset, chartTop, radius, bVals, bKeys, colors);
+    createPie(r, start + (offset * 2), chartTop, radius, cVals, cKeys, colors);
+    createPie(r, start + (offset * 3), chartTop, radius, dVals, dKeys, colors);
+
+    
+}
+</script>

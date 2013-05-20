@@ -82,9 +82,11 @@ namespace PersonalWebsite.Controllers
             public readonly string SinglePost = "SinglePost";
             public readonly string RecentPosts = "RecentPosts";
             public readonly string RecentPostsList = "RecentPostsList";
+            public readonly string PopularPostsList = "PopularPostsList";
             public readonly string Sidebar = "Sidebar";
             public readonly string PostArchive = "PostArchive";
             public readonly string TagCloud = "TagCloud";
+            public readonly string SearchBar = "SearchBar";
         }
 
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
@@ -100,9 +102,11 @@ namespace PersonalWebsite.Controllers
             public const string SinglePost = "SinglePost";
             public const string RecentPosts = "RecentPosts";
             public const string RecentPostsList = "RecentPostsList";
+            public const string PopularPostsList = "PopularPostsList";
             public const string Sidebar = "Sidebar";
             public const string PostArchive = "PostArchive";
             public const string TagCloud = "TagCloud";
+            public const string SearchBar = "SearchBar";
         }
 
 
@@ -173,11 +177,13 @@ namespace PersonalWebsite.Controllers
                 public readonly string Index = "Index";
                 public readonly string Manage = "Manage";
                 public readonly string New = "New";
+                public readonly string PopularPostsList = "PopularPostsList";
                 public readonly string PostArchive = "PostArchive";
                 public readonly string Read = "Read";
                 public readonly string RecentPosts = "RecentPosts";
                 public readonly string RecentPostsList = "RecentPostsList";
-                public readonly string Sidebar = "Sidebar";
+                public readonly string SearchBar = "SearchBar";
+                public readonly string SideBar = "SideBar";
                 public readonly string SinglePost = "SinglePost";
                 public readonly string TagCloud = "TagCloud";
                 public readonly string Tagged = "Tagged";
@@ -186,11 +192,13 @@ namespace PersonalWebsite.Controllers
             public readonly string Index = "~/Views/Blog/Index.cshtml";
             public readonly string Manage = "~/Views/Blog/Manage.cshtml";
             public readonly string New = "~/Views/Blog/New.cshtml";
+            public readonly string PopularPostsList = "~/Views/Blog/PopularPostsList.cshtml";
             public readonly string PostArchive = "~/Views/Blog/PostArchive.cshtml";
             public readonly string Read = "~/Views/Blog/Read.cshtml";
             public readonly string RecentPosts = "~/Views/Blog/RecentPosts.cshtml";
             public readonly string RecentPostsList = "~/Views/Blog/RecentPostsList.cshtml";
-            public readonly string Sidebar = "~/Views/Blog/Sidebar.cshtml";
+            public readonly string SearchBar = "~/Views/Blog/SearchBar.cshtml";
+            public readonly string SideBar = "~/Views/Blog/SideBar.cshtml";
             public readonly string SinglePost = "~/Views/Blog/SinglePost.cshtml";
             public readonly string TagCloud = "~/Views/Blog/TagCloud.cshtml";
             public readonly string Tagged = "~/Views/Blog/Tagged.cshtml";
@@ -321,6 +329,15 @@ namespace PersonalWebsite.Controllers
             return callInfo;
         }
 
+        partial void PopularPostsListOverride(T4MVC_System_Web_Mvc_PartialViewResult callInfo);
+
+        public override System.Web.Mvc.PartialViewResult PopularPostsList()
+        {
+            var callInfo = new T4MVC_System_Web_Mvc_PartialViewResult(Area, Name, ActionNames.PopularPostsList);
+            PopularPostsListOverride(callInfo);
+            return callInfo;
+        }
+
         partial void SidebarOverride(T4MVC_System_Web_Mvc_PartialViewResult callInfo);
 
         public override System.Web.Mvc.PartialViewResult Sidebar()
@@ -345,6 +362,15 @@ namespace PersonalWebsite.Controllers
         {
             var callInfo = new T4MVC_System_Web_Mvc_PartialViewResult(Area, Name, ActionNames.TagCloud);
             TagCloudOverride(callInfo);
+            return callInfo;
+        }
+
+        partial void SearchBarOverride(T4MVC_System_Web_Mvc_PartialViewResult callInfo);
+
+        public override System.Web.Mvc.PartialViewResult SearchBar()
+        {
+            var callInfo = new T4MVC_System_Web_Mvc_PartialViewResult(Area, Name, ActionNames.SearchBar);
+            SearchBarOverride(callInfo);
             return callInfo;
         }
 
