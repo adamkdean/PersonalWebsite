@@ -130,6 +130,10 @@ p { margin: 0 0 14px 0; }
 .profile #coderbits { text-align: center; }
 .profile #coderbits img { margin-top: 145px; }
 
+.profile .coderbits_footer { margin: 40px 10px 0 15px; }
+.profile .coderbits_footer img { float: right; margin-top: -12px; }
+.profile .coderbits_footer p { float: left; }
+
 /*---- GITHUB ------------------------- */
 .profile .github p { margin: 0 0 2px 0; }
 .profile .github h5 { margin: 20px 0 5px 0; }
