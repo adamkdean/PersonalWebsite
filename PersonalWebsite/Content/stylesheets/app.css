@@ -127,7 +127,8 @@ p { margin: 0 0 14px 0; }
 .profile .trait { display: block; width: 100%; padding: 4px; margin: 5px 0; }
 .profile .trait.has-tip { color: white; border: none;  }
 
-.profile .loading_gif { text-align: center; padding-top: 150px; }
+.profile #coderbits { text-align: center; }
+.profile #coderbits img { margin-top: 145px; }
 
 /*---- GITHUB ------------------------- */
 .profile .github p { margin: 0 0 2px 0; }
