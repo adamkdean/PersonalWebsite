@@ -5,7 +5,6 @@ using System.Text;
 using System.Web.Mvc;
 using PersonalWebsite.Classes;
 using PersonalWebsite.Models.Profile;
-using CSharp.Coderbits;
 
 namespace PersonalWebsite.Controllers
 {
@@ -37,6 +36,12 @@ namespace PersonalWebsite.Controllers
         [ChildActionOnly]
         public virtual PartialViewResult PieCharts()
         {            
+            return PartialView();
+        }
+
+        [ChildActionOnly]
+        public virtual PartialViewResult CoderbitsFooter()
+        {
             return PartialView();
         }
 
