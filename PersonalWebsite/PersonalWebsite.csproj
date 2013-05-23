@@ -237,6 +237,8 @@
     <Content Include="Content\images\foundation\orbit\right-arrow.png" />
     <Content Include="Content\images\foundation\orbit\rotator-black.png" />
     <Content Include="Content\images\foundation\orbit\timer-black.png" />
+    <Content Include="Content\images\loading.gif" />
+    <Content Include="Content\images\powered_by_coderbits.png" />
     <Content Include="Content\images\source.png" />
     <Content Include="Content\images\star.png" />
     <Content Include="Content\images\views.png" />
