@@ -40,7 +40,7 @@ window.onload = function () {
         r.text(x, y, value).attr({ font: "20px Helvetica, Arial, sans-serif" }).attr({ fill: "#000" });
     };
 
-    var drawPieCharts = function (labels, keys, vals) {        
+    var drawPieCharts = function (elementName, labels, keys, vals) {
         var colors = ['#2ba8cb', '#68b6cb', '#8bbdcb', '#b4cdd4', '#d9dedf'];
         var labelTop = 50;
         var chartTop = 160;
@@ -49,7 +49,7 @@ window.onload = function () {
         var start = 90;
         var offset = (radius * 2) + margin;
         
-        var r = Raphael('coderbits');
+        var r = Raphael(elementName);
         createPieLabel(r, start, labelTop, labels[0]);
         createPieLabel(r, start + offset, labelTop, labels[1]);
         createPieLabel(r, start + (offset * 2), labelTop, labels[2]);
@@ -67,36 +67,59 @@ window.onload = function () {
         script.parentNode.insertBefore(handler, script);
     };
 
+    var split_arrays = function (data, firstElement, secondElement) {
+        var first = [], second = [];
+        for (var i = 0; i < data.length; i++) {
+            first[i] = data[i][firstElement];
+            second[i] = data[i][secondElement];
+        }
+        return { 0: first, 1: second };
+    }
+
+    var prefix_array = function (data, prefix) {
+        console.log(data);
+        for (var i = 0; i < data.length; i++)
+            data[i] = data[i] + prefix;        
+        return data;
+    }
+
     var global = "coderbits", element = document.getElementById(global);
     if (element) {
-        window[global] = function (data) {            
+        window[global] = function (data) {
             var labels = [], vals = [], keys = [];
-
+            
+            var top_languages = split_arrays(data.top_languages, "name", "count");
             labels[0] = "Languages";
-            vals[0] = [126, 50, 30, 24, 15];
-            keys[0] = ['a %%', 'a %%', 'a %%', 'a %%', 'a %%'];
-
+            keys[0] = prefix_array(top_languages[0], ' %%');
+            vals[0] = top_languages[1];
+            
+            var top_environments = split_arrays(data.top_environments, "name", "count");
             labels[1] = "Environments";
-            vals[1] = [126, 50, 30, 24, 15];
-            keys[1] = ['b %%', 'b %%', 'b %%', 'b %%', 'b %%'];
+            keys[1] = prefix_array(top_environments[0], ' %%');
+            vals[1] = top_environments[1];
 
+            var top_frameworks = split_arrays(data.top_frameworks, "name", "count");
             labels[2] = "Frameworks";
-            vals[2] = [126, 50, 30, 24, 15];
-            keys[2] = ['c %%', 'c %%', 'c %%', 'c %%', 'c %%'];
+            keys[2] = prefix_array(top_frameworks[0], ' %%');
+            vals[2] = top_frameworks[1];
 
+            var top_tools = split_arrays(data.top_tools, "name", "count");
             labels[3] = "Tools";
-            vals[3] = [126, 50, 30, 24, 15];
-            keys[3] = ['d %%', 'd %%', 'd %%', 'd %%', 'd %%'];
+            keys[3] = prefix_array(top_tools[0], ' %%');
+            vals[3] = top_tools[1];
 
-            drawPieCharts(labels, keys, vals);
+            element.innerHTML = "";
+            drawPieCharts(global, labels, keys, vals);
 
             delete window[global];
         };
         var username = element.getAttribute("data-coderbits-username"),
-			safeUsername = username.replace(/[('"){};!@#%&*]/gi, '');
+			safeUsername = username.replace(/[('"){};!@@#%&*]/gi, '');
 		request("https://coderbits.com/" + safeUsername + ".json?callback=" + global);
     }
 }
 </script>
 
-<section id="coderbits" data-coderbits-username="imdsm"></section>
+<section id="coderbits" data-coderbits-username="imdsm">
+    <div class="loading_gif"><img src="~/Content/images/loading.gif" /></div>
+</section>
