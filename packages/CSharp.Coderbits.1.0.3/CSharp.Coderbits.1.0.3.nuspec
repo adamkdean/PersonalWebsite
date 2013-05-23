@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>CSharp.Coderbits</id>
+    <version>1.0.3</version>
+    <title>CSharp.Coderbits</title>
+    <authors>Scott Smith</authors>
+    <owners>Scott Smith</owners>
+    <licenseUrl>http://opensource.org/licenses/MIT</licenseUrl>
+    <projectUrl>https://github.com/scottksmith95/CSharp.Coderbits</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>C# client for the coderbits profile API.</description>
+    <releaseNotes>Updated dependencies.</releaseNotes>
+    <copyright>Copyright 2013</copyright>
+    <language />
+    <tags>Coderbits</tags>
+    <dependencies>
+      <dependency id="Microsoft.AspNet.WebApi.Client" version="4.0.30506.0" />
+    </dependencies>
+  </metadata>
+</package>

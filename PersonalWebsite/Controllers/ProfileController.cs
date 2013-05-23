@@ -41,9 +41,9 @@ namespace PersonalWebsite.Controllers
 
             // Todo: debug. this just HANGS!
 
-            //var coderbitsApi = new Api();
-            //ApiModel coderbitsModel = coderbitsApi.GetProfile("Imdsm");
-            //coderbitsModel.top_languages
+            var coderbitsApi = new Api();
+            ApiModel coderbitsModel = coderbitsApi.GetProfile("Imdsm");
+            
 
             var model = new PieChartsViewModel();
             return PartialView(model);
