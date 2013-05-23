@@ -37,14 +37,9 @@ namespace PersonalWebsite.Controllers
         [ChildActionOnly]
         public virtual PartialViewResult PieCharts()
         {
-            // https://github.com/scottksmith95/CSharp.Coderbits
-
-            // Todo: debug. this just HANGS!
-
-            var coderbitsApi = new Api();
-            ApiModel coderbitsModel = coderbitsApi.GetProfile("Imdsm");
+            //var coderbitsApi = new Api();
+            //ApiModel coderbitsModel = coderbitsApi.GetProfile("Imdsm");
             
-
             var model = new PieChartsViewModel();
             return PartialView(model);
         }
