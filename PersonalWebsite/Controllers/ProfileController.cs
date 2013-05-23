@@ -36,12 +36,8 @@ namespace PersonalWebsite.Controllers
 
         [ChildActionOnly]
         public virtual PartialViewResult PieCharts()
-        {
-            //var coderbitsApi = new Api();
-            //ApiModel coderbitsModel = coderbitsApi.GetProfile("Imdsm");
-            
-            var model = new PieChartsViewModel();
-            return PartialView(model);
+        {            
+            return PartialView();
         }
 
         [ChildActionOnly]

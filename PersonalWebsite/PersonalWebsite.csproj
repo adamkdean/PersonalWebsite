@@ -176,7 +176,6 @@
     <Compile Include="Models\ViewModels\Blog\PopularPostsListViewModel.cs" />
     <Compile Include="Models\ViewModels\Blog\SinglePostViewModel.cs" />
     <Compile Include="Models\ViewModels\Contact\ContactFormViewModel.cs" />
-    <Compile Include="Models\ViewModels\Profile\PieChartsViewModel.cs" />
     <Compile Include="Models\ViewModels\Profile\AboutMeViewModel.cs" />
     <Compile Include="Models\ViewModels\Profile\SkillsViewModel.cs" />
     <Compile Include="Models\ViewModels\Profile\TraitsViewModel.cs" />
