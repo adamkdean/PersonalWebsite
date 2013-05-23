@@ -60,25 +60,42 @@ window.onload = function () {
         createPie(r, start + (offset * 3), chartTop, radius, vals[3], keys[3], colors);
     }
 
-    var labels = [], vals = [], keys = [];
+    var request = function (url) {
+        var script = document.getElementsByTagName("script")[0];
+        var handler = document.createElement("script");
+        handler.src = url;
+        script.parentNode.insertBefore(handler, script);
+    };
 
-    labels[0] = "Languages";
-    vals[0] = [126, 50, 30, 24, 15];
-    keys[0] = ['a %%', 'a %%', 'a %%', 'a %%', 'a %%'];
+    var global = "coderbits", element = document.getElementById(global);
+    if (element) {
+        window[global] = function (data) {            
+            var labels = [], vals = [], keys = [];
 
-    labels[1] = "Environments";
-    vals[1] = [126, 50, 30, 24, 15];
-    keys[1] = ['b %%', 'b %%', 'b %%', 'b %%', 'b %%'];
+            labels[0] = "Languages";
+            vals[0] = [126, 50, 30, 24, 15];
+            keys[0] = ['a %%', 'a %%', 'a %%', 'a %%', 'a %%'];
 
-    labels[2] = "Frameworks";
-    vals[2] = [126, 50, 30, 24, 15];
-    keys[2] = ['c %%', 'c %%', 'c %%', 'c %%', 'c %%'];
+            labels[1] = "Environments";
+            vals[1] = [126, 50, 30, 24, 15];
+            keys[1] = ['b %%', 'b %%', 'b %%', 'b %%', 'b %%'];
 
-    labels[3] = "Tools";
-    vals[3] = [126, 50, 30, 24, 15];
-    keys[3] = ['d %%', 'd %%', 'd %%', 'd %%', 'd %%'];
+            labels[2] = "Frameworks";
+            vals[2] = [126, 50, 30, 24, 15];
+            keys[2] = ['c %%', 'c %%', 'c %%', 'c %%', 'c %%'];
 
-    drawPieCharts(labels, keys, vals);
+            labels[3] = "Tools";
+            vals[3] = [126, 50, 30, 24, 15];
+            keys[3] = ['d %%', 'd %%', 'd %%', 'd %%', 'd %%'];
+
+            drawPieCharts(labels, keys, vals);
+
+            delete window[global];
+        };
+        var username = element.getAttribute("data-coderbits-username"),
+			safeUsername = username.replace(/[('"){};!@#%&*]/gi, '');
+		request("https://coderbits.com/" + safeUsername + ".json?callback=" + global);
+    }
 }
 </script>
 
