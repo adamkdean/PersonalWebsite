@@ -245,6 +245,8 @@
     <Content Include="Content\images\portrait2.jpg" />
     <Content Include="Content\javascripts\auto-prettify.js" />
     <Content Include="Content\javascripts\foundation-app.js" />
+    <Content Include="Content\javascripts\g.pie-min.js" />
+    <Content Include="Content\javascripts\g.raphael-min.js" />
     <Content Include="Content\javascripts\jquery.foundation.tooltips.js" />
     <Content Include="Content\javascripts\foundation-stub.min.js" />
     <Content Include="Content\javascripts\prettify\lang-apollo.js" />
@@ -276,6 +278,7 @@
     <Content Include="Content\javascripts\prettify\lang-yaml.js" />
     <Content Include="Content\javascripts\prettify\prettify.js" />
     <Content Include="Content\javascripts\prettify\run_prettify.js" />
+    <Content Include="Content\javascripts\raphael-min.js" />
     <Content Include="Content\javascripts\tag-it.js" />
     <Content Include="Content\javascripts\tag-it.min.js" />
     <Content Include="Content\images\portrait.jpg" />
