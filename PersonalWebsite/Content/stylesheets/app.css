@@ -103,8 +103,9 @@ p { margin: 0 0 14px 0; }
 /*---- SKILL/TRAIT NOGGIN ------------- */
 .profile p.skills { text-align: center; font-size: 90%; font-weight: bold; margin: 15px 0 2px 0; }
 .profile .progress { margin: 5px 0; }
-.profile .progress .meter { color: white; line-height: 20px; padding-left: 4px; font-size: 12px; font-weight: bold; }
-.profile .progress.secondary .meter { color: white; background: #aaa; }
+.profile .progress .meter { color: white; line-height: 20px; padding-left: 4px; font-size: 12px; font-weight: bold; 
+                            background: #2ba6cb url(../images/profile_plus_blue.png) no-repeat right 3px center; }
+.profile .progress.secondary .meter { color: white; background: #aaa url(../images/profile_plus_gray.png) no-repeat right 3px center; }
 .profile .progress .meter.width10 { width: 10%; }
 .profile .progress .meter.width10.outside { color: #2ba6cb; text-indent: 10%; }
 .profile .progress .meter.width20 { width: 20%; }
@@ -124,7 +125,8 @@ p { margin: 0 0 14px 0; }
 .profile .aboutme { padding: 4px 8px; background: #eee; }
 .profile .aboutme p { font-size: 90%; margin: 5px 0; }
 
-.profile .trait { display: block; width: 100%; padding: 4px; margin: 5px 0; }
+.profile .trait { display: block; width: 100%; padding: 5px; margin: 5px 0;
+                  background: #2ba6cb url(../images/profile_plus_blue.png) no-repeat right 3px center; }
 .profile .trait.has-tip { color: white; border: none;  }
 
 .profile #coderbits { text-align: center; }

@@ -220,6 +220,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\fonts\iconic_fill.svg" />
+    <Content Include="Content\images\profile_plus_gray.png" />
+    <Content Include="Content\images\profile_plus_blue.png" />
     <Content Include="Content\images\checkbox.png" />
     <Content Include="Content\images\checkbox_checked.png" />
     <Content Include="Content\images\checkbox_hover.png" />
