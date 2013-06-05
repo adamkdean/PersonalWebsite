@@ -128,7 +128,7 @@ p { margin: 0 0 14px 0; }
 .profile .trait.has-tip { color: white; border: none;  }
 
 .profile #coderbits { text-align: center; }
-.profile #coderbits img { margin-top: 145px; }
+.profile #coderbits img { margin: 150px 0 150px 0; }
 
 .profile .coderbits_footer { margin: 40px 10px 0 15px; }
 .profile .coderbits_footer img { float: right; margin-top: -12px; }
