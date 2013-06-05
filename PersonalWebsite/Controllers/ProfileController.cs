@@ -112,7 +112,7 @@ namespace PersonalWebsite.Controllers
             traits.Add(new Trait("Fast Learner", "Can quickly research, understand and use unfamiliar software technologies, tools and languages."));
             traits.Add(new Trait("Pragmatic", "Able to make a value judgement about what is really important, values practical outcomes and getting the job done, avoids gold plating."));
             traits.Add(new Trait("Honest", "Can admit mistakes, unafraid to admit they don't know something."));
-            traits.Add(new Trait("Inquisitive Learner", "Actively self educates, reads and researches, willing to learn from others, always believes there is always much more to learn."));
+            traits.Add(new Trait("Inquisitive", "Inquisitive Learner. Actively self educates, reads and researches, willing to learn from others, always believes there is always much more to learn."));
             traits.Add(new Trait("Problem Solver", "Knows how to attack a problem and has the tenacity to solve even very hard problems, uses appropriate debugging tools."));
             traits.Add(new Trait("Researcher", "Good at ferreting out information: digging through documentation, searching the web, reading reference guides, release notes, discussion forums, mailing lists.<br><br>Knows how to find answers."));
             model.Traits = traits;
