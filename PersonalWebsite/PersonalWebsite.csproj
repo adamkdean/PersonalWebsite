@@ -350,6 +350,7 @@
     <Content Include="Views\Blog\SearchBar.cshtml" />
     <Content Include="Views\Profile\PieCharts.cshtml" />
     <Content Include="Views\Profile\CoderbitsFooter.cshtml" />
+    <Content Include="Views\Blog\Search.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

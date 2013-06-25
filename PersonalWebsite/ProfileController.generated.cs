@@ -63,6 +63,7 @@ namespace PersonalWebsite.Controllers
             public readonly string Index = "Index";
             public readonly string AboutMe = "AboutMe";
             public readonly string PieCharts = "PieCharts";
+            public readonly string CoderbitsFooter = "CoderbitsFooter";
             public readonly string Skills = "Skills";
             public readonly string Traits = "Traits";
         }
@@ -73,6 +74,7 @@ namespace PersonalWebsite.Controllers
             public const string Index = "Index";
             public const string AboutMe = "AboutMe";
             public const string PieCharts = "PieCharts";
+            public const string CoderbitsFooter = "CoderbitsFooter";
             public const string Skills = "Skills";
             public const string Traits = "Traits";
         }
@@ -89,12 +91,14 @@ namespace PersonalWebsite.Controllers
             public class _ViewNamesClass
             {
                 public readonly string AboutMe = "AboutMe";
+                public readonly string CoderbitsFooter = "CoderbitsFooter";
                 public readonly string Index = "Index";
                 public readonly string PieCharts = "PieCharts";
                 public readonly string Skills = "Skills";
                 public readonly string Traits = "Traits";
             }
             public readonly string AboutMe = "~/Views/Profile/AboutMe.cshtml";
+            public readonly string CoderbitsFooter = "~/Views/Profile/CoderbitsFooter.cshtml";
             public readonly string Index = "~/Views/Profile/Index.cshtml";
             public readonly string PieCharts = "~/Views/Profile/PieCharts.cshtml";
             public readonly string Skills = "~/Views/Profile/Skills.cshtml";
@@ -131,6 +135,15 @@ namespace PersonalWebsite.Controllers
         {
             var callInfo = new T4MVC_System_Web_Mvc_PartialViewResult(Area, Name, ActionNames.PieCharts);
             PieChartsOverride(callInfo);
+            return callInfo;
+        }
+
+        partial void CoderbitsFooterOverride(T4MVC_System_Web_Mvc_PartialViewResult callInfo);
+
+        public override System.Web.Mvc.PartialViewResult CoderbitsFooter()
+        {
+            var callInfo = new T4MVC_System_Web_Mvc_PartialViewResult(Area, Name, ActionNames.CoderbitsFooter);
+            CoderbitsFooterOverride(callInfo);
             return callInfo;
         }
 

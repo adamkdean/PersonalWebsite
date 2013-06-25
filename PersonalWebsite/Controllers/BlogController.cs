@@ -75,6 +75,30 @@ namespace PersonalWebsite.Controllers
         }
 
         //
+        // GET: /Blog/Search
+
+        [HttpPost]
+        public virtual ActionResult Search(SearchViewModel model)
+        {
+            using (var context = new WebsiteContext())
+            {
+                //if (!context.Tags.Any(x => x.TagId == id))
+                //    RedirectToAction("Index", "Blog");
+
+                // eagerly load the tags etc as the context will be disposed
+                var posts = (from t in context.BlogPosts.Include("Tags")
+                             where t.BlogContent.Contains(model.SearchTerm) ||
+                                   t.BlogTitle.Contains(model.SearchTerm) ||
+                                   t.Tags.Any(x => x.TagName == model.SearchTerm)
+                             select t);
+
+                model.BlogPosts = posts.OrderByDescending(x => x.DatePosted).ToList();
+            }
+
+            return View(model);
+        }
+
+        //
         // GET: /Blog/Manage
 
         [EzAuthorize]

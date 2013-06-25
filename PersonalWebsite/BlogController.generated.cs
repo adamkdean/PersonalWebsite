@@ -46,6 +46,12 @@ namespace PersonalWebsite.Controllers
 
         [NonAction]
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public virtual System.Web.Mvc.ActionResult Search()
+        {
+            return new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.Search);
+        }
+        [NonAction]
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
         public virtual System.Web.Mvc.ActionResult Delete()
         {
             return new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.Delete);
@@ -75,6 +81,7 @@ namespace PersonalWebsite.Controllers
             public readonly string Index = "Index";
             public readonly string Read = "Read";
             public readonly string Tagged = "Tagged";
+            public readonly string Search = "Search";
             public readonly string Manage = "Manage";
             public readonly string New = "New";
             public readonly string Edit = "Edit";
@@ -95,6 +102,7 @@ namespace PersonalWebsite.Controllers
             public const string Index = "Index";
             public const string Read = "Read";
             public const string Tagged = "Tagged";
+            public const string Search = "Search";
             public const string Manage = "Manage";
             public const string New = "New";
             public const string Edit = "Edit";
@@ -127,6 +135,14 @@ namespace PersonalWebsite.Controllers
         {
             public readonly string id = "id";
             public readonly string slug = "slug";
+        }
+        static readonly ActionParamsClass_Search s_params_Search = new ActionParamsClass_Search();
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public ActionParamsClass_Search SearchParams { get { return s_params_Search; } }
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public class ActionParamsClass_Search
+        {
+            public readonly string model = "model";
         }
         static readonly ActionParamsClass_New s_params_New = new ActionParamsClass_New();
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
@@ -182,6 +198,7 @@ namespace PersonalWebsite.Controllers
                 public readonly string Read = "Read";
                 public readonly string RecentPosts = "RecentPosts";
                 public readonly string RecentPostsList = "RecentPostsList";
+                public readonly string Search = "Search";
                 public readonly string SearchBar = "SearchBar";
                 public readonly string SideBar = "SideBar";
                 public readonly string SinglePost = "SinglePost";
@@ -197,6 +214,7 @@ namespace PersonalWebsite.Controllers
             public readonly string Read = "~/Views/Blog/Read.cshtml";
             public readonly string RecentPosts = "~/Views/Blog/RecentPosts.cshtml";
             public readonly string RecentPostsList = "~/Views/Blog/RecentPostsList.cshtml";
+            public readonly string Search = "~/Views/Blog/Search.cshtml";
             public readonly string SearchBar = "~/Views/Blog/SearchBar.cshtml";
             public readonly string SideBar = "~/Views/Blog/SideBar.cshtml";
             public readonly string SinglePost = "~/Views/Blog/SinglePost.cshtml";
@@ -238,6 +256,16 @@ namespace PersonalWebsite.Controllers
             ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "id", id);
             ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "slug", slug);
             TaggedOverride(callInfo, id, slug);
+            return callInfo;
+        }
+
+        partial void SearchOverride(T4MVC_System_Web_Mvc_ActionResult callInfo, PersonalWebsite.Models.Blog.SearchViewModel model);
+
+        public override System.Web.Mvc.ActionResult Search(PersonalWebsite.Models.Blog.SearchViewModel model)
+        {
+            var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.Search);
+            ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "model", model);
+            SearchOverride(callInfo, model);
             return callInfo;
         }
 

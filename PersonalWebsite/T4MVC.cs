@@ -133,8 +133,12 @@ namespace Links
             
             }
         
+            public static readonly string loading_gif = Url("loading.gif");
             public static readonly string portrait_jpg = Url("portrait.jpg");
             public static readonly string portrait2_jpg = Url("portrait2.jpg");
+            public static readonly string powered_by_coderbits_png = Url("powered_by_coderbits.png");
+            public static readonly string profile_plus_blue_png = Url("profile_plus_blue.png");
+            public static readonly string profile_plus_gray_png = Url("profile_plus_gray.png");
             public static readonly string source_png = Url("source.png");
             public static readonly string star_png = Url("star.png");
             public static readonly string views_png = Url("views.png");
@@ -150,6 +154,10 @@ namespace Links
             public static readonly string foundation_app_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/foundation-app.min.js") ? Url("foundation-app.min.js") : Url("foundation-app.js");
                           
             public static readonly string foundation_stub_min_js = Url("foundation-stub.min.js");
+            public static readonly string g_pie_min_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/g.pie-min.min.js") ? Url("g.pie-min.min.js") : Url("g.pie-min.js");
+                          
+            public static readonly string g_raphael_min_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/g.raphael-min.min.js") ? Url("g.raphael-min.min.js") : Url("g.raphael-min.js");
+                          
             public static readonly string jquery_foundation_tooltips_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/jquery.foundation.tooltips.min.js") ? Url("jquery.foundation.tooltips.min.js") : Url("jquery.foundation.tooltips.js");
                           
             [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
@@ -217,6 +225,8 @@ namespace Links
                               
             }
         
+            public static readonly string raphael_min_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/raphael-min.min.js") ? Url("raphael-min.min.js") : Url("raphael-min.js");
+                          
             public static readonly string tag_it_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/tag-it.min.js") ? Url("tag-it.min.js") : Url("tag-it.js");
                           
             public static readonly string tag_it_min_js = Url("tag-it.min.js");

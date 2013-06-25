@@ -1,0 +1,44 @@
+﻿@using PersonalWebsite.Extensions
+@model PersonalWebsite.Models.Blog.SearchViewModel
+
+@{
+    ViewBag.Title = Model.SearchTerm;
+}
+
+<div class="row">
+    <div class="nine columns">
+    @if(Model.BlogPosts.Count == 0)
+    {
+        <p>No blog posts found for @Model.SearchTerm.</p>
+    }
+    else
+    {
+        int count = 0;
+        foreach(var post in Model.BlogPosts)
+        {
+            // Magic Number of 200 was pulled from: my backside. Sorry!
+            var linebr = post.BlogContent.IndexOf("\r\n", 200);
+
+            if (linebr > 0)
+            {
+                post.BlogContent = post.BlogContent.Substring(0, linebr) + "\r\n\r\n &raquo; " +
+                                   @Html.ActionLink("Continue to " + post.BlogTitle, MVC.Blog.Read(post.BlogPostId, post.Slug));
+            }
+            
+            @Html.Action("SinglePost", new { 
+                model = new PersonalWebsite.Models.Blog.SinglePostViewModel() { 
+                    BlogPost = post 
+                }
+            })
+    
+            if (++count < Model.BlogPosts.Count())
+            {
+                <hr>
+            }
+        }
+    }        
+    </div>
+    <div class="three columns">
+        @Html.Action("Sidebar")
+    </div>
+</div>

@@ -7,5 +7,6 @@ namespace PersonalWebsite.Models.Blog
     public class SearchViewModel
     {
         public string SearchTerm { get; set; }
+        public List<BlogPost> BlogPosts { get; set; }
     }
 }
