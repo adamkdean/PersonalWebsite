@@ -5,7 +5,7 @@ As I push this to my website and GitHub at different times, do not assume that w
 
 ## Todo List
 
-- Change profile picture to use Gravatar
+- Change profile picture to use [Gravatar](https://secure.gravatar.com/site/implement/)
 - <del>Add search ability to blog</del>
 - <del>Add popular posts section to blog</del>
 - <del>Remove views from BlogPost entity model</del>
