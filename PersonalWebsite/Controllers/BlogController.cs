@@ -77,6 +77,14 @@ namespace PersonalWebsite.Controllers
         //
         // GET: /Blog/Search
 
+        public virtual ActionResult Search()
+        {
+            return RedirectToAction(MVC.Blog.Index());
+        }
+
+        //
+        // POST: /Blog/Search
+
         [HttpPost]
         [ValidateInput(false)]
         public virtual ActionResult Search(SearchViewModel model)
@@ -85,10 +93,10 @@ namespace PersonalWebsite.Controllers
             {
                 // eagerly load the tags etc as the context will be disposed
                 var posts = (from t in context.BlogPosts.Include("Tags")
-                             where t.BlogContent.Contains(model.SearchTerm) ||
-                                   t.BlogTitle.Contains(model.SearchTerm) ||
-                                   t.Tags.Any(x => x.TagName == model.SearchTerm)
-                             select t);
+                                where t.BlogContent.Contains(model.SearchTerm) ||
+                                    t.BlogTitle.Contains(model.SearchTerm) ||
+                                    t.Tags.Any(x => x.TagName == model.SearchTerm)
+                                select t);
 
                 model.BlogPosts = posts.OrderByDescending(x => x.DatePosted).ToList();
             }
