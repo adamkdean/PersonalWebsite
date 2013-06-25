@@ -77,7 +77,8 @@ namespace PersonalWebsite.Controllers
         //
         // GET: /Blog/Search
 
-        [HttpPost]        
+        [HttpPost]
+        [ValidateInput(false)]
         public virtual ActionResult Search(SearchViewModel model)
         {
             using (var context = new WebsiteContext())
