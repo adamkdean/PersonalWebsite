@@ -77,14 +77,11 @@ namespace PersonalWebsite.Controllers
         //
         // GET: /Blog/Search
 
-        [HttpPost]
+        [HttpPost]        
         public virtual ActionResult Search(SearchViewModel model)
         {
             using (var context = new WebsiteContext())
             {
-                //if (!context.Tags.Any(x => x.TagId == id))
-                //    RedirectToAction("Index", "Blog");
-
                 // eagerly load the tags etc as the context will be disposed
                 var posts = (from t in context.BlogPosts.Include("Tags")
                              where t.BlogContent.Contains(model.SearchTerm) ||

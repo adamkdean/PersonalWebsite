@@ -16,8 +16,10 @@
         int count = 0;
         foreach(var post in Model.BlogPosts)
         {
-            // Magic Number of 200 was pulled from: my backside. Sorry!
-            var linebr = post.BlogContent.IndexOf("\r\n", 200);
+            // sorry, I just pulled this out of my arse, but it seems to work OK
+            int magicNumber = 200;
+            var minLength = (post.BlogContent.Length > magicNumber) ? magicNumber : post.BlogContent.Length;
+            var linebr = post.BlogContent.IndexOf("\r\n", minLength);
 
             if (linebr > 0)
             {
