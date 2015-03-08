@@ -1,5 +1,5 @@
 ## About
-This is the source code for my personal website: [www.adamkdean.co.uk](http://www.adamkdean.co.uk).
+This was the source code for my personal website from 2013-2014.
 
 As I push this to my website and GitHub at different times, do not assume that what is live on my website is what is in this repo or vice versa.
 
